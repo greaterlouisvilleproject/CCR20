@@ -45,6 +45,7 @@ jfco_sf <- st_as_sf(jfco_shp) %>%
 ```
 
 
+
 ## Introduction
 
 There is no universally-accepted definition of wealth within the Black community. Even within the traditional definitions of monetary wealth, there is no direct data on Black Wealth in Louisville. This report looks at the available national data on monetary wealth and then looks at local data in three areas that are closely related to wealth and wealth-building: business ownership, housing finance, and income. 
@@ -63,8 +64,7 @@ The national Survey of Consumer Finances (SCF), which occurs every three years, 
 
 The Federal Reserve Report concludes that inheritances and other sources of family support are the single largest driver of the racial wealth gap. 
 
-
-## Business Ownership (Local) {.tabset}
+## Business Ownership (Local)
 
 Entrepreneurship is a key driver of wealth creation and generational wealth. Business owners are able to build wealth through their companies, and money spent at locally-owned businesses contribute to local wages and neighborhood development.
 
@@ -72,7 +72,7 @@ Data on business ownership are available for all businesses for the Louisville M
 
 While employer businesses only make up about 20% of local registered businesses, they comprise 98.2% of local business revenue, and so we will focus our analysis there. We do note that while Black residents only own 2.3% of employer businesses in Louisville, they own 9.8% of all businesses in the larger Louisville MSA.
 
-Overall, the data show alarge racial disparity in ownership of employer businesses in Louisville.
+Overall, the data show a large racial disparity in ownership of employer businesses in Louisville.
 
 ### Comparison to peer cities
 
@@ -170,8 +170,8 @@ plot_ly(business_ownership_county_clean) %>%
 ```
 
 ```{=html}
-<div id="htmlwidget-5e5e00da624d526400d7" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5e5e00da624d526400d7">{"x":{"visdat":{"330c1d24781a":["function () ","plotlyVisDat"]},"cur_data":"330c1d24781a","attrs":{"330c1d24781a":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"color":{},"marker":{"size":10},"hoverinfo":"text","showlegend":false,"inherit":true},"330c1d24781a.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":60,"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"inherit":true},"330c1d24781a.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":9.81685242376217,"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"font":{"family":"Montserrat"},"annotations":[{"x":21.8698373096045,"y":2.43490023672641,"text":"Louisville","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":10,"yanchor":"top"},{"x":12,"y":11,"text":"Equal representation","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":30,"xanchor":"left"},{"x":40,"y":7,"text":"Average representation in peer cities","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":-16,"textangle":-20}],"title":"Black Business Ownership by Peer City","xaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Residents who are Black"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Businesses Owned by Black Residents","range":[0,20]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[43.0372104241979,27.5160459833993,21.8698373096045,9.49638757065283,23.4488728635918,10.9292760229337,34.4102794746401,31.3049235863924,22.6290479503956,25.3969541251035,15.1853271367256,10.1396329065741,17.0978046196312,26.7904340441784,8.92348330662971,53.5370202174904,29.5370137709982],"y":[3.82782847452152,3.31592372160816,2.43490023672641,0.91699604743083,7.73350024341053,1.3943741436286,4.82148012703301,4.26952650748685,3.74007220216606,2.52095337873232,2.04209210252136,1.44169516529203,2.02529238375963,2.6612355736592,1.03367789263088,7.63769523951872,16.5536262066248],"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"marker":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"size":10,"line":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"showlegend":false,"textfont":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,60],"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,9.81685242376217],"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7d80037f14aecc6aa238" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7d80037f14aecc6aa238">{"x":{"visdat":{"88830e849f0":["function () ","plotlyVisDat"]},"cur_data":"88830e849f0","attrs":{"88830e849f0":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"color":{},"marker":{"size":10},"hoverinfo":"text","showlegend":false,"inherit":true},"88830e849f0.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":60,"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"inherit":true},"88830e849f0.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":9.81685242376217,"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"font":{"family":"Montserrat"},"annotations":[{"x":21.8698373096045,"y":2.43490023672641,"text":"Louisville","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":10,"yanchor":"top"},{"x":12,"y":11,"text":"Equal representation","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":30,"xanchor":"left"},{"x":40,"y":7,"text":"Average representation in peer cities","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":-16,"textangle":-20}],"title":"Black Business Ownership by Peer City","xaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Residents who are Black"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Businesses Owned by Black Residents","range":[0,20]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[43.0372104241979,27.5160459833993,21.8698373096045,9.49638757065283,23.4488728635918,10.9292760229337,34.4102794746401,31.3049235863924,22.6290479503956,25.3969541251035,15.1853271367256,10.1396329065741,17.0978046196312,26.7904340441784,8.92348330662971,53.5370202174904,29.5370137709982],"y":[3.82782847452152,3.31592372160816,2.43490023672641,0.91699604743083,7.73350024341053,1.3943741436286,4.82148012703301,4.26952650748685,3.74007220216606,2.52095337873232,2.04209210252136,1.44169516529203,2.02529238375963,2.6612355736592,1.03367789263088,7.63769523951872,16.5536262066248],"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"marker":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"size":10,"line":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"showlegend":false,"textfont":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,60],"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,9.81685242376217],"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 ```
 
 ### Peer Ranking
@@ -374,14 +374,13 @@ leaflet(t) %>%
   addCircleMarkers(label = t$Name)
 ```
 
-
 ## Homeownership (Local)
 
 Homeownership represents a significant component of wealth. Housing reflects historical wealth patterns––parental wealth makes it easier to buy a home––and is a major generator of wealth--historically, homes in most neighborhoods have risen in value, increasing the wealth of those who own them. 
 
 The data show stark divides between Black and white families throughout the homeownership process, demonstrating one aspect of the wealth gap. 
 
-### Home Mortgages {.tabset .tabset-fade .tabset-pills}
+### Home Mortgages
 
 #### Mortgages by geography
 
@@ -437,7 +436,7 @@ ggplot(jfco_sf) +
     legend.key = element_rect(fill = "transparent",colour = NA))
 ```
 
-<img src="Black_wealth_files/figure-html/mortgages_per_person-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgages_per_person_bw-1.png" width="672" />
 
 #### Mortgages by race
 
@@ -496,7 +495,7 @@ plt_by(mortgage_county, Race, loan_number_per_100, "Mortgages by race", y_axis =
                   GLP analysis of data from the Consumer Financial Protection Bureau")
 ```
 
-<img src="Black_wealth_files/figure-html/mortgage_number_race-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgage_number_race_bw-1.png" width="672" />
 
 #### Mortgage Dollars by race
 
@@ -510,7 +509,7 @@ plt_by(mortgage_county, Race, loan_amount_pp, "Mortgage Lending by race", y_axis
                        GLP analysis of data from the Consumer Financial Protection Bureau")
 ```
 
-<img src="Black_wealth_files/figure-html/mortgage_dollars_race-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgage_dollars_race_bw-1.png" width="672" />
 
 
 #### Denial Rates by Race
@@ -524,7 +523,7 @@ plt_by(mortgage_county, Race, denial, "Mortgage Denial by race", y_axis = "Denia
                        GLP analysis of data from the Consumer Financial Protection Bureau")
 ```
 
-<img src="Black_wealth_files/figure-html/mortgage_denial_race-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgage_denial_race_bw-1.png" width="672" />
 
 #### Denial Rates by Geography
 
@@ -539,7 +538,7 @@ make_map(denial, title = "Mortgage Denial Rate in 2019",
          map_obj = jfco_sf)
 ```
 
-<img src="Black_wealth_files/figure-html/mortgage_denial-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgage_denial_bw-1.png" width="672" />
 
 #### Interest Rates by geography
 
@@ -554,9 +553,9 @@ make_map(rate, title = "Mortgage Interest Rate in 2019",
          map_obj = jfco_sf)
 ```
 
-<img src="Black_wealth_files/figure-html/mortgage_interest-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/mortgage_interest_bw-1.png" width="672" />
 
-### Housing Price Changes {.tabset .tabset-fade .tabset-pills}
+### Housing Price Changes
 
 As Louisville grows, increasing home prices reflect changes in inflation and increasing demand for homes. Long-term growth in home prices helps homeowners build equity and wealth. Short-term appreciation can be a boon to homeowners with the finances to stay in their home, though it also causes many homeowners and renters to be dislocated from their neighborhood.
 
@@ -628,7 +627,7 @@ ggplot(map_zip) +
     legend.key = element_rect(fill = "transparent",colour = NA))
 ```
 
-<img src="Black_wealth_files/figure-html/long_term_appreciation-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/long_term_appreciation_bw-1.png" width="672" />
 
 #### Short-term appreciation
 
@@ -658,7 +657,7 @@ ggplot(map_zip) +
     legend.key = element_rect(fill = "transparent",colour = NA))
 ```
 
-<img src="Black_wealth_files/figure-html/short_term_appreciation-1.png" width="672" />
+<img src="Black_wealth_files/figure-html/short_term_appreciation_bw-1.png" width="672" />
 
 ### Home Valuation by Geography
 
@@ -1173,7 +1172,7 @@ t=housing_map %>%
   summarize(agg_value = sum(value, na.rm = TRUE))
 ```
 
-### Homeownership Rates {.tabset}
+### Homeownership Rates
 
 Black families both start with less wealth (and therefore less opportunities to build on it even in a ‘fair’ market) and this is compountded at each step of the home ownership process. 
 
@@ -1248,7 +1247,7 @@ make_map(homeownership,
 
 <img src="Black_wealth_files/figure-html/homeownership_map-1.png" width="672" />
 
-## Household Income (Local) {.tabset}
+## Household Income (Local)
 
 Many activities that lead to wealth-creation, like starting a business or getting a degree, are not directly tied to income. However, the majority of families build wealth by saving the money they earn. Disparities in income lead to larger disparities in wealth.
 

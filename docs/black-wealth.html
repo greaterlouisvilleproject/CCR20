@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Black Wealth | Black Wealth in Louisville</title>
+  <title>Chapter 5 Black Wealth | Black Wealth in Louisville</title>
   <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Black Wealth | Black Wealth in Louisville" />
+  <meta property="og:title" content="Chapter 5 Black Wealth | Black Wealth in Louisville" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Black Wealth | Black Wealth in Louisville" />
+  <meta name="twitter:title" content="Chapter 5 Black Wealth | Black Wealth in Louisville" />
   
   <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
   
@@ -31,9 +31,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="child-health.html"/>
+<link rel="prev" href="early-childhood.html"/>
 
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,10 +53,12 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="libs/panelset-0.2.6/panelset.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.3/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
@@ -69,6 +71,758 @@
 <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
 <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
 <script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+
+<script>
+/* ========================================================================
+ * Bootstrap: transition.js v3.3.7
+ * http://getbootstrap.com/javascript/#transitions
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
+  })
+
+}(jQuery);
+</script>
+<script>
+/* ========================================================================
+ * Bootstrap: collapse.js v3.3.7
+ * http://getbootstrap.com/javascript/#collapse
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+/* jshint latedef: false */
+
++function ($) {
+  'use strict';
+
+  // COLLAPSE PUBLIC CLASS DEFINITION
+  // ================================
+
+  var Collapse = function (element, options) {
+    this.$element      = $(element)
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
+    this.transitioning = null
+
+    if (this.options.parent) {
+      this.$parent = this.getParent()
+    } else {
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
+    }
+
+    if (this.options.toggle) this.toggle()
+  }
+
+  Collapse.VERSION  = '3.3.7'
+
+  Collapse.TRANSITION_DURATION = 350
+
+  Collapse.DEFAULTS = {
+    toggle: true
+  }
+
+  Collapse.prototype.dimension = function () {
+    var hasWidth = this.$element.hasClass('width')
+    return hasWidth ? 'width' : 'height'
+  }
+
+  Collapse.prototype.show = function () {
+    if (this.transitioning || this.$element.hasClass('in')) return
+
+    var activesData
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+
+    if (actives && actives.length) {
+      activesData = actives.data('bs.collapse')
+      if (activesData && activesData.transitioning) return
+    }
+
+    var startEvent = $.Event('show.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    if (actives && actives.length) {
+      Plugin.call(actives, 'hide')
+      activesData || actives.data('bs.collapse', null)
+    }
+
+    var dimension = this.dimension()
+
+    this.$element
+      .removeClass('collapse')
+      .addClass('collapsing')[dimension](0)
+      .attr('aria-expanded', true)
+
+    this.$trigger
+      .removeClass('collapsed')
+      .attr('aria-expanded', true)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse in')[dimension]('')
+      this.transitioning = 0
+      this.$element
+        .trigger('shown.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
+
+    this.$element
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+  }
+
+  Collapse.prototype.hide = function () {
+    if (this.transitioning || !this.$element.hasClass('in')) return
+
+    var startEvent = $.Event('hide.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    var dimension = this.dimension()
+
+    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+
+    this.$element
+      .addClass('collapsing')
+      .removeClass('collapse in')
+      .attr('aria-expanded', false)
+
+    this.$trigger
+      .addClass('collapsed')
+      .attr('aria-expanded', false)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.transitioning = 0
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse')
+        .trigger('hidden.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    this.$element
+      [dimension](0)
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+  }
+
+  Collapse.prototype.toggle = function () {
+    this[this.$element.hasClass('in') ? 'hide' : 'show']()
+  }
+
+  Collapse.prototype.getParent = function () {
+    return $(this.options.parent)
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .each($.proxy(function (i, element) {
+        var $element = $(element)
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
+      }, this))
+      .end()
+  }
+
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
+    var isOpen = $element.hasClass('in')
+
+    $element.attr('aria-expanded', isOpen)
+    $trigger
+      .toggleClass('collapsed', !isOpen)
+      .attr('aria-expanded', isOpen)
+  }
+
+  function getTargetFromTrigger($trigger) {
+    var href
+    var target = $trigger.attr('data-target')
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+
+    return $(target)
+  }
+
+
+  // COLLAPSE PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.collapse')
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
+      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
+  $.fn.collapse.Constructor = Collapse
+
+
+  // COLLAPSE NO CONFLICT
+  // ====================
+
+  $.fn.collapse.noConflict = function () {
+    $.fn.collapse = old
+    return this
+  }
+
+
+  // COLLAPSE DATA-API
+  // =================
+
+  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+    var $this   = $(this)
+
+    if (!$this.attr('data-target')) e.preventDefault()
+
+    var $target = getTargetFromTrigger($this)
+    var data    = $target.data('bs.collapse')
+    var option  = data ? 'toggle' : $this.data()
+
+    Plugin.call($target, option)
+  })
+
+}(jQuery);
+</script>
+<script>
+window.initializeCodeFolding = function(show) {
+
+  // handlers for show-all and hide all
+  $("#rmd-show-all-code").click(function() {
+    // close the dropdown menu when an option is clicked
+    $("#allCodeButton").dropdown("toggle");
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('show');
+    });
+  });
+  $("#rmd-hide-all-code").click(function() {
+    // close the dropdown menu when an option is clicked
+    $("#allCodeButton").dropdown("toggle");
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('hide');
+    });
+  });
+
+  // index for unique code element ids
+  var currentIndex = 1;
+
+  // select all R code blocks
+  var rCodeBlocks = $('pre.sourceCode, pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  rCodeBlocks.each(function() {
+
+    // if code block has been labeled with class `fold-show`, show the code on init!
+    var classList = $(this).attr('class').split(/\s+/);
+    for (var i = 0; i < classList.length; i++) {
+    if (classList[i] === 'fold-show') {
+        show = true;
+      }
+    }
+
+    // create a collapsable div to wrap the code in
+    var div = $('<div class="collapse r-code-collapse"></div>');
+    if (show)
+      div.addClass('in');
+    var id = 'rcode-643E0F36' + currentIndex++;
+    div.attr('id', id);
+    $(this).before(div);
+    $(this).detach().appendTo(div);
+
+    // add a show code button right above
+    var showCodeText = $('<span>' + (show ? 'Hide' : 'Code') + '</span>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs code-folding-btn pull-right"></button>');
+    showCodeButton.append(showCodeText);
+    showCodeButton
+        .attr('data-toggle', 'collapse')
+        .attr('data-target', '#' + id)
+        .attr('aria-expanded', show)
+        .attr('aria-controls', id);
+
+    var buttonRow = $('<div class="row"></div>');
+    var buttonCol = $('<div class="col-md-12"></div>');
+
+    buttonCol.append(showCodeButton);
+    buttonRow.append(buttonCol);
+
+    div.before(buttonRow);
+
+    // hack: return show to false, otherwise all next codeBlocks will be shown!
+    show = false;
+
+    // update state of button on show/hide
+    div.on('hidden.bs.collapse', function () {
+      showCodeText.text('Code');
+    });
+    div.on('show.bs.collapse', function () {
+      showCodeText.text('Hide');
+    });
+  });
+
+}
+</script>
+<script>
+/* ========================================================================
+ * Bootstrap: dropdown.js v3.3.7
+ * http://getbootstrap.com/javascript/#dropdowns
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // DROPDOWN CLASS DEFINITION
+  // =========================
+
+  var backdrop = '.dropdown-backdrop'
+  var toggle   = '[data-toggle="dropdown"]'
+  var Dropdown = function (element) {
+    $(element).on('click.bs.dropdown', this.toggle)
+  }
+
+  Dropdown.VERSION = '3.3.7'
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $this         = $(this)
+      var $parent       = getParent($this)
+      var relatedTarget = { relatedTarget: this }
+
+      if (!$parent.hasClass('open')) return
+
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
+    })
+  }
+
+  Dropdown.prototype.toggle = function (e) {
+    var $this = $(this)
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    clearMenus()
+
+    if (!isActive) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $(document.createElement('div'))
+          .addClass('dropdown-backdrop')
+          .insertAfter($(this))
+          .on('click', clearMenus)
+      }
+
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
+      $parent
+        .toggleClass('open')
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
+    }
+
+    return false
+  }
+
+  Dropdown.prototype.keydown = function (e) {
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+
+    var $this = $(this)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {
+      if (e.which == 27) $parent.find(toggle).trigger('focus')
+      return $this.trigger('click')
+    }
+
+    var desc = ' li:not(.disabled):visible a'
+    var $items = $parent.find('.dropdown-menu' + desc)
+
+    if (!$items.length) return
+
+    var index = $items.index(e.target)
+
+    if (e.which == 38 && index > 0)                 index--         // up
+    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (!~index)                                    index = 0
+
+    $items.eq(index).trigger('focus')
+  }
+
+
+  // DROPDOWN PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.dropdown')
+
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
+  $.fn.dropdown.Constructor = Dropdown
+
+
+  // DROPDOWN NO CONFLICT
+  // ====================
+
+  $.fn.dropdown.noConflict = function () {
+    $.fn.dropdown = old
+    return this
+  }
+
+
+  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+
+}(jQuery);
+</script>
+<style type="text/css">
+.code-folding-btn {
+  margin-bottom: 4px;
+}
+
+.row { display: flex; }
+.collapse { display: none; }
+.in { display:block }
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.open > .dropdown-menu {
+    display: block;
+    color: #ffffff;
+    background-color: #ffffff;
+    background-image: none;
+    border-color: #92897e;
+}
+
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #e95420;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #e95420;
+  outline: 0;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #aea79f;
+}
+
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 1;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: 0.65;
+  box-shadow: none;
+}
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+.btn-default {
+  color: #ffffff;
+  background-color: #aea79f; #important
+  border-color: #aea79f;
+}
+
+.btn-default:focus,
+.btn-default.focus {
+  color: #ffffff;
+  background-color: #978e83;
+  border-color: #6f675e;
+}
+
+.btn-default:hover {
+  color: #ffffff;
+  background-color: #978e83;
+  border-color: #92897e;
+}
+.btn-default:active,
+.btn-default.active,
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+.btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group > .btn-group {
+  float: left;
+}
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+.btn-group.open .dropdown-toggle {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-group.open .dropdown-toggle.btn-link {
+  box-shadow: none;
+}
+
+</style>
+<script>
+var str = '<div class="btn-group pull-right" style="position: fixed; right: 50px; top: 10px; z-index: 200"><button type="button" class="btn btn-default btn-xs dropdown-toggle" id="allCodeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-_extension-text-contrast=""><span>Code</span> <span class="caret"></span></button><ul class="dropdown-menu" style="min-width: 50px;"><li><a id="rmd-show-all-code" href="#">Show All Code</a></li><li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li></ul></div>';
+document.write(str);
+</script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "hide");
+});
+</script>
+
+<script>
+function unrolltab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 
 
 <style type="text/css">
@@ -137,7 +891,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="tabs.css" type="text/css" />
 </head>
 
 <body>
@@ -150,19 +904,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Measuring A Path Forward</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="digital-divide.html"><a href="digital-divide.html"><i class="fa fa-check"></i><b>2</b> Digital Divide</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="digital-divide.html"><a href="digital-divide.html#overall"><i class="fa fa-check"></i><b>2.1</b> Overall</a>
+<li class="chapter" data-level="2.1" data-path="digital-divide.html"><a href="digital-divide.html#overall-access"><i class="fa fa-check"></i><b>2.1</b> Overall Access</a>
 <ul>
 <li class="chapter" data-level="2.1.1" data-path="digital-divide.html"><a href="digital-divide.html#high-speed-internet"><i class="fa fa-check"></i><b>2.1.1</b> High Speed Internet</a></li>
-<li class="chapter" data-level="2.1.2" data-path="digital-divide.html"><a href="digital-divide.html#devices"><i class="fa fa-check"></i><b>2.1.2</b> Devices</a></li>
+<li class="chapter" data-level="2.1.2" data-path="digital-divide.html"><a href="digital-divide.html#digital-devices"><i class="fa fa-check"></i><b>2.1.2</b> Digital Devices</a></li>
 <li class="chapter" data-level="2.1.3" data-path="digital-divide.html"><a href="digital-divide.html#internet-and-devices"><i class="fa fa-check"></i><b>2.1.3</b> Internet and Devices</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="digital-divide.html"><a href="digital-divide.html#the-digital-divide-in-jefferson-county"><i class="fa fa-check"></i><b>2.2</b> The Digital Divide in Jefferson County</a>
+<li class="chapter" data-level="2.2" data-path="digital-divide.html"><a href="digital-divide.html#across-louisville"><i class="fa fa-check"></i><b>2.2</b> Across Louisville</a>
 <ul>
 <li class="chapter" data-level="2.2.1" data-path="digital-divide.html"><a href="digital-divide.html#internet-speed"><i class="fa fa-check"></i><b>2.2.1</b> Internet Speed</a></li>
 <li class="chapter" data-level="2.2.2" data-path="digital-divide.html"><a href="digital-divide.html#poverty"><i class="fa fa-check"></i><b>2.2.2</b> Poverty</a></li>
@@ -179,164 +933,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.4.1" data-path="digital-divide.html"><a href="digital-divide.html#local-efforts"><i class="fa fa-check"></i><b>2.4.1</b> Local Efforts</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html"><i class="fa fa-check"></i><b>3</b> Housing Instability in Louisville</a>
+<li class="chapter" data-level="3" data-path="housing-instability.html"><a href="housing-instability.html"><i class="fa fa-check"></i><b>3</b> Housing Instability</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
+<li class="chapter" data-level="3.1" data-path="housing-instability.html"><a href="housing-instability.html#introduction-1"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#methods-and-definitions"><i class="fa fa-check"></i><b>3.1.1</b> Methods and Definitions</a></li>
+<li class="chapter" data-level="3.1.1" data-path="housing-instability.html"><a href="housing-instability.html#methods-and-definitions"><i class="fa fa-check"></i><b>3.1.1</b> Methods and Definitions</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#rental-insecurity-index"><i class="fa fa-check"></i><b>3.2</b> Rental Insecurity Index</a>
+<li class="chapter" data-level="3.2" data-path="housing-instability.html"><a href="housing-instability.html#rental-insecurity-index"><i class="fa fa-check"></i><b>3.2</b> Rental Insecurity Index</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-subindex"><i class="fa fa-check"></i><b>3.2.1</b> Housing Instability Subindex</a></li>
-<li class="chapter" data-level="3.2.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-19-impact-subindex"><i class="fa fa-check"></i><b>3.2.2</b> Covid 19 Impact Subindex</a></li>
-<li class="chapter" data-level="3.2.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-subindex"><i class="fa fa-check"></i><b>3.2.3</b> Equity Subindex</a></li>
+<li class="chapter" data-level="3.2.1" data-path="housing-instability.html"><a href="housing-instability.html#housing-instability-subindex"><i class="fa fa-check"></i><b>3.2.1</b> Housing Instability Subindex</a></li>
+<li class="chapter" data-level="3.2.2" data-path="housing-instability.html"><a href="housing-instability.html#covid-19-impact-subindex"><i class="fa fa-check"></i><b>3.2.2</b> Covid 19 Impact Subindex</a></li>
+<li class="chapter" data-level="3.2.3" data-path="housing-instability.html"><a href="housing-instability.html#equity-subindex"><i class="fa fa-check"></i><b>3.2.3</b> Equity Subindex</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-indicators"><i class="fa fa-check"></i><b>3.3</b> Housing Instability Indicators</a>
+<li class="chapter" data-level="3.3" data-path="housing-instability.html"><a href="housing-instability.html#housing-instability-indicators"><i class="fa fa-check"></i><b>3.3</b> Housing Instability Indicators</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-1"><i class="fa fa-check"></i><b>3.3.1</b> Poverty</a></li>
-<li class="chapter" data-level="3.3.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-renting"><i class="fa fa-check"></i><b>3.3.2</b> Percent Renting</a></li>
-<li class="chapter" data-level="3.3.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-housholds"><i class="fa fa-check"></i><b>3.3.3</b> Cost-burdened housholds</a></li>
-<li class="chapter" data-level="3.3.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding"><i class="fa fa-check"></i><b>3.3.4</b> Overcrowding</a></li>
-<li class="chapter" data-level="3.3.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployed"><i class="fa fa-check"></i><b>3.3.5</b> Unemployed</a></li>
+<li class="chapter" data-level="3.3.1" data-path="housing-instability.html"><a href="housing-instability.html#poverty-1"><i class="fa fa-check"></i><b>3.3.1</b> Poverty</a></li>
+<li class="chapter" data-level="3.3.2" data-path="housing-instability.html"><a href="housing-instability.html#percent-renting"><i class="fa fa-check"></i><b>3.3.2</b> Percent Renting</a></li>
+<li class="chapter" data-level="3.3.3" data-path="housing-instability.html"><a href="housing-instability.html#cost-burdened-housholds"><i class="fa fa-check"></i><b>3.3.3</b> Cost-burdened housholds</a></li>
+<li class="chapter" data-level="3.3.4" data-path="housing-instability.html"><a href="housing-instability.html#overcrowding"><i class="fa fa-check"></i><b>3.3.4</b> Overcrowding</a></li>
+<li class="chapter" data-level="3.3.5" data-path="housing-instability.html"><a href="housing-instability.html#unemployed"><i class="fa fa-check"></i><b>3.3.5</b> Unemployed</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-indicators"><i class="fa fa-check"></i><b>3.4</b> Covid Indicators</a>
+<li class="chapter" data-level="3.4" data-path="housing-instability.html"><a href="housing-instability.html#covid-indicators"><i class="fa fa-check"></i><b>3.4</b> Covid Indicators</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#no-health-insurance"><i class="fa fa-check"></i><b>3.4.1</b> No Health Insurance</a></li>
-<li class="chapter" data-level="3.4.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#low-income-jobs-lost-to-covid"><i class="fa fa-check"></i><b>3.4.2</b> Low Income Jobs Lost to Covid</a></li>
+<li class="chapter" data-level="3.4.1" data-path="housing-instability.html"><a href="housing-instability.html#no-health-insurance"><i class="fa fa-check"></i><b>3.4.1</b> No Health Insurance</a></li>
+<li class="chapter" data-level="3.4.2" data-path="housing-instability.html"><a href="housing-instability.html#low-income-jobs-lost-to-covid"><i class="fa fa-check"></i><b>3.4.2</b> Low Income Jobs Lost to Covid</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-index-1"><i class="fa fa-check"></i><b>3.5</b> Equity Index</a>
+<li class="chapter" data-level="3.5" data-path="housing-instability.html"><a href="housing-instability.html#equity-index-1"><i class="fa fa-check"></i><b>3.5</b> Equity Index</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-poc"><i class="fa fa-check"></i><b>3.5.1</b> Percent PoC</a></li>
-<li class="chapter" data-level="3.5.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#extremely-low-income"><i class="fa fa-check"></i><b>3.5.2</b> Extremely Low Income</a></li>
-<li class="chapter" data-level="3.5.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#public-assistance"><i class="fa fa-check"></i><b>3.5.3</b> Public Assistance</a></li>
-<li class="chapter" data-level="3.5.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#foreign-born"><i class="fa fa-check"></i><b>3.5.4</b> Foreign Born</a></li>
+<li class="chapter" data-level="3.5.1" data-path="housing-instability.html"><a href="housing-instability.html#percent-poc"><i class="fa fa-check"></i><b>3.5.1</b> Percent PoC</a></li>
+<li class="chapter" data-level="3.5.2" data-path="housing-instability.html"><a href="housing-instability.html#extremely-low-income"><i class="fa fa-check"></i><b>3.5.2</b> Extremely Low Income</a></li>
+<li class="chapter" data-level="3.5.3" data-path="housing-instability.html"><a href="housing-instability.html#public-assistance"><i class="fa fa-check"></i><b>3.5.3</b> Public Assistance</a></li>
+<li class="chapter" data-level="3.5.4" data-path="housing-instability.html"><a href="housing-instability.html#foreign-born"><i class="fa fa-check"></i><b>3.5.4</b> Foreign Born</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#peer-city-data"><i class="fa fa-check"></i><b>3.6</b> Peer City Data</a>
+<li class="chapter" data-level="3.6" data-path="housing-instability.html"><a href="housing-instability.html#peer-city-data"><i class="fa fa-check"></i><b>3.6</b> Peer City Data</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-renters"><i class="fa fa-check"></i><b>3.6.1</b> Cost Burdened Renters</a></li>
-<li class="chapter" data-level="3.6.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding-1"><i class="fa fa-check"></i><b>3.6.2</b> Overcrowding</a></li>
-<li class="chapter" data-level="3.6.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployment"><i class="fa fa-check"></i><b>3.6.3</b> Unemployment</a></li>
-<li class="chapter" data-level="3.6.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#share-renting"><i class="fa fa-check"></i><b>3.6.4</b> Share renting</a></li>
-<li class="chapter" data-level="3.6.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-2"><i class="fa fa-check"></i><b>3.6.5</b> Poverty</a></li>
+<li class="chapter" data-level="3.6.1" data-path="housing-instability.html"><a href="housing-instability.html#cost-burdened-renters"><i class="fa fa-check"></i><b>3.6.1</b> Cost Burdened Renters</a></li>
+<li class="chapter" data-level="3.6.2" data-path="housing-instability.html"><a href="housing-instability.html#overcrowding-1"><i class="fa fa-check"></i><b>3.6.2</b> Overcrowding</a></li>
+<li class="chapter" data-level="3.6.3" data-path="housing-instability.html"><a href="housing-instability.html#unemployment"><i class="fa fa-check"></i><b>3.6.3</b> Unemployment</a></li>
+<li class="chapter" data-level="3.6.4" data-path="housing-instability.html"><a href="housing-instability.html#share-renting"><i class="fa fa-check"></i><b>3.6.4</b> Share renting</a></li>
+<li class="chapter" data-level="3.6.5" data-path="housing-instability.html"><a href="housing-instability.html#poverty-2"><i class="fa fa-check"></i><b>3.6.5</b> Poverty</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#metro-council-district-maps"><i class="fa fa-check"></i><b>3.7</b> Metro Council District Maps</a>
+<li class="chapter" data-level="3.7" data-path="housing-instability.html"><a href="housing-instability.html#metro-council-district-maps"><i class="fa fa-check"></i><b>3.7</b> Metro Council District Maps</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#rental-insecurity-index-1"><i class="fa fa-check"></i><b>3.7.1</b> Rental Insecurity Index</a></li>
-<li class="chapter" data-level="3.7.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-subindex-1"><i class="fa fa-check"></i><b>3.7.2</b> Housing Instability Subindex</a></li>
-<li class="chapter" data-level="3.7.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-19-impact-subindex-1"><i class="fa fa-check"></i><b>3.7.3</b> Covid 19 Impact Subindex</a></li>
-<li class="chapter" data-level="3.7.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-subindex-1"><i class="fa fa-check"></i><b>3.7.4</b> Equity Subindex</a></li>
-<li class="chapter" data-level="3.7.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-3"><i class="fa fa-check"></i><b>3.7.5</b> Poverty</a></li>
-<li class="chapter" data-level="3.7.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-renting-1"><i class="fa fa-check"></i><b>3.7.6</b> Percent Renting</a></li>
-<li class="chapter" data-level="3.7.7" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-housholds-1"><i class="fa fa-check"></i><b>3.7.7</b> Cost-burdened housholds</a></li>
-<li class="chapter" data-level="3.7.8" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding-2"><i class="fa fa-check"></i><b>3.7.8</b> Overcrowding</a></li>
-<li class="chapter" data-level="3.7.9" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployed-1"><i class="fa fa-check"></i><b>3.7.9</b> Unemployed</a></li>
-<li class="chapter" data-level="3.7.10" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#no-health-insurance-1"><i class="fa fa-check"></i><b>3.7.10</b> No Health Insurance</a></li>
-<li class="chapter" data-level="3.7.11" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#low-income-jobs-lost-to-covid-1"><i class="fa fa-check"></i><b>3.7.11</b> Low Income Jobs Lost to Covid</a></li>
-<li class="chapter" data-level="3.7.12" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-poc-1"><i class="fa fa-check"></i><b>3.7.12</b> Percent PoC</a></li>
-<li class="chapter" data-level="3.7.13" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#extremely-low-income-1"><i class="fa fa-check"></i><b>3.7.13</b> Extremely Low Income</a></li>
-<li class="chapter" data-level="3.7.14" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#public-assistance-1"><i class="fa fa-check"></i><b>3.7.14</b> Public Assistance</a></li>
-<li class="chapter" data-level="3.7.15" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#foreign-born-1"><i class="fa fa-check"></i><b>3.7.15</b> Foreign Born</a></li>
+<li class="chapter" data-level="3.7.1" data-path="housing-instability.html"><a href="housing-instability.html#rental-insecurity-index-1"><i class="fa fa-check"></i><b>3.7.1</b> Rental Insecurity Index</a></li>
+<li class="chapter" data-level="3.7.2" data-path="housing-instability.html"><a href="housing-instability.html#housing-instability-subindex-1"><i class="fa fa-check"></i><b>3.7.2</b> Housing Instability Subindex</a></li>
+<li class="chapter" data-level="3.7.3" data-path="housing-instability.html"><a href="housing-instability.html#covid-19-impact-subindex-1"><i class="fa fa-check"></i><b>3.7.3</b> Covid 19 Impact Subindex</a></li>
+<li class="chapter" data-level="3.7.4" data-path="housing-instability.html"><a href="housing-instability.html#equity-subindex-1"><i class="fa fa-check"></i><b>3.7.4</b> Equity Subindex</a></li>
+<li class="chapter" data-level="3.7.5" data-path="housing-instability.html"><a href="housing-instability.html#poverty-3"><i class="fa fa-check"></i><b>3.7.5</b> Poverty</a></li>
+<li class="chapter" data-level="3.7.6" data-path="housing-instability.html"><a href="housing-instability.html#percent-renting-1"><i class="fa fa-check"></i><b>3.7.6</b> Percent Renting</a></li>
+<li class="chapter" data-level="3.7.7" data-path="housing-instability.html"><a href="housing-instability.html#cost-burdened-housholds-1"><i class="fa fa-check"></i><b>3.7.7</b> Cost-burdened housholds</a></li>
+<li class="chapter" data-level="3.7.8" data-path="housing-instability.html"><a href="housing-instability.html#overcrowding-2"><i class="fa fa-check"></i><b>3.7.8</b> Overcrowding</a></li>
+<li class="chapter" data-level="3.7.9" data-path="housing-instability.html"><a href="housing-instability.html#unemployed-1"><i class="fa fa-check"></i><b>3.7.9</b> Unemployed</a></li>
+<li class="chapter" data-level="3.7.10" data-path="housing-instability.html"><a href="housing-instability.html#no-health-insurance-1"><i class="fa fa-check"></i><b>3.7.10</b> No Health Insurance</a></li>
+<li class="chapter" data-level="3.7.11" data-path="housing-instability.html"><a href="housing-instability.html#low-income-jobs-lost-to-covid-1"><i class="fa fa-check"></i><b>3.7.11</b> Low Income Jobs Lost to Covid</a></li>
+<li class="chapter" data-level="3.7.12" data-path="housing-instability.html"><a href="housing-instability.html#percent-poc-1"><i class="fa fa-check"></i><b>3.7.12</b> Percent PoC</a></li>
+<li class="chapter" data-level="3.7.13" data-path="housing-instability.html"><a href="housing-instability.html#extremely-low-income-1"><i class="fa fa-check"></i><b>3.7.13</b> Extremely Low Income</a></li>
+<li class="chapter" data-level="3.7.14" data-path="housing-instability.html"><a href="housing-instability.html#public-assistance-1"><i class="fa fa-check"></i><b>3.7.14</b> Public Assistance</a></li>
+<li class="chapter" data-level="3.7.15" data-path="housing-instability.html"><a href="housing-instability.html#foreign-born-1"><i class="fa fa-check"></i><b>3.7.15</b> Foreign Born</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#metro-council-tables"><i class="fa fa-check"></i><b>3.8</b> Metro Council Tables</a>
+<li class="chapter" data-level="3.8" data-path="housing-instability.html"><a href="housing-instability.html#metro-council-tables"><i class="fa fa-check"></i><b>3.8</b> Metro Council Tables</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-subindex"><i class="fa fa-check"></i><b>3.8.1</b> Housing Subindex</a></li>
-<li class="chapter" data-level="3.8.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-subindex"><i class="fa fa-check"></i><b>3.8.2</b> Covid Subindex</a></li>
-<li class="chapter" data-level="3.8.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-index-2"><i class="fa fa-check"></i><b>3.8.3</b> Equity Index</a></li>
+<li class="chapter" data-level="3.8.1" data-path="housing-instability.html"><a href="housing-instability.html#housing-subindex"><i class="fa fa-check"></i><b>3.8.1</b> Housing Subindex</a></li>
+<li class="chapter" data-level="3.8.2" data-path="housing-instability.html"><a href="housing-instability.html#covid-subindex"><i class="fa fa-check"></i><b>3.8.2</b> Covid Subindex</a></li>
+<li class="chapter" data-level="3.8.3" data-path="housing-instability.html"><a href="housing-instability.html#equity-index-2"><i class="fa fa-check"></i><b>3.8.3</b> Equity Index</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#home-mortgages"><i class="fa fa-check"></i><b>3.9</b> Home Mortgages</a>
+<li class="chapter" data-level="3.9" data-path="housing-instability.html"><a href="housing-instability.html#home-mortgages"><i class="fa fa-check"></i><b>3.9</b> Home Mortgages</a>
 <ul>
-<li class="chapter" data-level="3.9.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgages-by-geography"><i class="fa fa-check"></i><b>3.9.1</b> Mortgages by geography</a></li>
-<li class="chapter" data-level="3.9.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgages-by-race"><i class="fa fa-check"></i><b>3.9.2</b> Mortgages by race</a></li>
-<li class="chapter" data-level="3.9.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgage-dollars-by-race"><i class="fa fa-check"></i><b>3.9.3</b> Mortgage Dollars by race</a></li>
-<li class="chapter" data-level="3.9.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#denial-rates-by-race"><i class="fa fa-check"></i><b>3.9.4</b> Denial Rates by Race</a></li>
-<li class="chapter" data-level="3.9.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#denial-rates-by-geography"><i class="fa fa-check"></i><b>3.9.5</b> Denial Rates by Geography</a></li>
-<li class="chapter" data-level="3.9.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#interest-rates-by-geography"><i class="fa fa-check"></i><b>3.9.6</b> Interest Rates by geography</a></li>
+<li class="chapter" data-level="3.9.1" data-path="housing-instability.html"><a href="housing-instability.html#mortgages-by-geography"><i class="fa fa-check"></i><b>3.9.1</b> Mortgages by geography</a></li>
+<li class="chapter" data-level="3.9.2" data-path="housing-instability.html"><a href="housing-instability.html#mortgages-by-race"><i class="fa fa-check"></i><b>3.9.2</b> Mortgages by race</a></li>
+<li class="chapter" data-level="3.9.3" data-path="housing-instability.html"><a href="housing-instability.html#mortgage-dollars-by-race"><i class="fa fa-check"></i><b>3.9.3</b> Mortgage Dollars by race</a></li>
+<li class="chapter" data-level="3.9.4" data-path="housing-instability.html"><a href="housing-instability.html#denial-rates-by-race"><i class="fa fa-check"></i><b>3.9.4</b> Denial Rates by Race</a></li>
+<li class="chapter" data-level="3.9.5" data-path="housing-instability.html"><a href="housing-instability.html#denial-rates-by-geography"><i class="fa fa-check"></i><b>3.9.5</b> Denial Rates by Geography</a></li>
+<li class="chapter" data-level="3.9.6" data-path="housing-instability.html"><a href="housing-instability.html#interest-rates-by-geography"><i class="fa fa-check"></i><b>3.9.6</b> Interest Rates by geography</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-price-changes"><i class="fa fa-check"></i><b>3.10</b> Housing Price Changes</a>
+<li class="chapter" data-level="3.10" data-path="housing-instability.html"><a href="housing-instability.html#housing-price-changes"><i class="fa fa-check"></i><b>3.10</b> Housing Price Changes</a>
 <ul>
-<li class="chapter" data-level="3.10.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#long-term-appreciation"><i class="fa fa-check"></i><b>3.10.1</b> Long-term appreciation</a></li>
-<li class="chapter" data-level="3.10.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#short-term-appreciation"><i class="fa fa-check"></i><b>3.10.2</b> Short-term appreciation</a></li>
+<li class="chapter" data-level="3.10.1" data-path="housing-instability.html"><a href="housing-instability.html#long-term-appreciation"><i class="fa fa-check"></i><b>3.10.1</b> Long-term appreciation</a></li>
+<li class="chapter" data-level="3.10.2" data-path="housing-instability.html"><a href="housing-instability.html#short-term-appreciation"><i class="fa fa-check"></i><b>3.10.2</b> Short-term appreciation</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-availability"><i class="fa fa-check"></i><b>3.11</b> Housing Availability</a></li>
+<li class="chapter" data-level="3.11" data-path="housing-instability.html"><a href="housing-instability.html#housing-availability"><i class="fa fa-check"></i><b>3.11</b> Housing Availability</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>4</b> Introduction</a></li>
-<li class="chapter" data-level="5" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html"><i class="fa fa-check"></i><b>5</b> Kindergarten Readiness</a>
+<li class="chapter" data-level="4" data-path="early-childhood.html"><a href="early-childhood.html"><i class="fa fa-check"></i><b>4</b> Early Childhood</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#overall-readiness"><i class="fa fa-check"></i><b>5.1</b> Overall Readiness</a></li>
-<li class="chapter" data-level="5.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-race"><i class="fa fa-check"></i><b>5.2</b> by Race</a></li>
-<li class="chapter" data-level="5.3" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-prior-setting"><i class="fa fa-check"></i><b>5.3</b> by Prior Setting</a>
+<li class="chapter" data-level="4.1" data-path="early-childhood.html"><a href="early-childhood.html#introduction-2"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="early-childhood.html"><a href="early-childhood.html#kindergarten-readiness"><i class="fa fa-check"></i><b>4.2</b> Kindergarten Readiness</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#prior-setting-by-race"><i class="fa fa-check"></i><b>5.3.1</b> Prior setting by Race</a></li>
-<li class="chapter" data-level="5.3.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#prior-setting-by-zip-code"><i class="fa fa-check"></i><b>5.3.2</b> Prior setting by Zip Code</a></li>
+<li class="chapter" data-level="4.2.1" data-path="early-childhood.html"><a href="early-childhood.html#overall-readiness"><i class="fa fa-check"></i><b>4.2.1</b> Overall Readiness</a></li>
+<li class="chapter" data-level="4.2.2" data-path="early-childhood.html"><a href="early-childhood.html#by-race"><i class="fa fa-check"></i><b>4.2.2</b> by Race</a></li>
+<li class="chapter" data-level="4.2.3" data-path="early-childhood.html"><a href="early-childhood.html#by-prior-setting"><i class="fa fa-check"></i><b>4.2.3</b> by Prior Setting</a></li>
+<li class="chapter" data-level="4.2.4" data-path="early-childhood.html"><a href="early-childhood.html#by-race-and-prior-setting"><i class="fa fa-check"></i><b>4.2.4</b> by Race and Prior setting</a></li>
+<li class="chapter" data-level="4.2.5" data-path="early-childhood.html"><a href="early-childhood.html#by-geography"><i class="fa fa-check"></i><b>4.2.5</b> by Geography</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-race-and-prior-setting"><i class="fa fa-check"></i><b>5.4</b> by Race and Prior setting</a></li>
-<li class="chapter" data-level="5.5" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-geography"><i class="fa fa-check"></i><b>5.5</b> by Geography</a>
+<li class="chapter" data-level="4.3" data-path="early-childhood.html"><a href="early-childhood.html#early-child-care"><i class="fa fa-check"></i><b>4.3</b> Early Child Care</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#student-zip-code"><i class="fa fa-check"></i><b>5.5.1</b> Student Zip Code</a></li>
-<li class="chapter" data-level="5.5.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#school-location"><i class="fa fa-check"></i><b>5.5.2</b> School Location</a></li>
+<li class="chapter" data-level="4.3.1" data-path="early-childhood.html"><a href="early-childhood.html#cost"><i class="fa fa-check"></i><b>4.3.1</b> Cost</a></li>
+<li class="chapter" data-level="4.3.2" data-path="early-childhood.html"><a href="early-childhood.html#location"><i class="fa fa-check"></i><b>4.3.2</b> Location</a></li>
+<li class="chapter" data-level="4.3.3" data-path="early-childhood.html"><a href="early-childhood.html#hours"><i class="fa fa-check"></i><b>4.3.3</b> Hours</a></li>
+<li class="chapter" data-level="4.3.4" data-path="early-childhood.html"><a href="early-childhood.html#compensation-of-child-care-workers"><i class="fa fa-check"></i><b>4.3.4</b> Compensation of Child Care Workers</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="early-child-care.html"><a href="early-child-care.html"><i class="fa fa-check"></i><b>6</b> Early Child Care</a>
+<li class="chapter" data-level="4.4" data-path="early-childhood.html"><a href="early-childhood.html#child-health"><i class="fa fa-check"></i><b>4.4</b> Child Health</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="early-child-care.html"><a href="early-child-care.html#cost"><i class="fa fa-check"></i><b>6.1</b> Cost</a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="early-child-care.html"><a href="early-child-care.html#comparison-to-ccap"><i class="fa fa-check"></i><b>6.1.1</b> Comparison to CCAP</a></li>
-<li class="chapter" data-level="6.1.2" data-path="early-child-care.html"><a href="early-child-care.html#full-time-care"><i class="fa fa-check"></i><b>6.1.2</b> Full-Time Care</a></li>
-<li class="chapter" data-level="6.1.3" data-path="early-child-care.html"><a href="early-child-care.html#part-time-care"><i class="fa fa-check"></i><b>6.1.3</b> Part-Time Care</a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="early-child-care.html"><a href="early-child-care.html#location"><i class="fa fa-check"></i><b>6.2</b> Location</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="early-child-care.html"><a href="early-child-care.html#provider-map"><i class="fa fa-check"></i><b>6.2.1</b> Provider map</a></li>
-<li class="chapter" data-level="6.2.2" data-path="early-child-care.html"><a href="early-child-care.html#providers-by-neighborhood"><i class="fa fa-check"></i><b>6.2.2</b> Providers by Neighborhood</a></li>
-<li class="chapter" data-level="6.2.3" data-path="early-child-care.html"><a href="early-child-care.html#neighborhoods-by-race-and-licensed-slots"><i class="fa fa-check"></i><b>6.2.3</b> Neighborhoods by Race and Licensed Slots</a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="early-child-care.html"><a href="early-child-care.html#hours"><i class="fa fa-check"></i><b>6.3</b> Hours</a></li>
-<li class="chapter" data-level="6.4" data-path="early-child-care.html"><a href="early-child-care.html#compensation-of-child-care-workers"><i class="fa fa-check"></i><b>6.4</b> Compensation of Child Care Workers</a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="early-child-care.html"><a href="early-child-care.html#ranking"><i class="fa fa-check"></i><b>6.4.1</b> Ranking</a></li>
-<li class="chapter" data-level="6.4.2" data-path="early-child-care.html"><a href="early-child-care.html#trend"><i class="fa fa-check"></i><b>6.4.2</b> Trend</a></li>
+<li class="chapter" data-level="4.4.1" data-path="early-childhood.html"><a href="early-childhood.html#adverse-childhood-experiences"><i class="fa fa-check"></i><b>4.4.1</b> Adverse Childhood Experiences</a></li>
+<li class="chapter" data-level="4.4.2" data-path="early-childhood.html"><a href="early-childhood.html#child-food-security"><i class="fa fa-check"></i><b>4.4.2</b> Child Food Security</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="child-health.html"><a href="child-health.html"><i class="fa fa-check"></i><b>7</b> Child Health</a>
+<li class="chapter" data-level="5" data-path="black-wealth.html"><a href="black-wealth.html"><i class="fa fa-check"></i><b>5</b> Black Wealth</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="child-health.html"><a href="child-health.html#adverse-childhood-experiences"><i class="fa fa-check"></i><b>7.1</b> Adverse Childhood Experiences</a>
+<li class="chapter" data-level="5.1" data-path="black-wealth.html"><a href="black-wealth.html#introduction-3"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="black-wealth.html"><a href="black-wealth.html#wealth-national"><i class="fa fa-check"></i><b>5.2</b> Wealth (National)</a></li>
+<li class="chapter" data-level="5.3" data-path="black-wealth.html"><a href="black-wealth.html#business-ownership-local"><i class="fa fa-check"></i><b>5.3</b> Business Ownership (Local)</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="child-health.html"><a href="child-health.html#impact-of-aces"><i class="fa fa-check"></i><b>7.1.1</b> Impact of ACEs</a></li>
-<li class="chapter" data-level="7.1.2" data-path="child-health.html"><a href="child-health.html#prevelance-of-aces"><i class="fa fa-check"></i><b>7.1.2</b> Prevelance of ACEs</a></li>
-<li class="chapter" data-level="7.1.3" data-path="child-health.html"><a href="child-health.html#aces-by-race"><i class="fa fa-check"></i><b>7.1.3</b> ACEs by race</a></li>
+<li class="chapter" data-level="5.3.1" data-path="black-wealth.html"><a href="black-wealth.html#comparison-to-peer-cities"><i class="fa fa-check"></i><b>5.3.1</b> Comparison to peer cities</a></li>
+<li class="chapter" data-level="5.3.2" data-path="black-wealth.html"><a href="black-wealth.html#peer-ranking"><i class="fa fa-check"></i><b>5.3.2</b> Peer Ranking</a></li>
+<li class="chapter" data-level="5.3.3" data-path="black-wealth.html"><a href="black-wealth.html#local-business-creation"><i class="fa fa-check"></i><b>5.3.3</b> Local business creation</a></li>
 </ul></li>
-<li class="chapter" data-level="7.2" data-path="child-health.html"><a href="child-health.html#child-food-security"><i class="fa fa-check"></i><b>7.2</b> Child Food Security</a>
+<li class="chapter" data-level="5.4" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-local"><i class="fa fa-check"></i><b>5.4</b> Homeownership (Local)</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="child-health.html"><a href="child-health.html#trend-1"><i class="fa fa-check"></i><b>7.2.1</b> Trend</a></li>
-<li class="chapter" data-level="7.2.2" data-path="child-health.html"><a href="child-health.html#ranking-1"><i class="fa fa-check"></i><b>7.2.2</b> Ranking</a></li>
-<li class="chapter" data-level="7.2.3" data-path="child-health.html"><a href="child-health.html#breakdown-by-program-eligibility"><i class="fa fa-check"></i><b>7.2.3</b> Breakdown by Program Eligibility</a></li>
+<li class="chapter" data-level="5.4.1" data-path="black-wealth.html"><a href="black-wealth.html#home-mortgages-1"><i class="fa fa-check"></i><b>5.4.1</b> Home Mortgages</a></li>
+<li class="chapter" data-level="5.4.2" data-path="black-wealth.html"><a href="black-wealth.html#housing-price-changes-1"><i class="fa fa-check"></i><b>5.4.2</b> Housing Price Changes</a></li>
+<li class="chapter" data-level="5.4.3" data-path="black-wealth.html"><a href="black-wealth.html#home-valuation-by-geography"><i class="fa fa-check"></i><b>5.4.3</b> Home Valuation by Geography</a></li>
+<li class="chapter" data-level="5.4.4" data-path="black-wealth.html"><a href="black-wealth.html#property-taxes"><i class="fa fa-check"></i><b>5.4.4</b> Property Taxes</a></li>
+<li class="chapter" data-level="5.4.5" data-path="black-wealth.html"><a href="black-wealth.html#undervaluation-and-overtaxation"><i class="fa fa-check"></i><b>5.4.5</b> Undervaluation and Overtaxation</a></li>
+<li class="chapter" data-level="5.4.6" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-rates"><i class="fa fa-check"></i><b>5.4.6</b> Homeownership Rates</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="black-wealth.html"><a href="black-wealth.html"><i class="fa fa-check"></i><b>8</b> Black Wealth</a>
+<li class="chapter" data-level="5.5" data-path="black-wealth.html"><a href="black-wealth.html#household-income-local"><i class="fa fa-check"></i><b>5.5</b> Household Income (Local)</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="black-wealth.html"><a href="black-wealth.html#introduction-3"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
-<li class="chapter" data-level="8.2" data-path="black-wealth.html"><a href="black-wealth.html#wealth-national"><i class="fa fa-check"></i><b>8.2</b> Wealth (National)</a></li>
-<li class="chapter" data-level="8.3" data-path="black-wealth.html"><a href="black-wealth.html#business-ownership-local"><i class="fa fa-check"></i><b>8.3</b> Business Ownership (Local)</a>
-<ul>
-<li class="chapter" data-level="8.3.1" data-path="black-wealth.html"><a href="black-wealth.html#comparison-to-peer-cities"><i class="fa fa-check"></i><b>8.3.1</b> Comparison to peer cities</a></li>
-<li class="chapter" data-level="8.3.2" data-path="black-wealth.html"><a href="black-wealth.html#peer-ranking"><i class="fa fa-check"></i><b>8.3.2</b> Peer Ranking</a></li>
-<li class="chapter" data-level="8.3.3" data-path="black-wealth.html"><a href="black-wealth.html#local-business-creation"><i class="fa fa-check"></i><b>8.3.3</b> Local business creation</a></li>
+<li class="chapter" data-level="5.5.1" data-path="black-wealth.html"><a href="black-wealth.html#trendline"><i class="fa fa-check"></i><b>5.5.1</b> Trendline</a></li>
+<li class="chapter" data-level="5.5.2" data-path="black-wealth.html"><a href="black-wealth.html#map-1"><i class="fa fa-check"></i><b>5.5.2</b> Map</a></li>
 </ul></li>
-<li class="chapter" data-level="8.4" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-local"><i class="fa fa-check"></i><b>8.4</b> Homeownership (Local)</a>
-<ul>
-<li class="chapter" data-level="8.4.1" data-path="black-wealth.html"><a href="black-wealth.html#home-mortgages-1"><i class="fa fa-check"></i><b>8.4.1</b> Home Mortgages</a></li>
-<li class="chapter" data-level="8.4.2" data-path="black-wealth.html"><a href="black-wealth.html#housing-price-changes-1"><i class="fa fa-check"></i><b>8.4.2</b> Housing Price Changes</a></li>
-<li class="chapter" data-level="8.4.3" data-path="black-wealth.html"><a href="black-wealth.html#home-valuation-by-geography"><i class="fa fa-check"></i><b>8.4.3</b> Home Valuation by Geography</a></li>
-<li class="chapter" data-level="8.4.4" data-path="black-wealth.html"><a href="black-wealth.html#property-taxes"><i class="fa fa-check"></i><b>8.4.4</b> Property Taxes</a></li>
-<li class="chapter" data-level="8.4.5" data-path="black-wealth.html"><a href="black-wealth.html#undervaluation-and-overtaxation"><i class="fa fa-check"></i><b>8.4.5</b> Undervaluation and Overtaxation</a></li>
-<li class="chapter" data-level="8.4.6" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-rates"><i class="fa fa-check"></i><b>8.4.6</b> Homeownership Rates</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="black-wealth.html"><a href="black-wealth.html#household-income-local"><i class="fa fa-check"></i><b>8.5</b> Household Income (Local)</a>
-<ul>
-<li class="chapter" data-level="8.5.1" data-path="black-wealth.html"><a href="black-wealth.html#trendline"><i class="fa fa-check"></i><b>8.5.1</b> Trendline</a></li>
-<li class="chapter" data-level="8.5.2" data-path="black-wealth.html"><a href="black-wealth.html#map-1"><i class="fa fa-check"></i><b>8.5.2</b> Map</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="black-wealth.html"><a href="black-wealth.html#the-tip-of-the-iceberg"><i class="fa fa-check"></i><b>8.6</b> The Tip of the Iceberg</a></li>
+<li class="chapter" data-level="5.6" data-path="black-wealth.html"><a href="black-wealth.html#the-tip-of-the-iceberg"><i class="fa fa-check"></i><b>5.6</b> The Tip of the Iceberg</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -358,8 +1083,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="black-wealth" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Black Wealth</h1>
+<div id="black-wealth" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Black Wealth</h1>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="black-wealth.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Knitr options</span></span>
 <span id="cb76-2"><a href="black-wealth.html#cb76-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">warning =</span> <span class="cn">FALSE</span>, <span class="at">message =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb76-3"><a href="black-wealth.html#cb76-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">dev.args=</span><span class="fu">list</span>(<span class="at">bg=</span><span class="st">&quot;transparent&quot;</span>))</span>
@@ -390,12 +1115,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb76-28"><a href="black-wealth.html#cb76-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb76-29"><a href="black-wealth.html#cb76-29" aria-hidden="true" tabindex="-1"></a>jfco_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(jfco_shp) <span class="sc">%&gt;%</span></span>
 <span id="cb76-30"><a href="black-wealth.html#cb76-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GEOID =</span> <span class="fu">str_sub</span>(GEO_ID, <span class="at">start =</span> <span class="sc">-</span><span class="dv">11</span>))</span></code></pre></div>
-<div id="introduction-3" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
+<div id="introduction-3" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Introduction</h2>
 <p>There is no universally-accepted definition of wealth within the Black community. Even within the traditional definitions of monetary wealth, there is no direct data on Black Wealth in Louisville. This report looks at the available national data on monetary wealth and then looks at local data in three areas that are closely related to wealth and wealth-building: business ownership, housing finance, and income.</p>
 </div>
-<div id="wealth-national" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Wealth (National)</h2>
+<div id="wealth-national" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Wealth (National)</h2>
 <p>Wealth data remains scarce in general because the subject of wealth can be sensitive and is not tracked in a comprehensive way. Multiple surveys ask about income, and tax records show yearly income, but this data provides an incomplete picture, often missing key metrics such as property ownership, community investment, inherited wealth, etc. As such, our measures of wealth remain indirect.</p>
 <p>The national Survey of Consumer Finances (SCF), which occurs every three years, is our best source of wealth data. It measures “all assets over which a family has legal claim that can be used to finance its present and future consumption”. The most recently available data is from 2019, leaving the impact of the ongoing pandemic undefined. The key findings from the <a href="https://www.federalreserve.gov/econres/notes/feds-notes/disparities-in-wealth-by-race-and-ethnicity-in-the-2019-survey-of-consumer-finances-20200928.htm">Federal Reserve report</a> include:</p>
 <ul>
@@ -406,14 +1131,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The Federal Reserve Report concludes that inheritances and other sources of family support are the single largest driver of the racial wealth gap.</p>
 </div>
-<div id="business-ownership-local" class="section level2 tabset" number="8.3">
-<h2><span class="header-section-number">8.3</span> Business Ownership (Local)</h2>
+<div id="business-ownership-local" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Business Ownership (Local)</h2>
 <p>Entrepreneurship is a key driver of wealth creation and generational wealth. Business owners are able to build wealth through their companies, and money spent at locally-owned businesses contribute to local wages and neighborhood development.</p>
 <p>Data on business ownership are available for all businesses for the Louisville MSA, which includes 9 surrounding counties. At the county level, data on business ownership is only available for “employer businesses”: businesses that have at least one employee.</p>
 <p>While employer businesses only make up about 20% of local registered businesses, they comprise 98.2% of local business revenue, and so we will focus our analysis there. We do note that while Black residents only own 2.3% of employer businesses in Louisville, they own 9.8% of all businesses in the larger Louisville MSA.</p>
-<p>Overall, the data show alarge racial disparity in ownership of employer businesses in Louisville.</p>
-<div id="comparison-to-peer-cities" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> Comparison to peer cities</h3>
+<p>Overall, the data show a large racial disparity in ownership of employer businesses in Louisville.</p>
+<div id="comparison-to-peer-cities" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Comparison to peer cities</h3>
 <p>In Jefferson County, Black residents make up 21.9% of the population, and they own 2.3% of employer businesses. The graph below compares this ratio across Louisville’s cities. Cities would fall on the solid line if Black residents were represented equally among employer business owners and the population. The dotted line shows the average level of representation of Black residents among employer business owners in Louisville’s peer cities. Black residents have higher-than-average representation in cities that fall above the dotted line, and they have below-average representation in cities below the line, but no cities, including Louisville, come close to equal representation.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="black-wealth.html#cb77-1" aria-hidden="true" tabindex="-1"></a>pct_nonemp_business <span class="ot">&lt;-</span> <span class="dv">57630</span> <span class="sc">/</span> (<span class="dv">57630</span> <span class="sc">+</span> <span class="dv">14785</span>)</span>
 <span id="cb77-2"><a href="black-wealth.html#cb77-2" aria-hidden="true" tabindex="-1"></a>pct_nonemp_revenue <span class="ot">&lt;-</span> <span class="dv">2757359000</span> <span class="sc">/</span> (<span class="dv">2757359000</span> <span class="sc">+</span> <span class="dv">152432057000</span>)</span>
@@ -502,11 +1227,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb77-85"><a href="black-wealth.html#cb77-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">xaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;Percent of Residents who are Black&quot;</span>),</span>
 <span id="cb77-86"><a href="black-wealth.html#cb77-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">yaxis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">&quot;Percent of Businesses Owned by Black Residents&quot;</span>, </span>
 <span id="cb77-87"><a href="black-wealth.html#cb77-87" aria-hidden="true" tabindex="-1"></a>                 <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>)))</span></code></pre></div>
-<div id="htmlwidget-5e5e00da624d526400d7" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5e5e00da624d526400d7">{"x":{"visdat":{"330c1d24781a":["function () ","plotlyVisDat"]},"cur_data":"330c1d24781a","attrs":{"330c1d24781a":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"color":{},"marker":{"size":10},"hoverinfo":"text","showlegend":false,"inherit":true},"330c1d24781a.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":60,"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"inherit":true},"330c1d24781a.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":9.81685242376217,"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"font":{"family":"Montserrat"},"annotations":[{"x":21.8698373096045,"y":2.43490023672641,"text":"Louisville","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":10,"yanchor":"top"},{"x":12,"y":11,"text":"Equal representation","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":30,"xanchor":"left"},{"x":40,"y":7,"text":"Average representation in peer cities","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":-16,"textangle":-20}],"title":"Black Business Ownership by Peer City","xaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Residents who are Black"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Businesses Owned by Black Residents","range":[0,20]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[43.0372104241979,27.5160459833993,21.8698373096045,9.49638757065283,23.4488728635918,10.9292760229337,34.4102794746401,31.3049235863924,22.6290479503956,25.3969541251035,15.1853271367256,10.1396329065741,17.0978046196312,26.7904340441784,8.92348330662971,53.5370202174904,29.5370137709982],"y":[3.82782847452152,3.31592372160816,2.43490023672641,0.91699604743083,7.73350024341053,1.3943741436286,4.82148012703301,4.26952650748685,3.74007220216606,2.52095337873232,2.04209210252136,1.44169516529203,2.02529238375963,2.6612355736592,1.03367789263088,7.63769523951872,16.5536262066248],"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"marker":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"size":10,"line":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"showlegend":false,"textfont":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,60],"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,9.81685242376217],"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-7d80037f14aecc6aa238" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7d80037f14aecc6aa238">{"x":{"visdat":{"88830e849f0":["function () ","plotlyVisDat"]},"cur_data":"88830e849f0","attrs":{"88830e849f0":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"color":{},"marker":{"size":10},"hoverinfo":"text","showlegend":false,"inherit":true},"88830e849f0.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":60,"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"inherit":true},"88830e849f0.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":0,"y":0,"xend":60,"yend":9.81685242376217,"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"font":{"family":"Montserrat"},"annotations":[{"x":21.8698373096045,"y":2.43490023672641,"text":"Louisville","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":10,"yanchor":"top"},{"x":12,"y":11,"text":"Equal representation","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":30,"xanchor":"left"},{"x":40,"y":7,"text":"Average representation in peer cities","xref":"x","yref":"y","showarrow":false,"arrowhead":0,"ax":0,"ay":-16,"textangle":-20}],"title":"Black Business Ownership by Peer City","xaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Residents who are Black"},"yaxis":{"domain":[0,1],"automargin":true,"title":"Percent of Businesses Owned by Black Residents","range":[0,20]},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[43.0372104241979,27.5160459833993,21.8698373096045,9.49638757065283,23.4488728635918,10.9292760229337,34.4102794746401,31.3049235863924,22.6290479503956,25.3969541251035,15.1853271367256,10.1396329065741,17.0978046196312,26.7904340441784,8.92348330662971,53.5370202174904,29.5370137709982],"y":[3.82782847452152,3.31592372160816,2.43490023672641,0.91699604743083,7.73350024341053,1.3943741436286,4.82148012703301,4.26952650748685,3.74007220216606,2.52095337873232,2.04209210252136,1.44169516529203,2.02529238375963,2.6612355736592,1.03367789263088,7.63769523951872,16.5536262066248],"type":"scatter","mode":"markers","text":["Birmingham","Indianapolis","Louisville","Grand Rapids","Kansas City","Omaha","Greensboro","Charlotte","Columbus","Cincinnati","Oklahoma City","Tulsa","Greenville","Nashville","Knoxville","Memphis","St. Louis"],"marker":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"],"size":10,"line":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"showlegend":false,"textfont":{"color":["rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(214,54,49,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)","rgba(0,0,0,1)"]},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,60],"type":"scatter","mode":"lines","name":"Equality","line":{"color":"#323844","width":1},"showlegend":false,"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[0,60],"y":[0,9.81685242376217],"type":"scatter","mode":"lines","name":"Peer Average","line":{"color":"#323844","width":1,"dash":"dash"},"showlegend":false,"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="peer-ranking" class="section level3" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> Peer Ranking</h3>
+<div id="peer-ranking" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Peer Ranking</h3>
 <p>This graph shows the number of employer-businesses that Black residents own for every 100 Black residents.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="black-wealth.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranking</span>(business_ownership_county_clean,</span>
 <span id="cb78-2"><a href="black-wealth.html#cb78-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;firms_num_per_100&quot;</span>,</span>
@@ -521,8 +1246,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb78-11"><a href="black-wealth.html#cb78-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">FIPS_df =</span> FIPS_df)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/business_ownership_ranking-1.png" width="672" /></p>
 </div>
-<div id="local-business-creation" class="section level3" number="8.3.3">
-<h3><span class="header-section-number">8.3.3</span> Local business creation</h3>
+<div id="local-business-creation" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Local business creation</h3>
 <p>The map below shows business filings throughout 2020 within Jefferson County. These businesses include any type of LLC, corporation, or nonprofit officially registered with the Commonwealth of Kentucky. Compared to the previous data that focuses on larger organizations, it shows that entrepreneurship is widespread throughout the city.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="black-wealth.html#cb79-1" aria-hidden="true" tabindex="-1"></a>cols_spec <span class="ot">&lt;-</span> <span class="fu">cols</span>(<span class="st">&quot;organization_number&quot;</span> <span class="ot">=</span> <span class="fu">col_character</span>(),</span>
 <span id="cb79-2"><a href="black-wealth.html#cb79-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">&quot;comptype&quot;</span> <span class="ot">=</span> <span class="fu">col_number</span>(),</span>
@@ -689,14 +1414,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb81-37"><a href="black-wealth.html#cb81-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(<span class="at">label =</span> t<span class="sc">$</span>Name)</span></code></pre></div>
 </div>
 </div>
-<div id="homeownership-local" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Homeownership (Local)</h2>
+<div id="homeownership-local" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Homeownership (Local)</h2>
 <p>Homeownership represents a significant component of wealth. Housing reflects historical wealth patterns––parental wealth makes it easier to buy a home––and is a major generator of wealth–historically, homes in most neighborhoods have risen in value, increasing the wealth of those who own them.</p>
 <p>The data show stark divides between Black and white families throughout the homeownership process, demonstrating one aspect of the wealth gap.</p>
-<div id="home-mortgages-1" class="section level3 tabset tabset-fade tabset-pills" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Home Mortgages</h3>
-<div id="mortgages-by-geography-1" class="section level4" number="8.4.1.1">
-<h4><span class="header-section-number">8.4.1.1</span> Mortgages by geography</h4>
+<div id="home-mortgages-1" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Home Mortgages</h3>
+<div id="mortgages-by-geography-1" class="section level4" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Mortgages by geography</h4>
 <p>In 2019, about 3.8 mortgages were issued per 100 residents in Jefferson County; however, the availability of mortgages varies greatly across the city. Two census tracts saw 0 mortgages issued in 2019, and most of West Louisville saw fewer than 1 mortgage issued per 100 residents. Often mortgage issuance is limited by a loan to value ratio that reflects property values in a given neighborhood relative to the replacement value of the structure Mortgage issuance is much higher in neighborhoods with higher overall value or new construction.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="black-wealth.html#cb82-1" aria-hidden="true" tabindex="-1"></a>home_loan_tract_race <span class="ot">&lt;-</span> home_loan_tract <span class="sc">%&gt;%</span></span>
 <span id="cb82-2"><a href="black-wealth.html#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2019</span>, sex <span class="sc">==</span> <span class="st">&quot;total&quot;</span>, race <span class="sc">!=</span> <span class="st">&quot;total&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -744,10 +1469,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb82-44"><a href="black-wealth.html#cb82-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
 <span id="cb82-45"><a href="black-wealth.html#cb82-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
 <span id="cb82-46"><a href="black-wealth.html#cb82-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgages_per_person-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgages_per_person_bw-1.png" width="672" /></p>
 </div>
-<div id="mortgages-by-race-1" class="section level4" number="8.4.1.2">
-<h4><span class="header-section-number">8.4.1.2</span> Mortgages by race</h4>
+<div id="mortgages-by-race-1" class="section level4" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> Mortgages by race</h4>
 <p>We can also examine mortgage data by race. Black residents in Louisville received fewer than half the number of mortgages per person that White residents did in 2019.</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="black-wealth.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interactive Mortgage map</span></span>
 <span id="cb83-2"><a href="black-wealth.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load(&quot;home_loans_detail.RData&quot;)</span></span>
@@ -798,51 +1523,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb83-47"><a href="black-wealth.html#cb83-47" aria-hidden="true" tabindex="-1"></a><span class="fu">plt_by</span>(mortgage_county, Race, loan_number_per_100, <span class="st">&quot;Mortgages by race&quot;</span>, <span class="at">y_axis =</span> <span class="st">&quot;Mortgages per 100 People&quot;</span>, <span class="at">y_min =</span> <span class="dv">0</span>,</span>
 <span id="cb83-48"><a href="black-wealth.html#cb83-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption_text =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
 <span id="cb83-49"><a href="black-wealth.html#cb83-49" aria-hidden="true" tabindex="-1"></a><span class="st">                  GLP analysis of data from the Consumer Financial Protection Bureau&quot;</span>)</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgage_number_race-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgage_number_race_bw-1.png" width="672" /></p>
 </div>
-<div id="mortgage-dollars-by-race-1" class="section level4" number="8.4.1.3">
-<h4><span class="header-section-number">8.4.1.3</span> Mortgage Dollars by race</h4>
+<div id="mortgage-dollars-by-race-1" class="section level4" number="5.4.1.3">
+<h4><span class="header-section-number">5.4.1.3</span> Mortgage Dollars by race</h4>
 <p>The racial disparity in mortgages is even larger when you incorporate the dollar amount of mortgages issued. In 2019, white residents received $2.60 in mortgages for every $1 that Black residents received after adjusting for population size.</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="black-wealth.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plt_by</span>(mortgage_county, Race, loan_amount_pp, <span class="st">&quot;Mortgage Lending by race&quot;</span>, <span class="at">y_axis =</span> <span class="st">&quot;Dollars per 100 People&quot;</span>, <span class="at">y_min =</span> <span class="dv">0</span>,</span>
 <span id="cb84-2"><a href="black-wealth.html#cb84-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">&quot;Dollars&quot;</span>,</span>
 <span id="cb84-3"><a href="black-wealth.html#cb84-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption_text =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
 <span id="cb84-4"><a href="black-wealth.html#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="st">                       GLP analysis of data from the Consumer Financial Protection Bureau&quot;</span>)</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgage_dollars_race-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgage_dollars_race_bw-1.png" width="672" /></p>
 </div>
-<div id="denial-rates-by-race-1" class="section level4" number="8.4.1.4">
-<h4><span class="header-section-number">8.4.1.4</span> Denial Rates by Race</h4>
+<div id="denial-rates-by-race-1" class="section level4" number="5.4.1.4">
+<h4><span class="header-section-number">5.4.1.4</span> Denial Rates by Race</h4>
 <p>Black residents are denied mortgages at a rate roughly twice that of white residents. The mortgage denial rate for Black residents has decreased from a high of 29% in 2008 to a low of 14% in 2019. However, it has not shown signs of decreasing in recent years, and Black residents are more likely to be impacted by the economic impacts of COVID-19, worsening the disparity in 2020 and beyond.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="black-wealth.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plt_by</span>(mortgage_county, Race, denial, <span class="st">&quot;Mortgage Denial by race&quot;</span>, <span class="at">y_axis =</span> <span class="st">&quot;Denial Rate&quot;</span>, <span class="at">y_min =</span> <span class="dv">0</span>, <span class="at">units=</span> <span class="st">&quot;Percent&quot;</span>,</span>
 <span id="cb85-2"><a href="black-wealth.html#cb85-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption_text =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
 <span id="cb85-3"><a href="black-wealth.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="st">                       GLP analysis of data from the Consumer Financial Protection Bureau&quot;</span>)</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgage_denial_race-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgage_denial_race_bw-1.png" width="672" /></p>
 </div>
-<div id="denial-rates-by-geography-1" class="section level4" number="8.4.1.5">
-<h4><span class="header-section-number">8.4.1.5</span> Denial Rates by Geography</h4>
+<div id="denial-rates-by-geography-1" class="section level4" number="5.4.1.5">
+<h4><span class="header-section-number">5.4.1.5</span> Denial Rates by Geography</h4>
 <p>A major factor in mortgage availability is denial rates. While some areas of town saw few to no mortgage denials, people in many parts of West Louisville experienced denial rates of 30 to 40%.</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="black-wealth.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_map</span>(denial, <span class="at">title =</span> <span class="st">&quot;Mortgage Denial Rate in 2019&quot;</span>, </span>
 <span id="cb86-2"><a href="black-wealth.html#cb86-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend =</span> <span class="st">&quot;Percent&quot;</span>, </span>
 <span id="cb86-3"><a href="black-wealth.html#cb86-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
 <span id="cb86-4"><a href="black-wealth.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="st">                    GLP analysis of data from the Consumer Financial Protection Bureau&quot;</span>,</span>
 <span id="cb86-5"><a href="black-wealth.html#cb86-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">map_obj =</span> jfco_sf)</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgage_denial-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgage_denial_bw-1.png" width="672" /></p>
 </div>
-<div id="interest-rates-by-geography-1" class="section level4" number="8.4.1.6">
-<h4><span class="header-section-number">8.4.1.6</span> Interest Rates by geography</h4>
+<div id="interest-rates-by-geography-1" class="section level4" number="5.4.1.6">
+<h4><span class="header-section-number">5.4.1.6</span> Interest Rates by geography</h4>
 <p>For the mortgages that were issued, interest rates varied from around 3.5% to around 5%. While the average interest rate was around 4% for the much of East Louisville, average interest rates in West Louisville were closer to 5%. A 30-year mortgage with an interest rate of 5% requires monthly payments that are 13% higher than a mortgage with an interest rate of 4%.</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="black-wealth.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_map</span>(rate, <span class="at">title =</span> <span class="st">&quot;Mortgage Interest Rate in 2019&quot;</span>, </span>
 <span id="cb87-2"><a href="black-wealth.html#cb87-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">legend =</span> <span class="st">&quot;Percent&quot;</span>,</span>
 <span id="cb87-3"><a href="black-wealth.html#cb87-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
 <span id="cb87-4"><a href="black-wealth.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="st">                    GLP analysis of data from the Consumer Financial Protection Bureau&quot;</span>,</span>
 <span id="cb87-5"><a href="black-wealth.html#cb87-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">map_obj =</span> jfco_sf)</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/mortgage_interest-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/mortgage_interest_bw-1.png" width="672" /></p>
 </div>
 </div>
-<div id="housing-price-changes-1" class="section level3 tabset tabset-fade tabset-pills" number="8.4.2">
-<h3><span class="header-section-number">8.4.2</span> Housing Price Changes</h3>
+<div id="housing-price-changes-1" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Housing Price Changes</h3>
 <p>As Louisville grows, increasing home prices reflect changes in inflation and increasing demand for homes. Long-term growth in home prices helps homeowners build equity and wealth. Short-term appreciation can be a boon to homeowners with the finances to stay in their home, though it also causes many homeowners and renters to be dislocated from their neighborhood.</p>
-<div id="long-term-appreciation-1" class="section level4" number="8.4.2.1">
-<h4><span class="header-section-number">8.4.2.1</span> Long-term appreciation</h4>
+<div id="long-term-appreciation-1" class="section level4" number="5.4.2.1">
+<h4><span class="header-section-number">5.4.2.1</span> Long-term appreciation</h4>
 <p>This map shows the change in existing home prices across zip codes since 2000 in Jefferson County, controlling for new construction. Since 2000, existing homes in Louisville have increased in value by an average of 62% after accounting for inflation, an average of about 2.4% per year. However, not every area of the city has benefited equally from this growth. Home prices in zip code 40204, which contains the Upper Highlands and Germantown, have more than doubled since 2000. While many zip codes close to downtown also saw high growth, many parts of West Louisville saw slow growth.</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="black-wealth.html#cb88-1" aria-hidden="true" tabindex="-1"></a>lou_num <span class="ot">&lt;-</span> HPI_county <span class="sc">%&gt;%</span> <span class="fu">filter</span>(FIPS <span class="sc">==</span> <span class="st">&quot;21111&quot;</span>)</span>
 <span id="cb88-2"><a href="black-wealth.html#cb88-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -904,10 +1629,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb88-58"><a href="black-wealth.html#cb88-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
 <span id="cb88-59"><a href="black-wealth.html#cb88-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
 <span id="cb88-60"><a href="black-wealth.html#cb88-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/long_term_appreciation-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/long_term_appreciation_bw-1.png" width="672" /></p>
 </div>
-<div id="short-term-appreciation-1" class="section level4" number="8.4.2.2">
-<h4><span class="header-section-number">8.4.2.2</span> Short-term appreciation</h4>
+<div id="short-term-appreciation-1" class="section level4" number="5.4.2.2">
+<h4><span class="header-section-number">5.4.2.2</span> Short-term appreciation</h4>
 <p>Looking at the growth since 2015 highlights zip codes where changes in home prices have been very acute. The average home in Louisville increased in value by 24% between 2015 and 2020. Most zip codes saw total growth of 20% - 35%, while changes in home prices for zip codes in West Louisville range from an increase of 15% in 40212 to an increase of 46% in 40203. Home prices in 40203 have increased by an average of 7.9% per year since 2015, and they threaten to displace many residents from parts of Russell and Old Louisville.</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="black-wealth.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(map_zip) <span class="sc">+</span> </span>
 <span id="cb89-2"><a href="black-wealth.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> HPI5)) <span class="sc">+</span></span>
@@ -929,11 +1654,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb89-18"><a href="black-wealth.html#cb89-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
 <span id="cb89-19"><a href="black-wealth.html#cb89-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
 <span id="cb89-20"><a href="black-wealth.html#cb89-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span></code></pre></div>
-<p><img src="Black_wealth_files/figure-html/short_term_appreciation-1.png" width="672" /></p>
+<p><img src="Black_wealth_files/figure-html/short_term_appreciation_bw-1.png" width="672" /></p>
 </div>
 </div>
-<div id="home-valuation-by-geography" class="section level3" number="8.4.3">
-<h3><span class="header-section-number">8.4.3</span> Home Valuation by Geography</h3>
+<div id="home-valuation-by-geography" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Home Valuation by Geography</h3>
 <p>According to <a href="https://www.brookings.edu/research/devaluation-of-assets-in-black-neighborhoods/">research by Dr. Andre Perry at the Brookings Institute</a>, owner-occupied homes in Black neighborhoods are, on average, undervalued by $48,000 per house in the U.S. In the Louisville Metro Area, the median home value in majority Black neighborhoods is $89,681, but would be $117,593 if houses were not devalued, according to the same research. This difference constitutes a 27% undervaluation from what home values in Black neighborhoods would be if based on structural characteristics (e.g. sq. ft, year built) and neighborhood amenities (e.g. walkability, school districts, commute time) alone.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="black-wealth.html#cb90-1" aria-hidden="true" tabindex="-1"></a>devaluation <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Black_wealth/devaluation.csv&quot;</span>)</span>
 <span id="cb90-2"><a href="black-wealth.html#cb90-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1108,12 +1833,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb90-171"><a href="black-wealth.html#cb90-171" aria-hidden="true" tabindex="-1"></a><span class="st">                   Data from Dr. Andre Perry, Brookings Institute&quot;</span>)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/devaluation_ranking-1.png" width="672" /></p>
 </div>
-<div id="property-taxes" class="section level3" number="8.4.4">
-<h3><span class="header-section-number">8.4.4</span> Property Taxes</h3>
+<div id="property-taxes" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Property Taxes</h3>
 <p>While facing lower home values on the market, homes in majority-Black neighborhoods are valued relatively-higher than homes in majority-white by the property tax administration, and thus face <a href="https://www.washingtonpost.com/context/the-assessment-gap-racial-inequalities-in-property-taxation/215957a4-d5ad-47cd-821a-070cf23b6bc7/">higher taxation relative to the market value of their homes</a>.</p>
 <p>The Jefferson County Property Value Administration (PVA) assesses homes every three years to determine their value, and that value is used to determine the amount of property taxes the owner owes. The PVA compares homes to similar nearby properties to determine an appropriate valuation. Based on a comparison of property tax assessments to actual sale prices, data shows that property valuations tend to overvalue homes in some neighborhoods and undervalue them in others, resulting in different property tax rates for owners. There are numerous</p>
-<div id="property-assessments" class="section level4" number="8.4.4.1">
-<h4><span class="header-section-number">8.4.4.1</span> Property Assessments</h4>
+<div id="property-assessments" class="section level4" number="5.4.4.1">
+<h4><span class="header-section-number">5.4.4.1</span> Property Assessments</h4>
 <p>The map below compares property assessments to market values. Negative values indicate that home assessments are usually lower than their market price, while postive values indicate that home assessments are, on average, higher than their market price.</p>
 <p>Properties inside the Watterson and East of I-65 are consistently valued, and thus taxed, at a lower rate than they are worth. Most over-assessments can be found in Southwest and South Louisville.</p>
 <p>There are numerous potential reasons for these discrepancies. One significant factor in Louisville is that homes are usually assessed every three years. In neighborhoods where home values consistently go up, market values quickly increase beyond assessment values. In neighborhoods where home values increase more slowly, market prices usually stay close to property assessments. Several other potential reasons are described in detail in the research linked above.</p>
@@ -1274,8 +1999,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb91-155"><a href="black-wealth.html#cb91-155" aria-hidden="true" tabindex="-1"></a>              <span class="at">shapefile =</span> jfco_sf)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/assessment-1.png" width="672" /></p>
 </div>
-<div id="property-taxes-1" class="section level4" number="8.4.4.2">
-<h4><span class="header-section-number">8.4.4.2</span> Property Taxes</h4>
+<div id="property-taxes-1" class="section level4" number="5.4.4.2">
+<h4><span class="header-section-number">5.4.4.2</span> Property Taxes</h4>
 <p>The property tax rate for homeowners differs by location. Most homeowners across the county pay taxes toward JCPS, and most homeowners who live inside the Watterson also pay taxes to the Urban Services District. Independent cities, fire departments, and school districts charge different rates throughout the county. As a result, there is no consistent property tax rate throughout Jefferson County. Differences in property tax rates are a result of both local tax rates and property assessments.</p>
 <p>The map below shows the effective property tax rate, or the amount of property tax homeowners paid based on the market value of their homes. The majority of homeowners pay a property tax of around 1% of their home’s value. Homeowners in some neighborhoods pay slightly less, and many pay slightly more. The highest effective tax rates are found in West Louisville due to a combination of high property assessments relative to homes’ values, and the property tax rate for the Urban Services District.</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="black-wealth.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make_map_bins</span>(property_tax_bins,</span>
@@ -1287,8 +2012,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Black_wealth_files/figure-html/tax_rate-1.png" width="672" /></p>
 </div>
 </div>
-<div id="undervaluation-and-overtaxation" class="section level3" number="8.4.5">
-<h3><span class="header-section-number">8.4.5</span> Undervaluation and Overtaxation</h3>
+<div id="undervaluation-and-overtaxation" class="section level3" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> Undervaluation and Overtaxation</h3>
 <p>This image summarizes the previous two sections (home valuation and property assessments). If homes in Black neighborhoods were valued by the market and taxed by the city like homes in other neighborhoods, homeowners in those neighborhoods would have higher-priced homes taxed at a lower rate.</p>
 <p><img src="home_taxes_GLP.png" alt="Home valuation and taxation" />
 *This follows Dr. Andre Perry’s (Brookings Institute) methodology in defining a majority Black neighborhood as one with ≥ 50% Black residents.</p>
@@ -1419,11 +2144,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb93-124"><a href="black-wealth.html#cb93-124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(percent_black <span class="sc">&gt;=</span> <span class="dv">50</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb93-125"><a href="black-wealth.html#cb93-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">agg_value =</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 </div>
-<div id="homeownership-rates" class="section level3 tabset" number="8.4.6">
-<h3><span class="header-section-number">8.4.6</span> Homeownership Rates</h3>
+<div id="homeownership-rates" class="section level3" number="5.4.6">
+<h3><span class="header-section-number">5.4.6</span> Homeownership Rates</h3>
 <p>Black families both start with less wealth (and therefore less opportunities to build on it even in a ‘fair’ market) and this is compountded at each step of the home ownership process.</p>
-<div id="ranking-2" class="section level4" number="8.4.6.1">
-<h4><span class="header-section-number">8.4.6.1</span> Ranking</h4>
+<div id="ranking-2" class="section level4" number="5.4.6.1">
+<h4><span class="header-section-number">5.4.6.1</span> Ranking</h4>
 <p>Slightly more than 1 in 3 Black Louisville residents own their own homes. While this is roughly toward the middle of our peer cities, it is roughly half the homeownership rate among white residents.</p>
 <div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="black-wealth.html#cb94-1" aria-hidden="true" tabindex="-1"></a>housing_df <span class="ot">&lt;-</span> housing_county <span class="sc">%&gt;%</span></span>
 <span id="cb94-2"><a href="black-wealth.html#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(var_type <span class="sc">==</span> <span class="st">&quot;percent&quot;</span>) </span>
@@ -1445,8 +2170,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb94-18"><a href="black-wealth.html#cb94-18" aria-hidden="true" tabindex="-1"></a><span class="st">                   GLP analysis of ACS microdata from IPUMS USA&quot;</span>)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/black_homeownership_ranking-1.png" width="672" /></p>
 </div>
-<div id="trend-2" class="section level4" number="8.4.6.2">
-<h4><span class="header-section-number">8.4.6.2</span> Trend</h4>
+<div id="trend-2" class="section level4" number="5.4.6.2">
+<h4><span class="header-section-number">5.4.6.2</span> Trend</h4>
 <p>Homeownership among all Louisville residents, including Black residents, has declined slightly since the early 2000s. Since 2010, Louisville’s racial homeownership gap has been among the largest of our peer cities.</p>
 <div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="black-wealth.html#cb95-1" aria-hidden="true" tabindex="-1"></a>housing_df_clean <span class="ot">&lt;-</span> housing_df <span class="sc">%&gt;%</span></span>
 <span id="cb95-2"><a href="black-wealth.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(FIPS <span class="sc">==</span> <span class="st">&quot;21111&quot;</span>, sex <span class="sc">==</span> <span class="st">&quot;total&quot;</span>, race <span class="sc">%not_in%</span> <span class="fu">c</span>(<span class="st">&quot;other&quot;</span>, <span class="st">&quot;hispanic&quot;</span>)) <span class="sc">%&gt;%</span></span>
@@ -1460,8 +2185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb95-10"><a href="black-wealth.html#cb95-10" aria-hidden="true" tabindex="-1"></a><span class="st">                       GLP analysis of ACS microdata from IPUMS USA&quot;</span>)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/homeownership_trend-1.png" width="672" /></p>
 </div>
-<div id="map" class="section level4" number="8.4.6.3">
-<h4><span class="header-section-number">8.4.6.3</span> Map</h4>
+<div id="map" class="section level4" number="5.4.6.3">
+<h4><span class="header-section-number">5.4.6.3</span> Map</h4>
 <p>Across Louisville, homeownership varies from less than 10% in some areas to the high 90s in others.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="black-wealth.html#cb96-1" aria-hidden="true" tabindex="-1"></a>housing_map_clean <span class="ot">&lt;-</span> housing_tract <span class="sc">%&gt;%</span></span>
 <span id="cb96-2"><a href="black-wealth.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">&quot;total&quot;</span>, race <span class="sc">==</span> <span class="st">&quot;total&quot;</span>, year <span class="sc">==</span> <span class="dv">2017</span>, var_type <span class="sc">==</span> <span class="st">&quot;percent&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -1480,11 +2205,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="household-income-local" class="section level2 tabset" number="8.5">
-<h2><span class="header-section-number">8.5</span> Household Income (Local)</h2>
+<div id="household-income-local" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Household Income (Local)</h2>
 <p>Many activities that lead to wealth-creation, like starting a business or getting a degree, are not directly tied to income. However, the majority of families build wealth by saving the money they earn. Disparities in income lead to larger disparities in wealth.</p>
-<div id="trendline" class="section level3" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> Trendline</h3>
+<div id="trendline" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Trendline</h3>
 <p>While income for Black Households in Louisville has trended up over the last few years, the median Black household only receives about two-thirds the income of the median Louisville household. After adjusting for inflation, median income declined among Black households from 2000 to 2013 and only surpassed their previous levels in 2017.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="black-wealth.html#cb97-1" aria-hidden="true" tabindex="-1"></a>hh_income_filtered <span class="ot">&lt;-</span> hh_income_county <span class="sc">%&gt;%</span></span>
 <span id="cb97-2"><a href="black-wealth.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(var_type <span class="sc">==</span> <span class="st">&quot;estimate&quot;</span>, </span>
@@ -1503,8 +2228,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb97-15"><a href="black-wealth.html#cb97-15" aria-hidden="true" tabindex="-1"></a><span class="st">                       ACS Tables P053, P152, B19013&quot;</span>)</span></code></pre></div>
 <p><img src="Black_wealth_files/figure-html/hh_income_ranking-1.png" width="672" /></p>
 </div>
-<div id="map-1" class="section level3" number="8.5.2">
-<h3><span class="header-section-number">8.5.2</span> Map</h3>
+<div id="map-1" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Map</h3>
 <p>The median household income varies widely across Louisville, ranging from under $20,000 in some areas to over $150,000 in others.</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="black-wealth.html#cb98-1" aria-hidden="true" tabindex="-1"></a>hh_income_tract_clean <span class="ot">&lt;-</span> hh_income_tract <span class="sc">%&gt;%</span></span>
 <span id="cb98-2"><a href="black-wealth.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2016</span>,</span>
@@ -1525,8 +2250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Black_wealth_files/figure-html/hh_income_map-1.png" width="672" /></p>
 </div>
 </div>
-<div id="the-tip-of-the-iceberg" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> The Tip of the Iceberg</h2>
+<div id="the-tip-of-the-iceberg" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> The Tip of the Iceberg</h2>
 <p>We have the most data on housing, income, and businesses, but these are not the only areas of wealth building where systemic inequality is pervasive. Black families start with less wealth (and therefore have less opportunities to build on it even in an ‘equal’ market) and face discrimination at each step of the process. A better understanding of what metrics are important for describing Black wealth in both quantitative and qualitative terms is important to improve our work in this area, and we welcome input.</p>
 
 </div>
@@ -1536,7 +2261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="child-health.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="early-childhood.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -1580,7 +2305,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["book_files.pdf", "book_files.epub"],
+"download": ["path_forward.pdf", "path_forward.epub"],
 "toc": {
 "collapse": "subsection"
 }

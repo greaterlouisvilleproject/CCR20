@@ -1,7 +1,7 @@
 --- 
 title: "Competitive City Report 2020"
 author: "Greater Louisville Project"
-date: "2021-06-09"
+date: "2021-06-28"
 site: bookdown::bookdown_site
 documentclass: book
 link-citations: yes

@@ -4,7 +4,6 @@ author: "Nate Kratzer"
 date: '2020-09-09'
 output:
   html_document:
-    css: style.css
     self_contained: no
     toc: yes
     toc_float: yes
@@ -21,7 +20,10 @@ output:
 
 
 
-## Overall{.tabset}
+
+
+
+## Overall Access
 
 This report uses census Microdata from IPUMS to look at internet access in the Louisville MSA. Data is available from 2013 to 2018. About 1 in 10 households in Louisville have no internet access, and 3 in 10 do not have the high speed access necessary for working and learning at home. Access to high speed internet access has not improved in the past 6 years. Households also lack access to devices, with 15% of houses not having a computer or a tablet. Houses that do have computers or tablets are also unlikely to have enough devices for multiple people working from home (unfortunately the Census data only asks about having 1 or more device). 
 
@@ -33,7 +35,7 @@ Our focus on internet access is a focus on high speed access. While internet acc
 
 <img src="internet_report_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
-### Devices
+### Digital Devices
 
 A full 15% of our households do not have either a computer or tablet at home, and this understates the extent of the internet device shortage, as a single device is insufficient for a household with multiple people working and learning. 
 
@@ -45,7 +47,7 @@ Finally, we can also look at the overlap of having both high speed internet and 
 
 <img src="internet_report_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
-## The Digital Divide in Jefferson County{.tabset}
+## Across Louisville
 
 We can also take a deeper look into internet access within Louisville. We'll focus on high speed internet. While devices are also important, the data doesn't let us know how many devices are in each household, so it's guidance on the magnitude of the device shortage is quite limited. 
 
@@ -59,7 +61,7 @@ In 2016, the Census Bureau began asking about smart phones for the first time. A
 
 HIgh speed internet access for households in poverty has been _decreasing_ since 2013. 
 
-<img src="internet_report_files/figure-html/poverty-1.png" width="672" />
+<img src="internet_report_files/figure-html/poverty_int-1.png" width="672" />
 
 ### Race
 
@@ -73,7 +75,7 @@ Households with adults age 65 and older is one of the only household groupings w
 
 <img src="internet_report_files/figure-html/unnamed-chunk-6-1.png" width="672" />
 
-## Child Internet Access{.tabset}
+## Child Internet Access
 
 
 ### School Age
@@ -83,11 +85,16 @@ In this section, we limit the scope of our analysis to look at children ages 5-1
 <img src="internet_report_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
-### Metro Council Districts{.tabset}
+### Metro Council Districts {.panelset}
 
 If we expand our focus to all children ages 0-17, we can get data at finer levels of geography. The map below shows the percent of children ages 0-17 who lack either high-speed internet or a computer at home. Most of these children are school age, though the data also includes some infants and toddlers who are not in school.
 
-#### No District labels
+<!-- ::: {.tab} -->
+<!-- <button class="tablinks" onclick="unrolltab(event, 'no-district-labels')">No District Labels</button> -->
+<!-- <button class="tablinks" onclick="unrolltab(event, 'district-labels')">District Labels</button> -->
+
+#### No District labels {-}
+
 <img src="internet_report_files/figure-html/unnamed-chunk-8-1.png" width="672" /><div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; "><table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
  <thead>
   <tr>
@@ -257,7 +264,8 @@ If we expand our focus to all children ages 0-17, we can get data at finer level
 </tbody>
 </table></div>
 
-#### District Labels
+#### District Labels {-}
+
 <img src="internet_report_files/figure-html/unnamed-chunk-9-1.png" width="672" /><div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; "><table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
  <thead>
   <tr>

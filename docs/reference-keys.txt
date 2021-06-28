@@ -1,10 +1,10 @@
 introduction
 digital-divide
-overall
+overall-access
 high-speed-internet
-devices
+digital-devices
 internet-and-devices
-the-digital-divide-in-jefferson-county
+across-louisville
 internet-speed
 poverty
 race
@@ -12,11 +12,9 @@ age
 child-internet-access
 school-age
 metro-council-districts
-no-district-labels
-district-labels
 internet-as-a-public-utility
 local-efforts
-housing-instability-in-louisville
+housing-instability
 introduction-1
 methods-and-definitions
 housing-instability-index
@@ -77,6 +75,7 @@ housing-price-changes
 long-term-appreciation
 short-term-appreciation
 housing-availability
+early-childhood
 introduction-2
 kindergarten-readiness
 overall-readiness

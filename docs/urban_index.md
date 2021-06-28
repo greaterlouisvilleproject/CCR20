@@ -11,7 +11,7 @@ output:
 knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = encoding, output_file = file.path(dirname(inputFile), 'index.html')) })
 ---
 
-# Housing Instability in Louisville
+# Housing Instability
 
 ## Introduction
 
@@ -46,6 +46,8 @@ Data is from the Urban Institute's [Emergency Rental Assistance Priority Index](
 -   Extremely Low Income: Renter occupied household making less than 30 percent of area median income
 -   Public Assistance: Percent receiving some form of public assistance like SNAP or TANF
 -   Foreign Born: Percent born outside the U.S.
+
+
 
 
 
@@ -97,7 +99,7 @@ df_index <- df_z %>%
   )
 ```
 
-## Rental Insecurity Index {.tabset .tabset-fade .tabset-pills}
+## Rental Insecurity Index{.panelset}
 
 
 ```r
@@ -216,7 +218,7 @@ make_map(equity_index, title = "Equity Subindex",
 
 <img src="urban_index_files/figure-html/equity_subindex-1.png" width="672" />
 
-## Housing Instability Indicators {.tabset .tabset-fade .tabset-pills}
+## Housing Instability Indicators {.panelset}
 
 ### Poverty
 
@@ -273,7 +275,7 @@ make_map(perc_unemployed_laborforce, title = "Unemployment",
 
 <img src="urban_index_files/figure-html/unemployment-1.png" width="672" />
 
-## Covid Indicators {.tabset .tabset-fade .tabset-pills}
+## Covid Indicators {.panelset}
 
 ### No Health Insurance
 
@@ -297,7 +299,7 @@ make_map(perc_low_income_jobs_lost, title = "Low Income Jobs Lost to Covid",
 
 <img src="urban_index_files/figure-html/low_income_job_loss-1.png" width="672" />
 
-## Equity Index {.tabset .tabset-fade .tabset-pills}
+## Equity Index {.panelset}
 
 ### Percent PoC
 
@@ -343,7 +345,7 @@ make_map(perc_foreign_born, title = "Foreign Born",
 
 <img src="urban_index_files/figure-html/foreign_born-1.png" width="672" />
 
-## Peer City Data {.tabset .tabset-fade .tabset-pills}
+## Peer City Data {.panelset}
 
 Peer city data is available for the housing stability subindex.
 
@@ -787,7 +789,7 @@ plt_pv
 
 <img src="urban_index_files/figure-html/poverty_ranking-1.png" width="672" />
 
-## Metro Council District Maps {.tabset .tabset-fade .tabset-pills}
+## Metro Council District Maps {.panelset}
 
 ### Rental Insecurity Index
 
@@ -1040,7 +1042,7 @@ metro_map(perc_foreign_born, title = "Foreign Born",
 
 <img src="urban_index_files/figure-html/foreign_born_council-1.png" width="672" />
 
-## Metro Council Tables {.tabset .tabset-fade .tabset-pills}
+## Metro Council Tables {.panelset}
 
 ### Housing Subindex
 
@@ -1097,11 +1099,12 @@ metro_house_tbl
 ```
 
 ```{=html}
+<div id="jftrlfboki" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fwptnvejek .gt_table {
+#jftrlfboki .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1126,7 +1129,7 @@ metro_house_tbl
   border-left-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_heading {
+#jftrlfboki .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1138,7 +1141,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_title {
+#jftrlfboki .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1148,7 +1151,7 @@ metro_house_tbl
   border-bottom-width: 0;
 }
 
-#fwptnvejek .gt_subtitle {
+#jftrlfboki .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1158,13 +1161,13 @@ metro_house_tbl
   border-top-width: 0;
 }
 
-#fwptnvejek .gt_bottom_border {
+#jftrlfboki .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_col_headings {
+#jftrlfboki .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1179,7 +1182,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_col_heading {
+#jftrlfboki .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1199,7 +1202,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#fwptnvejek .gt_column_spanner_outer {
+#jftrlfboki .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1211,15 +1214,15 @@ metro_house_tbl
   padding-right: 4px;
 }
 
-#fwptnvejek .gt_column_spanner_outer:first-child {
+#jftrlfboki .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fwptnvejek .gt_column_spanner_outer:last-child {
+#jftrlfboki .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fwptnvejek .gt_column_spanner {
+#jftrlfboki .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1231,7 +1234,7 @@ metro_house_tbl
   width: 100%;
 }
 
-#fwptnvejek .gt_group_heading {
+#jftrlfboki .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1253,7 +1256,7 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#fwptnvejek .gt_empty_group_heading {
+#jftrlfboki .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1268,15 +1271,15 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#fwptnvejek .gt_from_md > :first-child {
+#jftrlfboki .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fwptnvejek .gt_from_md > :last-child {
+#jftrlfboki .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fwptnvejek .gt_row {
+#jftrlfboki .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1295,7 +1298,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#fwptnvejek .gt_stub {
+#jftrlfboki .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1307,7 +1310,7 @@ metro_house_tbl
   padding-left: 12px;
 }
 
-#fwptnvejek .gt_summary_row {
+#jftrlfboki .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1317,7 +1320,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#fwptnvejek .gt_first_summary_row {
+#jftrlfboki .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1327,7 +1330,7 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_grand_summary_row {
+#jftrlfboki .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1337,7 +1340,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#fwptnvejek .gt_first_grand_summary_row {
+#jftrlfboki .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1347,11 +1350,11 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_striped {
+#jftrlfboki .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fwptnvejek .gt_table_body {
+#jftrlfboki .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1360,7 +1363,7 @@ metro_house_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_footnotes {
+#jftrlfboki .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1374,13 +1377,13 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_footnote {
+#jftrlfboki .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#fwptnvejek .gt_sourcenotes {
+#jftrlfboki .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1394,46 +1397,47 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#fwptnvejek .gt_sourcenote {
+#jftrlfboki .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#fwptnvejek .gt_left {
+#jftrlfboki .gt_left {
   text-align: left;
 }
 
-#fwptnvejek .gt_center {
+#jftrlfboki .gt_center {
   text-align: center;
 }
 
-#fwptnvejek .gt_right {
+#jftrlfboki .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fwptnvejek .gt_font_normal {
+#jftrlfboki .gt_font_normal {
   font-weight: normal;
 }
 
-#fwptnvejek .gt_font_bold {
+#jftrlfboki .gt_font_bold {
   font-weight: bold;
 }
 
-#fwptnvejek .gt_font_italic {
+#jftrlfboki .gt_font_italic {
   font-style: italic;
 }
 
-#fwptnvejek .gt_super {
+#jftrlfboki .gt_super {
   font-size: 65%;
 }
 
-#fwptnvejek .gt_footnote_marks {
+#jftrlfboki .gt_footnote_marks {
   font-style: italic;
+  font-weight: normal;
   font-size: 65%;
 }
 </style>
-<div id="fwptnvejek" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="7" class="gt_heading gt_title gt_font_normal" style>Table 1: Housing Indicators</th>
@@ -1444,7 +1448,7 @@ metro_house_tbl
   </thead>
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Metro District</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1">Metro District</th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5">
         <span class="gt_column_spanner">Percent</span>
       </th>
@@ -1462,240 +1466,188 @@ metro_house_tbl
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr>
-      <td class="gt_row gt_center">1</td>
-      <td class="gt_row gt_center">47&percnt;</td>
-      <td class="gt_row gt_center">45&percnt;</td>
-      <td class="gt_row gt_center">24&percnt;</td>
-      <td class="gt_row gt_center">12&percnt;</td>
-      <td class="gt_row gt_center">0&percnt;</td>
-      <td class="gt_row gt_center">0.22</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">2</td>
-      <td class="gt_row gt_center gt_striped">51&percnt;</td>
-      <td class="gt_row gt_center gt_striped">50&percnt;</td>
-      <td class="gt_row gt_center gt_striped">20&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.33</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">46&percnt;</td>
-      <td class="gt_row gt_center">47&percnt;</td>
-      <td class="gt_row gt_center">26&percnt;</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">0.27</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">4</td>
-      <td class="gt_row gt_center gt_striped">35&percnt;</td>
-      <td class="gt_row gt_center gt_striped">80&percnt;</td>
-      <td class="gt_row gt_center gt_striped">43&percnt;</td>
-      <td class="gt_row gt_center gt_striped">17&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.97</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">47&percnt;</td>
-      <td class="gt_row gt_center">57&percnt;</td>
-      <td class="gt_row gt_center">34&percnt;</td>
-      <td class="gt_row gt_center">17&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">0.73</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">6</td>
-      <td class="gt_row gt_center gt_striped">40&percnt;</td>
-      <td class="gt_row gt_center gt_striped">77&percnt;</td>
-      <td class="gt_row gt_center gt_striped">43&percnt;</td>
-      <td class="gt_row gt_center gt_striped">11&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.75</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">64&percnt;</td>
-      <td class="gt_row gt_center">27&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">3&percnt;</td>
-      <td class="gt_row gt_center">0&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.35</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">8</td>
-      <td class="gt_row gt_center gt_striped">38&percnt;</td>
-      <td class="gt_row gt_center gt_striped">32&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.46</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">41&percnt;</td>
-      <td class="gt_row gt_center">42&percnt;</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">0&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.36</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">10</td>
-      <td class="gt_row gt_center gt_striped">47&percnt;</td>
-      <td class="gt_row gt_center gt_striped">41&percnt;</td>
-      <td class="gt_row gt_center gt_striped">15&percnt;</td>
-      <td class="gt_row gt_center gt_striped">6&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.15</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">11</td>
-      <td class="gt_row gt_center">32&percnt;</td>
-      <td class="gt_row gt_center">29&percnt;</td>
-      <td class="gt_row gt_center">7&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.49</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">12</td>
-      <td class="gt_row gt_center gt_striped">49&percnt;</td>
-      <td class="gt_row gt_center gt_striped">32&percnt;</td>
-      <td class="gt_row gt_center gt_striped">12&percnt;</td>
-      <td class="gt_row gt_center gt_striped">6&percnt;</td>
-      <td class="gt_row gt_center gt_striped">2&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.16</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">13</td>
-      <td class="gt_row gt_center">35&percnt;</td>
-      <td class="gt_row gt_center">39&percnt;</td>
-      <td class="gt_row gt_center">17&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.21</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">14</td>
-      <td class="gt_row gt_center gt_striped">50&percnt;</td>
-      <td class="gt_row gt_center gt_striped">23&percnt;</td>
-      <td class="gt_row gt_center gt_striped">16&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.32</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">15</td>
-      <td class="gt_row gt_center">41&percnt;</td>
-      <td class="gt_row gt_center">55&percnt;</td>
-      <td class="gt_row gt_center">26&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">0.28</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">16</td>
-      <td class="gt_row gt_center gt_striped">66&percnt;</td>
-      <td class="gt_row gt_center gt_striped">19&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.32</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">17</td>
-      <td class="gt_row gt_center">64&percnt;</td>
-      <td class="gt_row gt_center">26&percnt;</td>
-      <td class="gt_row gt_center">7&percnt;</td>
-      <td class="gt_row gt_center">3&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.31</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">18</td>
-      <td class="gt_row gt_center gt_striped">56&percnt;</td>
-      <td class="gt_row gt_center gt_striped">37&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.29</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">19</td>
-      <td class="gt_row gt_center">70&percnt;</td>
-      <td class="gt_row gt_center">21&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.29</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">20</td>
-      <td class="gt_row gt_center gt_striped">47&percnt;</td>
-      <td class="gt_row gt_center gt_striped">17&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.57</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">21</td>
-      <td class="gt_row gt_center">50&percnt;</td>
-      <td class="gt_row gt_center">49&percnt;</td>
-      <td class="gt_row gt_center">22&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">0.077</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">22</td>
-      <td class="gt_row gt_center gt_striped">36&percnt;</td>
-      <td class="gt_row gt_center gt_striped">21&percnt;</td>
-      <td class="gt_row gt_center gt_striped">6&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">2&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.51</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">23</td>
-      <td class="gt_row gt_center">41&percnt;</td>
-      <td class="gt_row gt_center">19&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.52</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">24</td>
-      <td class="gt_row gt_center gt_striped">48&percnt;</td>
-      <td class="gt_row gt_center gt_striped">37&percnt;</td>
-      <td class="gt_row gt_center gt_striped">14&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.12</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">25</td>
-      <td class="gt_row gt_center">34&percnt;</td>
-      <td class="gt_row gt_center">34&percnt;</td>
-      <td class="gt_row gt_center">11&percnt;</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.39</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">26</td>
-      <td class="gt_row gt_center gt_striped">52&percnt;</td>
-      <td class="gt_row gt_center gt_striped">40&percnt;</td>
-      <td class="gt_row gt_center gt_striped">12&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.18</td>
-    </tr>
+    <tr><td class="gt_row gt_center">1</td>
+<td class="gt_row gt_center">47&percnt;</td>
+<td class="gt_row gt_center">45&percnt;</td>
+<td class="gt_row gt_center">24&percnt;</td>
+<td class="gt_row gt_center">12&percnt;</td>
+<td class="gt_row gt_center">0&percnt;</td>
+<td class="gt_row gt_center">0.22</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">2</td>
+<td class="gt_row gt_center gt_striped">51&percnt;</td>
+<td class="gt_row gt_center gt_striped">50&percnt;</td>
+<td class="gt_row gt_center gt_striped">20&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.33</td></tr>
+    <tr><td class="gt_row gt_center">3</td>
+<td class="gt_row gt_center">46&percnt;</td>
+<td class="gt_row gt_center">47&percnt;</td>
+<td class="gt_row gt_center">26&percnt;</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">0.27</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">4</td>
+<td class="gt_row gt_center gt_striped">35&percnt;</td>
+<td class="gt_row gt_center gt_striped">80&percnt;</td>
+<td class="gt_row gt_center gt_striped">43&percnt;</td>
+<td class="gt_row gt_center gt_striped">17&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.97</td></tr>
+    <tr><td class="gt_row gt_center">5</td>
+<td class="gt_row gt_center">47&percnt;</td>
+<td class="gt_row gt_center">57&percnt;</td>
+<td class="gt_row gt_center">34&percnt;</td>
+<td class="gt_row gt_center">17&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">0.73</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">6</td>
+<td class="gt_row gt_center gt_striped">40&percnt;</td>
+<td class="gt_row gt_center gt_striped">77&percnt;</td>
+<td class="gt_row gt_center gt_striped">43&percnt;</td>
+<td class="gt_row gt_center gt_striped">11&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.75</td></tr>
+    <tr><td class="gt_row gt_center">7</td>
+<td class="gt_row gt_center">64&percnt;</td>
+<td class="gt_row gt_center">27&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">3&percnt;</td>
+<td class="gt_row gt_center">0&percnt;</td>
+<td class="gt_row gt_center">&minus;0.35</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">8</td>
+<td class="gt_row gt_center gt_striped">38&percnt;</td>
+<td class="gt_row gt_center gt_striped">32&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.46</td></tr>
+    <tr><td class="gt_row gt_center">9</td>
+<td class="gt_row gt_center">41&percnt;</td>
+<td class="gt_row gt_center">42&percnt;</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">0&percnt;</td>
+<td class="gt_row gt_center">&minus;0.36</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">10</td>
+<td class="gt_row gt_center gt_striped">47&percnt;</td>
+<td class="gt_row gt_center gt_striped">41&percnt;</td>
+<td class="gt_row gt_center gt_striped">15&percnt;</td>
+<td class="gt_row gt_center gt_striped">6&percnt;</td>
+<td class="gt_row gt_center gt_striped">0&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.15</td></tr>
+    <tr><td class="gt_row gt_center">11</td>
+<td class="gt_row gt_center">32&percnt;</td>
+<td class="gt_row gt_center">29&percnt;</td>
+<td class="gt_row gt_center">7&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.49</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">12</td>
+<td class="gt_row gt_center gt_striped">49&percnt;</td>
+<td class="gt_row gt_center gt_striped">32&percnt;</td>
+<td class="gt_row gt_center gt_striped">12&percnt;</td>
+<td class="gt_row gt_center gt_striped">6&percnt;</td>
+<td class="gt_row gt_center gt_striped">2&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.16</td></tr>
+    <tr><td class="gt_row gt_center">13</td>
+<td class="gt_row gt_center">35&percnt;</td>
+<td class="gt_row gt_center">39&percnt;</td>
+<td class="gt_row gt_center">17&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.21</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">14</td>
+<td class="gt_row gt_center gt_striped">50&percnt;</td>
+<td class="gt_row gt_center gt_striped">23&percnt;</td>
+<td class="gt_row gt_center gt_striped">16&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">0&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.32</td></tr>
+    <tr><td class="gt_row gt_center">15</td>
+<td class="gt_row gt_center">41&percnt;</td>
+<td class="gt_row gt_center">55&percnt;</td>
+<td class="gt_row gt_center">26&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">0.28</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">16</td>
+<td class="gt_row gt_center gt_striped">66&percnt;</td>
+<td class="gt_row gt_center gt_striped">19&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.32</td></tr>
+    <tr><td class="gt_row gt_center">17</td>
+<td class="gt_row gt_center">64&percnt;</td>
+<td class="gt_row gt_center">26&percnt;</td>
+<td class="gt_row gt_center">7&percnt;</td>
+<td class="gt_row gt_center">3&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.31</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">18</td>
+<td class="gt_row gt_center gt_striped">56&percnt;</td>
+<td class="gt_row gt_center gt_striped">37&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.29</td></tr>
+    <tr><td class="gt_row gt_center">19</td>
+<td class="gt_row gt_center">70&percnt;</td>
+<td class="gt_row gt_center">21&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.29</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">20</td>
+<td class="gt_row gt_center gt_striped">47&percnt;</td>
+<td class="gt_row gt_center gt_striped">17&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.57</td></tr>
+    <tr><td class="gt_row gt_center">21</td>
+<td class="gt_row gt_center">50&percnt;</td>
+<td class="gt_row gt_center">49&percnt;</td>
+<td class="gt_row gt_center">22&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">0.077</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">22</td>
+<td class="gt_row gt_center gt_striped">36&percnt;</td>
+<td class="gt_row gt_center gt_striped">21&percnt;</td>
+<td class="gt_row gt_center gt_striped">6&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">2&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.51</td></tr>
+    <tr><td class="gt_row gt_center">23</td>
+<td class="gt_row gt_center">41&percnt;</td>
+<td class="gt_row gt_center">19&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.52</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">24</td>
+<td class="gt_row gt_center gt_striped">48&percnt;</td>
+<td class="gt_row gt_center gt_striped">37&percnt;</td>
+<td class="gt_row gt_center gt_striped">14&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.12</td></tr>
+    <tr><td class="gt_row gt_center">25</td>
+<td class="gt_row gt_center">34&percnt;</td>
+<td class="gt_row gt_center">34&percnt;</td>
+<td class="gt_row gt_center">11&percnt;</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">&minus;0.39</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">26</td>
+<td class="gt_row gt_center gt_striped">52&percnt;</td>
+<td class="gt_row gt_center gt_striped">40&percnt;</td>
+<td class="gt_row gt_center gt_striped">12&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.18</td></tr>
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
@@ -1706,7 +1658,8 @@ metro_house_tbl
     </tr>
   </tfoot>
   
-</table></div>
+</table>
+</div>
 ```
 
 ### Covid Subindex
@@ -1759,11 +1712,12 @@ metro_covid_tbl
 ```
 
 ```{=html}
+<div id="wuuqqguszb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#lfqepbbijf .gt_table {
+#wuuqqguszb .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1788,7 +1742,7 @@ metro_covid_tbl
   border-left-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_heading {
+#wuuqqguszb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1800,7 +1754,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_title {
+#wuuqqguszb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1810,7 +1764,7 @@ metro_covid_tbl
   border-bottom-width: 0;
 }
 
-#lfqepbbijf .gt_subtitle {
+#wuuqqguszb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1820,13 +1774,13 @@ metro_covid_tbl
   border-top-width: 0;
 }
 
-#lfqepbbijf .gt_bottom_border {
+#wuuqqguszb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_col_headings {
+#wuuqqguszb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1841,7 +1795,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_col_heading {
+#wuuqqguszb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1861,7 +1815,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#lfqepbbijf .gt_column_spanner_outer {
+#wuuqqguszb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1873,15 +1827,15 @@ metro_covid_tbl
   padding-right: 4px;
 }
 
-#lfqepbbijf .gt_column_spanner_outer:first-child {
+#wuuqqguszb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lfqepbbijf .gt_column_spanner_outer:last-child {
+#wuuqqguszb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lfqepbbijf .gt_column_spanner {
+#wuuqqguszb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1893,7 +1847,7 @@ metro_covid_tbl
   width: 100%;
 }
 
-#lfqepbbijf .gt_group_heading {
+#wuuqqguszb .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1915,7 +1869,7 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#lfqepbbijf .gt_empty_group_heading {
+#wuuqqguszb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1930,15 +1884,15 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#lfqepbbijf .gt_from_md > :first-child {
+#wuuqqguszb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lfqepbbijf .gt_from_md > :last-child {
+#wuuqqguszb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lfqepbbijf .gt_row {
+#wuuqqguszb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1957,7 +1911,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#lfqepbbijf .gt_stub {
+#wuuqqguszb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1969,7 +1923,7 @@ metro_covid_tbl
   padding-left: 12px;
 }
 
-#lfqepbbijf .gt_summary_row {
+#wuuqqguszb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1979,7 +1933,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#lfqepbbijf .gt_first_summary_row {
+#wuuqqguszb .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1989,7 +1943,7 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_grand_summary_row {
+#wuuqqguszb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1999,7 +1953,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#lfqepbbijf .gt_first_grand_summary_row {
+#wuuqqguszb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2009,11 +1963,11 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_striped {
+#wuuqqguszb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lfqepbbijf .gt_table_body {
+#wuuqqguszb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2022,7 +1976,7 @@ metro_covid_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_footnotes {
+#wuuqqguszb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2036,13 +1990,13 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_footnote {
+#wuuqqguszb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#lfqepbbijf .gt_sourcenotes {
+#wuuqqguszb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2056,46 +2010,47 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#lfqepbbijf .gt_sourcenote {
+#wuuqqguszb .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#lfqepbbijf .gt_left {
+#wuuqqguszb .gt_left {
   text-align: left;
 }
 
-#lfqepbbijf .gt_center {
+#wuuqqguszb .gt_center {
   text-align: center;
 }
 
-#lfqepbbijf .gt_right {
+#wuuqqguszb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lfqepbbijf .gt_font_normal {
+#wuuqqguszb .gt_font_normal {
   font-weight: normal;
 }
 
-#lfqepbbijf .gt_font_bold {
+#wuuqqguszb .gt_font_bold {
   font-weight: bold;
 }
 
-#lfqepbbijf .gt_font_italic {
+#wuuqqguszb .gt_font_italic {
   font-style: italic;
 }
 
-#lfqepbbijf .gt_super {
+#wuuqqguszb .gt_super {
   font-size: 65%;
 }
 
-#lfqepbbijf .gt_footnote_marks {
+#wuuqqguszb .gt_footnote_marks {
   font-style: italic;
+  font-weight: normal;
   font-size: 65%;
 }
 </style>
-<div id="lfqepbbijf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="4" class="gt_heading gt_title gt_font_normal" style>Table 2: Covid Indicators</th>
@@ -2106,7 +2061,7 @@ metro_covid_tbl
   </thead>
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Metro District</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1">Metro District</th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
         <span class="gt_column_spanner">Percent</span>
       </th>
@@ -2121,162 +2076,110 @@ metro_covid_tbl
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr>
-      <td class="gt_row gt_center">1</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.18</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">2</td>
-      <td class="gt_row gt_center gt_striped">14&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.012</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.098</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">4</td>
-      <td class="gt_row gt_center gt_striped">10&percnt;</td>
-      <td class="gt_row gt_center gt_striped">10&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.011</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.082</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">6</td>
-      <td class="gt_row gt_center gt_striped">11&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.0010</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.20</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">8</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.34</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">7&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.22</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">10</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.20</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">11</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.41</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">12</td>
-      <td class="gt_row gt_center gt_striped">7&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.42</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">13</td>
-      <td class="gt_row gt_center">13&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.17</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">14</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.42</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">15</td>
-      <td class="gt_row gt_center">12&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.046</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">16</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">10&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.24</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">17</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.16</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">18</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.28</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">19</td>
-      <td class="gt_row gt_center">3&percnt;</td>
-      <td class="gt_row gt_center">9&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.36</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">20</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.49</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">21</td>
-      <td class="gt_row gt_center">14&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.017</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">22</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.44</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">23</td>
-      <td class="gt_row gt_center">7&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.38</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">24</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.29</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">25</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.38</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">26</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.17</td>
-    </tr>
+    <tr><td class="gt_row gt_center">1</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.18</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">2</td>
+<td class="gt_row gt_center gt_striped">14&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.012</td></tr>
+    <tr><td class="gt_row gt_center">3</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.098</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">4</td>
+<td class="gt_row gt_center gt_striped">10&percnt;</td>
+<td class="gt_row gt_center gt_striped">10&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.011</td></tr>
+    <tr><td class="gt_row gt_center">5</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.082</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">6</td>
+<td class="gt_row gt_center gt_striped">11&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.0010</td></tr>
+    <tr><td class="gt_row gt_center">7</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.20</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">8</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.34</td></tr>
+    <tr><td class="gt_row gt_center">9</td>
+<td class="gt_row gt_center">7&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.22</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">10</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.20</td></tr>
+    <tr><td class="gt_row gt_center">11</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.41</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">12</td>
+<td class="gt_row gt_center gt_striped">7&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.42</td></tr>
+    <tr><td class="gt_row gt_center">13</td>
+<td class="gt_row gt_center">13&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">&minus;0.17</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">14</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.42</td></tr>
+    <tr><td class="gt_row gt_center">15</td>
+<td class="gt_row gt_center">12&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.046</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">16</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">10&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.24</td></tr>
+    <tr><td class="gt_row gt_center">17</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">&minus;0.16</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">18</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.28</td></tr>
+    <tr><td class="gt_row gt_center">19</td>
+<td class="gt_row gt_center">3&percnt;</td>
+<td class="gt_row gt_center">9&percnt;</td>
+<td class="gt_row gt_center">&minus;0.36</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">20</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.49</td></tr>
+    <tr><td class="gt_row gt_center">21</td>
+<td class="gt_row gt_center">14&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">&minus;0.017</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">22</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.44</td></tr>
+    <tr><td class="gt_row gt_center">23</td>
+<td class="gt_row gt_center">7&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">&minus;0.38</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">24</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.29</td></tr>
+    <tr><td class="gt_row gt_center">25</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">&minus;0.38</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">26</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.17</td></tr>
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
@@ -2287,7 +2190,8 @@ metro_covid_tbl
     </tr>
   </tfoot>
   
-</table></div>
+</table>
+</div>
 ```
 
 ### Equity Index
@@ -2342,11 +2246,12 @@ metro_equity_tbl
 ```
 
 ```{=html}
+<div id="noaksiewgx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zqnozamqkq .gt_table {
+#noaksiewgx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2371,7 +2276,7 @@ metro_equity_tbl
   border-left-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_heading {
+#noaksiewgx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2383,7 +2288,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_title {
+#noaksiewgx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2393,7 +2298,7 @@ metro_equity_tbl
   border-bottom-width: 0;
 }
 
-#zqnozamqkq .gt_subtitle {
+#noaksiewgx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2403,13 +2308,13 @@ metro_equity_tbl
   border-top-width: 0;
 }
 
-#zqnozamqkq .gt_bottom_border {
+#noaksiewgx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_col_headings {
+#noaksiewgx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2424,7 +2329,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_col_heading {
+#noaksiewgx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2444,7 +2349,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#zqnozamqkq .gt_column_spanner_outer {
+#noaksiewgx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2456,15 +2361,15 @@ metro_equity_tbl
   padding-right: 4px;
 }
 
-#zqnozamqkq .gt_column_spanner_outer:first-child {
+#noaksiewgx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zqnozamqkq .gt_column_spanner_outer:last-child {
+#noaksiewgx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zqnozamqkq .gt_column_spanner {
+#noaksiewgx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2476,7 +2381,7 @@ metro_equity_tbl
   width: 100%;
 }
 
-#zqnozamqkq .gt_group_heading {
+#noaksiewgx .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2498,7 +2403,7 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#zqnozamqkq .gt_empty_group_heading {
+#noaksiewgx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2513,15 +2418,15 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#zqnozamqkq .gt_from_md > :first-child {
+#noaksiewgx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zqnozamqkq .gt_from_md > :last-child {
+#noaksiewgx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zqnozamqkq .gt_row {
+#noaksiewgx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2540,7 +2445,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#zqnozamqkq .gt_stub {
+#noaksiewgx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2552,7 +2457,7 @@ metro_equity_tbl
   padding-left: 12px;
 }
 
-#zqnozamqkq .gt_summary_row {
+#noaksiewgx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2562,7 +2467,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#zqnozamqkq .gt_first_summary_row {
+#noaksiewgx .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2572,7 +2477,7 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_grand_summary_row {
+#noaksiewgx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2582,7 +2487,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#zqnozamqkq .gt_first_grand_summary_row {
+#noaksiewgx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2592,11 +2497,11 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_striped {
+#noaksiewgx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zqnozamqkq .gt_table_body {
+#noaksiewgx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2605,7 +2510,7 @@ metro_equity_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_footnotes {
+#noaksiewgx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2619,13 +2524,13 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_footnote {
+#noaksiewgx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#zqnozamqkq .gt_sourcenotes {
+#noaksiewgx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2639,46 +2544,47 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#zqnozamqkq .gt_sourcenote {
+#noaksiewgx .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#zqnozamqkq .gt_left {
+#noaksiewgx .gt_left {
   text-align: left;
 }
 
-#zqnozamqkq .gt_center {
+#noaksiewgx .gt_center {
   text-align: center;
 }
 
-#zqnozamqkq .gt_right {
+#noaksiewgx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zqnozamqkq .gt_font_normal {
+#noaksiewgx .gt_font_normal {
   font-weight: normal;
 }
 
-#zqnozamqkq .gt_font_bold {
+#noaksiewgx .gt_font_bold {
   font-weight: bold;
 }
 
-#zqnozamqkq .gt_font_italic {
+#noaksiewgx .gt_font_italic {
   font-style: italic;
 }
 
-#zqnozamqkq .gt_super {
+#noaksiewgx .gt_super {
   font-size: 65%;
 }
 
-#zqnozamqkq .gt_footnote_marks {
+#noaksiewgx .gt_footnote_marks {
   font-style: italic;
+  font-weight: normal;
   font-size: 65%;
 }
 </style>
-<div id="zqnozamqkq" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="6" class="gt_heading gt_title gt_font_normal" style>Table 3: Equity Indicators</th>
@@ -2689,7 +2595,7 @@ metro_equity_tbl
   </thead>
   <thead class="gt_col_headings">
     <tr>
-      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Metro District</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1">Metro District</th>
       <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="5">
         <span class="gt_column_spanner">Percent</span>
       </th>
@@ -2703,214 +2609,162 @@ metro_equity_tbl
     </tr>
   </thead>
   <tbody class="gt_table_body">
-    <tr>
-      <td class="gt_row gt_center">1</td>
-      <td class="gt_row gt_center">68&percnt;</td>
-      <td class="gt_row gt_center">43&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">0.48</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">2</td>
-      <td class="gt_row gt_center gt_striped">69&percnt;</td>
-      <td class="gt_row gt_center gt_striped">28&percnt;</td>
-      <td class="gt_row gt_center gt_striped">2&percnt;</td>
-      <td class="gt_row gt_center gt_striped">18&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.67</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">3</td>
-      <td class="gt_row gt_center">66&percnt;</td>
-      <td class="gt_row gt_center">45&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">4&percnt;</td>
-      <td class="gt_row gt_center">0.57</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">4</td>
-      <td class="gt_row gt_center gt_striped">60&percnt;</td>
-      <td class="gt_row gt_center gt_striped">50&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.53</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">5</td>
-      <td class="gt_row gt_center">74&percnt;</td>
-      <td class="gt_row gt_center">45&percnt;</td>
-      <td class="gt_row gt_center">3&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">0.63</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">6</td>
-      <td class="gt_row gt_center gt_striped">53&percnt;</td>
-      <td class="gt_row gt_center gt_striped">46&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">0.38</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">7</td>
-      <td class="gt_row gt_center">16&percnt;</td>
-      <td class="gt_row gt_center">11&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">7&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.71</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">8</td>
-      <td class="gt_row gt_center gt_striped">7&percnt;</td>
-      <td class="gt_row gt_center gt_striped">15&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.92</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">9</td>
-      <td class="gt_row gt_center">15&percnt;</td>
-      <td class="gt_row gt_center">19&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.67</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">10</td>
-      <td class="gt_row gt_center gt_striped">28&percnt;</td>
-      <td class="gt_row gt_center gt_striped">28&percnt;</td>
-      <td class="gt_row gt_center gt_striped">2&percnt;</td>
-      <td class="gt_row gt_center gt_striped">9&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.28</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">11</td>
-      <td class="gt_row gt_center">23&percnt;</td>
-      <td class="gt_row gt_center">11&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.53</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">12</td>
-      <td class="gt_row gt_center gt_striped">27&percnt;</td>
-      <td class="gt_row gt_center gt_striped">26&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.32</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">13</td>
-      <td class="gt_row gt_center">31&percnt;</td>
-      <td class="gt_row gt_center">23&percnt;</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">12&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.035</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">14</td>
-      <td class="gt_row gt_center gt_striped">15&percnt;</td>
-      <td class="gt_row gt_center gt_striped">28&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.51</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">15</td>
-      <td class="gt_row gt_center">38&percnt;</td>
-      <td class="gt_row gt_center">32&percnt;</td>
-      <td class="gt_row gt_center">5&percnt;</td>
-      <td class="gt_row gt_center">8&percnt;</td>
-      <td class="gt_row gt_center">0.11</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">16</td>
-      <td class="gt_row gt_center gt_striped">18&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">8&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.67</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">17</td>
-      <td class="gt_row gt_center">25&percnt;</td>
-      <td class="gt_row gt_center">15&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">10&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.43</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">18</td>
-      <td class="gt_row gt_center gt_striped">20&percnt;</td>
-      <td class="gt_row gt_center gt_striped">12&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">11&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.57</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">19</td>
-      <td class="gt_row gt_center">17&percnt;</td>
-      <td class="gt_row gt_center">14&percnt;</td>
-      <td class="gt_row gt_center">1&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.71</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">20</td>
-      <td class="gt_row gt_center gt_striped">16&percnt;</td>
-      <td class="gt_row gt_center gt_striped">17&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.74</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">21</td>
-      <td class="gt_row gt_center">44&percnt;</td>
-      <td class="gt_row gt_center">29&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">19&percnt;</td>
-      <td class="gt_row gt_center">0.28</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">22</td>
-      <td class="gt_row gt_center gt_striped">22&percnt;</td>
-      <td class="gt_row gt_center gt_striped">13&percnt;</td>
-      <td class="gt_row gt_center gt_striped">1&percnt;</td>
-      <td class="gt_row gt_center gt_striped">5&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.63</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">23</td>
-      <td class="gt_row gt_center">23&percnt;</td>
-      <td class="gt_row gt_center">16&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.54</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">24</td>
-      <td class="gt_row gt_center gt_striped">31&percnt;</td>
-      <td class="gt_row gt_center gt_striped">26&percnt;</td>
-      <td class="gt_row gt_center gt_striped">3&percnt;</td>
-      <td class="gt_row gt_center gt_striped">11&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.13</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center">25</td>
-      <td class="gt_row gt_center">24&percnt;</td>
-      <td class="gt_row gt_center">20&percnt;</td>
-      <td class="gt_row gt_center">2&percnt;</td>
-      <td class="gt_row gt_center">6&percnt;</td>
-      <td class="gt_row gt_center">&minus;0.49</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_center gt_striped">26</td>
-      <td class="gt_row gt_center gt_striped">26&percnt;</td>
-      <td class="gt_row gt_center gt_striped">20&percnt;</td>
-      <td class="gt_row gt_center gt_striped">4&percnt;</td>
-      <td class="gt_row gt_center gt_striped">13&percnt;</td>
-      <td class="gt_row gt_center gt_striped">&minus;0.19</td>
-    </tr>
+    <tr><td class="gt_row gt_center">1</td>
+<td class="gt_row gt_center">68&percnt;</td>
+<td class="gt_row gt_center">43&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">0.48</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">2</td>
+<td class="gt_row gt_center gt_striped">69&percnt;</td>
+<td class="gt_row gt_center gt_striped">28&percnt;</td>
+<td class="gt_row gt_center gt_striped">2&percnt;</td>
+<td class="gt_row gt_center gt_striped">18&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.67</td></tr>
+    <tr><td class="gt_row gt_center">3</td>
+<td class="gt_row gt_center">66&percnt;</td>
+<td class="gt_row gt_center">45&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">4&percnt;</td>
+<td class="gt_row gt_center">0.57</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">4</td>
+<td class="gt_row gt_center gt_striped">60&percnt;</td>
+<td class="gt_row gt_center gt_striped">50&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.53</td></tr>
+    <tr><td class="gt_row gt_center">5</td>
+<td class="gt_row gt_center">74&percnt;</td>
+<td class="gt_row gt_center">45&percnt;</td>
+<td class="gt_row gt_center">3&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">0.63</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">6</td>
+<td class="gt_row gt_center gt_striped">53&percnt;</td>
+<td class="gt_row gt_center gt_striped">46&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">0.38</td></tr>
+    <tr><td class="gt_row gt_center">7</td>
+<td class="gt_row gt_center">16&percnt;</td>
+<td class="gt_row gt_center">11&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">7&percnt;</td>
+<td class="gt_row gt_center">&minus;0.71</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">8</td>
+<td class="gt_row gt_center gt_striped">7&percnt;</td>
+<td class="gt_row gt_center gt_striped">15&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.92</td></tr>
+    <tr><td class="gt_row gt_center">9</td>
+<td class="gt_row gt_center">15&percnt;</td>
+<td class="gt_row gt_center">19&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">&minus;0.67</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">10</td>
+<td class="gt_row gt_center gt_striped">28&percnt;</td>
+<td class="gt_row gt_center gt_striped">28&percnt;</td>
+<td class="gt_row gt_center gt_striped">2&percnt;</td>
+<td class="gt_row gt_center gt_striped">9&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.28</td></tr>
+    <tr><td class="gt_row gt_center">11</td>
+<td class="gt_row gt_center">23&percnt;</td>
+<td class="gt_row gt_center">11&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">&minus;0.53</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">12</td>
+<td class="gt_row gt_center gt_striped">27&percnt;</td>
+<td class="gt_row gt_center gt_striped">26&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.32</td></tr>
+    <tr><td class="gt_row gt_center">13</td>
+<td class="gt_row gt_center">31&percnt;</td>
+<td class="gt_row gt_center">23&percnt;</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">12&percnt;</td>
+<td class="gt_row gt_center">&minus;0.035</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">14</td>
+<td class="gt_row gt_center gt_striped">15&percnt;</td>
+<td class="gt_row gt_center gt_striped">28&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.51</td></tr>
+    <tr><td class="gt_row gt_center">15</td>
+<td class="gt_row gt_center">38&percnt;</td>
+<td class="gt_row gt_center">32&percnt;</td>
+<td class="gt_row gt_center">5&percnt;</td>
+<td class="gt_row gt_center">8&percnt;</td>
+<td class="gt_row gt_center">0.11</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">16</td>
+<td class="gt_row gt_center gt_striped">18&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">8&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.67</td></tr>
+    <tr><td class="gt_row gt_center">17</td>
+<td class="gt_row gt_center">25&percnt;</td>
+<td class="gt_row gt_center">15&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">10&percnt;</td>
+<td class="gt_row gt_center">&minus;0.43</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">18</td>
+<td class="gt_row gt_center gt_striped">20&percnt;</td>
+<td class="gt_row gt_center gt_striped">12&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">11&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.57</td></tr>
+    <tr><td class="gt_row gt_center">19</td>
+<td class="gt_row gt_center">17&percnt;</td>
+<td class="gt_row gt_center">14&percnt;</td>
+<td class="gt_row gt_center">1&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">&minus;0.71</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">20</td>
+<td class="gt_row gt_center gt_striped">16&percnt;</td>
+<td class="gt_row gt_center gt_striped">17&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.74</td></tr>
+    <tr><td class="gt_row gt_center">21</td>
+<td class="gt_row gt_center">44&percnt;</td>
+<td class="gt_row gt_center">29&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">19&percnt;</td>
+<td class="gt_row gt_center">0.28</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">22</td>
+<td class="gt_row gt_center gt_striped">22&percnt;</td>
+<td class="gt_row gt_center gt_striped">13&percnt;</td>
+<td class="gt_row gt_center gt_striped">1&percnt;</td>
+<td class="gt_row gt_center gt_striped">5&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.63</td></tr>
+    <tr><td class="gt_row gt_center">23</td>
+<td class="gt_row gt_center">23&percnt;</td>
+<td class="gt_row gt_center">16&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">&minus;0.54</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">24</td>
+<td class="gt_row gt_center gt_striped">31&percnt;</td>
+<td class="gt_row gt_center gt_striped">26&percnt;</td>
+<td class="gt_row gt_center gt_striped">3&percnt;</td>
+<td class="gt_row gt_center gt_striped">11&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.13</td></tr>
+    <tr><td class="gt_row gt_center">25</td>
+<td class="gt_row gt_center">24&percnt;</td>
+<td class="gt_row gt_center">20&percnt;</td>
+<td class="gt_row gt_center">2&percnt;</td>
+<td class="gt_row gt_center">6&percnt;</td>
+<td class="gt_row gt_center">&minus;0.49</td></tr>
+    <tr><td class="gt_row gt_center gt_striped">26</td>
+<td class="gt_row gt_center gt_striped">26&percnt;</td>
+<td class="gt_row gt_center gt_striped">20&percnt;</td>
+<td class="gt_row gt_center gt_striped">4&percnt;</td>
+<td class="gt_row gt_center gt_striped">13&percnt;</td>
+<td class="gt_row gt_center gt_striped">&minus;0.19</td></tr>
   </tbody>
   <tfoot class="gt_sourcenotes">
     <tr>
@@ -2921,10 +2775,11 @@ metro_equity_tbl
     </tr>
   </tfoot>
   
-</table></div>
+</table>
+</div>
 ```
 
-## Home Mortgages {.tabset .tabset-fade .tabset-pills}
+## Home Mortgages
 
 ### Mortgages by geography
 
@@ -3136,7 +2991,7 @@ make_map(rate, title = "Mortgage Interest Rate in 2019",
 
 <img src="urban_index_files/figure-html/mortgage_interest-1.png" width="672" />
 
-## Housing Price Changes {.tabset .tabset-fade .tabset-pills}
+## Housing Price Changes
 
 As Louisville grows, increasing home prices reflect changes in inflation and increasing demand for homes. Long-term growth in home prices helps homeowners build equity and wealth. Short-term appreciation can be a boon to homeowners with the finances to stay in their home, though it also causes many homeowners and renters to be dislocated from their neighborhood.
 
