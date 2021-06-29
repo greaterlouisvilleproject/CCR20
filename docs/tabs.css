@@ -35,11 +35,6 @@
   border-top: none;
 }
 
-h3.hasAnchor,h4.hasAnchor {
-  clear: left;
-  padding-top: 24px;
-}
-
 h3>span.header-section-number,h4>span.header-section-number {
   display:none;
 }

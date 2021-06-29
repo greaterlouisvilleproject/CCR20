@@ -13,21 +13,19 @@ knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = e
 
 # Housing Instability
 
-## Introduction
-
 This recreates the Urban Institute's [Emergency Rental Assistance Priority Index](https://www.urban.org/features/where-prioritize-emergency-rental-assistance-keep-renters-their-homes) for Louisville. The original index compares Louisville to the rest of Kentucky. At Greater Louisville Project, we think the more appropriate comparison is to our other peer cities. While the maps below show Louisville, the index values are based on a comparison to all census tracts in the core counties of our peer cities.
 
 Greater Louisville Project has also aggregated the data up to the metro council district level. That data is available in both maps and tables.
 
 In addition to the indexes, the indicators that make up the indexes are also mapped below. Navigation is based on tabs, so clicking on the small blue titles brings up the map related to each title.
 
-### Methods and Definitions
+## Methods and Definitions
 
 To produce an index with multiple indicators on different scales we used z-scores, which are a measure of how far away from average an observation is. For example, if looking at unemployment, we start with the unemployment rate in all tracts and the score for an individual tract is the number of standard deviations it is away from the average tract.
 
 Data is from the Urban Institute's [Emergency Rental Assistance Priority Index](https://www.urban.org/features/where-prioritize-emergency-rental-assistance-keep-renters-their-homes) and in most cases is tract level census data from 2018. The low income jobs lost to Covid is an [Urban Institute constructed indicator](https://www.urban.org/features/where-low-income-jobs-are-being-lost-covid-19). Complete details on the indicators can be found in the [technical appendix](https://www.urban.org/sites/default/files/2020/08/24/where_to_prioritize_emergency_rental_assistance_to_keep_renters_in_their_homes_technical_appendix.pdf), but they are summarized here for convenience.
 
-#### Housing Instability Index
+### Housing Instability Index
 
 -   Poverty: Under the poverty line in the last 12 months
 -   Percent Renting: The percent of households in the area who rent
@@ -35,12 +33,12 @@ Data is from the Urban Institute's [Emergency Rental Assistance Priority Index](
 -   Overcrowding: Households renting and with more than 1.5 people per room.
 -   Unemployed: In the labor force but not currently employed.
 
-#### Covid Index
+### Covid Index
 
 -   Health Insurance: Based on the noninstitutionalized population ages 19-64.
 -   Low Income Job Loss from Covid: Estimated jobs lost to Covid based on previous [Urban Institute Study](https://www.urban.org/features/where-low-income-jobs-are-being-lost-covid-19)
 
-#### Equity Index
+### Equity Index
 
 -   Percent Persons of Color: Percent of people in the area who identify as persons of color
 -   Extremely Low Income: Renter occupied household making less than 30 percent of area median income
@@ -99,7 +97,7 @@ df_index <- df_z %>%
   )
 ```
 
-## Rental Insecurity Index{.panelset}
+## Rental Insecurity Index
 
 
 ```r
@@ -168,7 +166,9 @@ make_map(overall_index, title = "Rental Insecurity Index",
 
 You can flip through the tabs below to see each of the three subindexes that make up the overall rental index.
 
-### Housing Instability Subindex
+::::: {.panelset}
+
+### Housing Instability Subindex {.panel .unnumbered}
 
 -   Share of people living in poverty
 -   Share of renter-occupied housing units
@@ -186,7 +186,7 @@ make_map(housing_instability_index, title = "Housing Instability Subindex",
 
 <img src="urban_index_files/figure-html/housing_instability_subindex-1.png" width="672" />
 
-### Covid 19 Impact Subindex
+### Covid 19 Impact Subindex {.panel .unnumbered}
 
 -   Share of adults without health insurance
 -   Share of low-income jobs lost to Covid-19
@@ -201,7 +201,7 @@ make_map(covid_index, title = "Covid Instability Subindex",
 
 <img src="urban_index_files/figure-html/covid_19_impact_subindex-1.png" width="672" />
 
-### Equity Subindex
+### Equity Subindex {.panel .unnumbered}
 
 -   Share of people of color
 -   Share of extremely low-income renter households
@@ -218,9 +218,13 @@ make_map(equity_index, title = "Equity Subindex",
 
 <img src="urban_index_files/figure-html/equity_subindex-1.png" width="672" />
 
-## Housing Instability Indicators {.panelset}
+:::::
 
-### Poverty
+## Housing Instability Indicators
+
+::::: {.panelset}
+
+### Poverty {.panel .unnumbered}
 
 
 ```r
@@ -231,7 +235,7 @@ make_map(perc_poverty_12mnth, title = "Poverty",
 
 <img src="urban_index_files/figure-html/poverty-1.png" width="672" />
 
-### Percent Renting
+### Percent Renting {.panel .unnumbered}
 
 
 ```r
@@ -242,7 +246,7 @@ make_map(perc_renters, title = "Percent of Renter Occupied Housing Units",
 
 <img src="urban_index_files/figure-html/renting-1.png" width="672" />
 
-### Cost-burdened housholds
+### Cost-burdened housholds {.panel .unnumbered}
 
 
 ```r
@@ -253,7 +257,7 @@ make_map(perc_cost_burdened_under_35k, title = "Costburdened Households making u
 
 <img src="urban_index_files/figure-html/cost_burdened-1.png" width="672" />
 
-### Overcrowding
+### Overcrowding {.panel .unnumbered}
 
 
 ```r
@@ -264,7 +268,7 @@ make_map(perc_overcrowding_renter_1.50_or_more, title = "Overcrowding in Rental 
 
 <img src="urban_index_files/figure-html/overcrowding-1.png" width="672" />
 
-### Unemployed
+### Unemployed {.panel .unnumbered}
 
 
 ```r
@@ -275,9 +279,13 @@ make_map(perc_unemployed_laborforce, title = "Unemployment",
 
 <img src="urban_index_files/figure-html/unemployment-1.png" width="672" />
 
-## Covid Indicators {.panelset}
+:::::
 
-### No Health Insurance
+## Covid Indicators
+
+::::: {.panelset}
+
+### No Health Insurance {.panel .unnumbered}
 
 
 ```r
@@ -288,7 +296,7 @@ make_map(perc_no_hinsure, title = "No Health Insurance",
 
 <img src="urban_index_files/figure-html/no_health_insurance-1.png" width="672" />
 
-### Low Income Jobs Lost to Covid
+### Low Income Jobs Lost to Covid {.panel .unnumbered}
 
 
 ```r
@@ -299,9 +307,13 @@ make_map(perc_low_income_jobs_lost, title = "Low Income Jobs Lost to Covid",
 
 <img src="urban_index_files/figure-html/low_income_job_loss-1.png" width="672" />
 
-## Equity Index {.panelset}
+## Equity Index
 
-### Percent PoC
+:::::
+
+::::: {.panelset}
+
+### Percent PoC {.panel .unnumbered}
 
 
 ```r
@@ -312,7 +324,7 @@ make_map(perc_person_of_color, title = "Percent Persons of Color",
 
 <img src="urban_index_files/figure-html/people_of_color-1.png" width="672" />
 
-### Extremely Low Income
+### Extremely Low Income {.panel .unnumbered}
 
 
 ```r
@@ -323,7 +335,7 @@ make_map(perc_30hamfi, title = "Extremely Low Income",
 
 <img src="urban_index_files/figure-html/extremely_low_income-1.png" width="672" />
 
-### Public Assistance
+### Public Assistance {.panel .unnumbered}
 
 
 ```r
@@ -334,7 +346,7 @@ make_map(perc_public_assistance, title = "Recieving Public Assistance",
 
 <img src="urban_index_files/figure-html/public_assistance-1.png" width="672" />
 
-### Foreign Born
+### Foreign Born {.panel .unnumbered}
 
 
 ```r
@@ -345,7 +357,7 @@ make_map(perc_foreign_born, title = "Foreign Born",
 
 <img src="urban_index_files/figure-html/foreign_born-1.png" width="672" />
 
-## Peer City Data {.panelset}
+## Peer City Data
 
 Peer city data is available for the housing stability subindex.
 
@@ -502,7 +514,11 @@ ranking <- function(df, var, plot_title = "",
 }
 ```
 
-### Cost Burdened Renters
+:::::
+
+::::: {.panelset}
+
+### Cost Burdened Renters {.panel .unnumbered}
 
 
 ```r
@@ -591,7 +607,7 @@ plt_cost_burdened
 
 <img src="urban_index_files/figure-html/cost_burdened_renters_ranking-1.png" width="672" />
 
-### Overcrowding
+### Overcrowding {.panel .unnumbered}
 
 
 ```r
@@ -641,7 +657,7 @@ plt_oc
 
 <img src="urban_index_files/figure-html/overcrowding_ranking-1.png" width="672" />
 
-### Unemployment
+### Unemployment {.panel .unnumbered}
 
 
 ```r
@@ -691,7 +707,7 @@ plt_un
 
 <img src="urban_index_files/figure-html/unemployment_ranking-1.png" width="672" />
 
-### Share renting
+### Share renting {.panel .unnumbered}
 
 
 ```r
@@ -740,7 +756,7 @@ plt_sr
 
 <img src="urban_index_files/figure-html/renters_ranking-1.png" width="672" />
 
-### Poverty
+### Poverty {.panel .unnumbered}
 
 
 ```r
@@ -789,9 +805,13 @@ plt_pv
 
 <img src="urban_index_files/figure-html/poverty_ranking-1.png" width="672" />
 
-## Metro Council District Maps {.panelset}
+:::::
 
-### Rental Insecurity Index
+## Metro Council District Maps
+
+::::: {.panelset}
+
+### Rental Insecurity Index {.panel .unnumbered}
 
 
 ```r
@@ -885,7 +905,7 @@ metro_map(overall_index, title = "Rental Insecurity Index",
 
 <img src="urban_index_files/figure-html/rental_insecurity_index_council-1.png" width="672" />
 
-### Housing Instability Subindex
+### Housing Instability Subindex {.panel .unnumbered}
 
 
 ```r
@@ -897,7 +917,7 @@ metro_map(housing_instability_index, title = "Housing Instability Subindex",
 
 <img src="urban_index_files/figure-html/housing_instability_subindex_council-1.png" width="672" />
 
-### Covid 19 Impact Subindex
+### Covid 19 Impact Subindex {.panel .unnumbered}
 
 
 ```r
@@ -909,7 +929,7 @@ metro_map(covid_index, title = "Covid Instability Subindex",
 
 <img src="urban_index_files/figure-html/covid_19_impact_subindex_council-1.png" width="672" />
 
-### Equity Subindex
+### Equity Subindex {.panel .unnumbered}
 
 
 ```r
@@ -921,7 +941,7 @@ metro_map(equity_index, title = "Equity Subindex",
 
 <img src="urban_index_files/figure-html/equity_subindex_council-1.png" width="672" />
 
-### Poverty
+### Poverty {.panel .unnumbered}
 
 
 ```r
@@ -932,7 +952,7 @@ metro_map(perc_poverty_12mnth, title = "Poverty",
 
 <img src="urban_index_files/figure-html/poverty_council-1.png" width="672" />
 
-### Percent Renting
+### Percent Renting {.panel .unnumbered}
 
 
 ```r
@@ -943,7 +963,7 @@ metro_map(perc_renters, title = "Percent of Renter Occupied Housing Units",
 
 <img src="urban_index_files/figure-html/renting_council-1.png" width="672" />
 
-### Cost-burdened housholds
+### Cost-burdened housholds {.panel .unnumbered}
 
 
 ```r
@@ -954,7 +974,7 @@ metro_map(perc_cost_burdened_under_35k, title = "Costburdened Households making 
 
 <img src="urban_index_files/figure-html/cost_burdened_council-1.png" width="672" />
 
-### Overcrowding
+### Overcrowding {.panel .unnumbered}
 
 
 ```r
@@ -965,7 +985,7 @@ metro_map(perc_overcrowding_renter_1.50_or_more, title = "Overcrowding in Rental
 
 <img src="urban_index_files/figure-html/overcrowding_council-1.png" width="672" />
 
-### Unemployed
+### Unemployed {.panel .unnumbered}
 
 
 ```r
@@ -976,7 +996,7 @@ metro_map(perc_unemployed_laborforce, title = "Unemployment",
 
 <img src="urban_index_files/figure-html/unemployed_council-1.png" width="672" />
 
-### No Health Insurance
+### No Health Insurance {.panel .unnumbered}
 
 
 ```r
@@ -987,7 +1007,7 @@ metro_map(perc_no_hinsure, title = "No Health Insurance",
 
 <img src="urban_index_files/figure-html/no_health_insurance_council-1.png" width="672" />
 
-### Low Income Jobs Lost to Covid
+### Low Income Jobs Lost to Covid {.panel .unnumbered}
 
 
 ```r
@@ -998,7 +1018,7 @@ metro_map(perc_low_income_jobs_lost, title = "Low Income Jobs Lost to Covid",
 
 <img src="urban_index_files/figure-html/low_income_job_loss_council-1.png" width="672" />
 
-### Percent PoC
+### Percent PoC {.panel .unnumbered}
 
 
 ```r
@@ -1009,7 +1029,7 @@ metro_map(perc_person_of_color, title = "Percent Persons of Color",
 
 <img src="urban_index_files/figure-html/people_of_color_council-1.png" width="672" />
 
-### Extremely Low Income
+### Extremely Low Income {.panel .unnumbered}
 
 
 ```r
@@ -1020,7 +1040,7 @@ metro_map(perc_30hamfi, title = "Extremely Low Income",
 
 <img src="urban_index_files/figure-html/extremely_low_income_council-1.png" width="672" />
 
-### Public Assistance
+### Public Assistance {.panel .unnumbered}
 
 
 ```r
@@ -1031,7 +1051,7 @@ metro_map(perc_public_assistance, title = "Recieving Public Assistance",
 
 <img src="urban_index_files/figure-html/public_assistance_council-1.png" width="672" />
 
-### Foreign Born
+### Foreign Born {.panel .unnumbered}
 
 
 ```r
@@ -1042,9 +1062,13 @@ metro_map(perc_foreign_born, title = "Foreign Born",
 
 <img src="urban_index_files/figure-html/foreign_born_council-1.png" width="672" />
 
-## Metro Council Tables {.panelset}
+:::::
 
-### Housing Subindex
+## Metro Council Tables
+
+::::: {.panelset}
+
+### Housing Subindex {.panel .unnumbered}
 
 
 ```r
@@ -1099,12 +1123,12 @@ metro_house_tbl
 ```
 
 ```{=html}
-<div id="jftrlfboki" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="zxfgnhqnxf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jftrlfboki .gt_table {
+#zxfgnhqnxf .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1129,7 +1153,7 @@ metro_house_tbl
   border-left-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_heading {
+#zxfgnhqnxf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1141,7 +1165,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_title {
+#zxfgnhqnxf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1151,7 +1175,7 @@ metro_house_tbl
   border-bottom-width: 0;
 }
 
-#jftrlfboki .gt_subtitle {
+#zxfgnhqnxf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1161,13 +1185,13 @@ metro_house_tbl
   border-top-width: 0;
 }
 
-#jftrlfboki .gt_bottom_border {
+#zxfgnhqnxf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_col_headings {
+#zxfgnhqnxf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1182,7 +1206,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_col_heading {
+#zxfgnhqnxf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1202,7 +1226,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#jftrlfboki .gt_column_spanner_outer {
+#zxfgnhqnxf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1214,15 +1238,15 @@ metro_house_tbl
   padding-right: 4px;
 }
 
-#jftrlfboki .gt_column_spanner_outer:first-child {
+#zxfgnhqnxf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jftrlfboki .gt_column_spanner_outer:last-child {
+#zxfgnhqnxf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jftrlfboki .gt_column_spanner {
+#zxfgnhqnxf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1234,7 +1258,7 @@ metro_house_tbl
   width: 100%;
 }
 
-#jftrlfboki .gt_group_heading {
+#zxfgnhqnxf .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1256,7 +1280,7 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#jftrlfboki .gt_empty_group_heading {
+#zxfgnhqnxf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1271,15 +1295,15 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#jftrlfboki .gt_from_md > :first-child {
+#zxfgnhqnxf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jftrlfboki .gt_from_md > :last-child {
+#zxfgnhqnxf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jftrlfboki .gt_row {
+#zxfgnhqnxf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1298,7 +1322,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#jftrlfboki .gt_stub {
+#zxfgnhqnxf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1310,7 +1334,7 @@ metro_house_tbl
   padding-left: 12px;
 }
 
-#jftrlfboki .gt_summary_row {
+#zxfgnhqnxf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1320,7 +1344,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#jftrlfboki .gt_first_summary_row {
+#zxfgnhqnxf .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1330,7 +1354,7 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_grand_summary_row {
+#zxfgnhqnxf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1340,7 +1364,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#jftrlfboki .gt_first_grand_summary_row {
+#zxfgnhqnxf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1350,11 +1374,11 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_striped {
+#zxfgnhqnxf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jftrlfboki .gt_table_body {
+#zxfgnhqnxf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1363,7 +1387,7 @@ metro_house_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_footnotes {
+#zxfgnhqnxf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1377,13 +1401,13 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_footnote {
+#zxfgnhqnxf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#jftrlfboki .gt_sourcenotes {
+#zxfgnhqnxf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1397,41 +1421,41 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#jftrlfboki .gt_sourcenote {
+#zxfgnhqnxf .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#jftrlfboki .gt_left {
+#zxfgnhqnxf .gt_left {
   text-align: left;
 }
 
-#jftrlfboki .gt_center {
+#zxfgnhqnxf .gt_center {
   text-align: center;
 }
 
-#jftrlfboki .gt_right {
+#zxfgnhqnxf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jftrlfboki .gt_font_normal {
+#zxfgnhqnxf .gt_font_normal {
   font-weight: normal;
 }
 
-#jftrlfboki .gt_font_bold {
+#zxfgnhqnxf .gt_font_bold {
   font-weight: bold;
 }
 
-#jftrlfboki .gt_font_italic {
+#zxfgnhqnxf .gt_font_italic {
   font-style: italic;
 }
 
-#jftrlfboki .gt_super {
+#zxfgnhqnxf .gt_super {
   font-size: 65%;
 }
 
-#jftrlfboki .gt_footnote_marks {
+#zxfgnhqnxf .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1662,7 +1686,7 @@ metro_house_tbl
 </div>
 ```
 
-### Covid Subindex
+### Covid Subindex {.panel .unnumbered}
 
 
 ```r
@@ -1712,12 +1736,12 @@ metro_covid_tbl
 ```
 
 ```{=html}
-<div id="wuuqqguszb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="wcpepltdhl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wuuqqguszb .gt_table {
+#wcpepltdhl .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1742,7 +1766,7 @@ metro_covid_tbl
   border-left-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_heading {
+#wcpepltdhl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1754,7 +1778,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_title {
+#wcpepltdhl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1764,7 +1788,7 @@ metro_covid_tbl
   border-bottom-width: 0;
 }
 
-#wuuqqguszb .gt_subtitle {
+#wcpepltdhl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1774,13 +1798,13 @@ metro_covid_tbl
   border-top-width: 0;
 }
 
-#wuuqqguszb .gt_bottom_border {
+#wcpepltdhl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_col_headings {
+#wcpepltdhl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1795,7 +1819,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_col_heading {
+#wcpepltdhl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1815,7 +1839,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#wuuqqguszb .gt_column_spanner_outer {
+#wcpepltdhl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1827,15 +1851,15 @@ metro_covid_tbl
   padding-right: 4px;
 }
 
-#wuuqqguszb .gt_column_spanner_outer:first-child {
+#wcpepltdhl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wuuqqguszb .gt_column_spanner_outer:last-child {
+#wcpepltdhl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wuuqqguszb .gt_column_spanner {
+#wcpepltdhl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1847,7 +1871,7 @@ metro_covid_tbl
   width: 100%;
 }
 
-#wuuqqguszb .gt_group_heading {
+#wcpepltdhl .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1869,7 +1893,7 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#wuuqqguszb .gt_empty_group_heading {
+#wcpepltdhl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1884,15 +1908,15 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#wuuqqguszb .gt_from_md > :first-child {
+#wcpepltdhl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wuuqqguszb .gt_from_md > :last-child {
+#wcpepltdhl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wuuqqguszb .gt_row {
+#wcpepltdhl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1911,7 +1935,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#wuuqqguszb .gt_stub {
+#wcpepltdhl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1923,7 +1947,7 @@ metro_covid_tbl
   padding-left: 12px;
 }
 
-#wuuqqguszb .gt_summary_row {
+#wcpepltdhl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1933,7 +1957,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#wuuqqguszb .gt_first_summary_row {
+#wcpepltdhl .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1943,7 +1967,7 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_grand_summary_row {
+#wcpepltdhl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1953,7 +1977,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#wuuqqguszb .gt_first_grand_summary_row {
+#wcpepltdhl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1963,11 +1987,11 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_striped {
+#wcpepltdhl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wuuqqguszb .gt_table_body {
+#wcpepltdhl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1976,7 +2000,7 @@ metro_covid_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_footnotes {
+#wcpepltdhl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1990,13 +2014,13 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_footnote {
+#wcpepltdhl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#wuuqqguszb .gt_sourcenotes {
+#wcpepltdhl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2010,41 +2034,41 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wuuqqguszb .gt_sourcenote {
+#wcpepltdhl .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#wuuqqguszb .gt_left {
+#wcpepltdhl .gt_left {
   text-align: left;
 }
 
-#wuuqqguszb .gt_center {
+#wcpepltdhl .gt_center {
   text-align: center;
 }
 
-#wuuqqguszb .gt_right {
+#wcpepltdhl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wuuqqguszb .gt_font_normal {
+#wcpepltdhl .gt_font_normal {
   font-weight: normal;
 }
 
-#wuuqqguszb .gt_font_bold {
+#wcpepltdhl .gt_font_bold {
   font-weight: bold;
 }
 
-#wuuqqguszb .gt_font_italic {
+#wcpepltdhl .gt_font_italic {
   font-style: italic;
 }
 
-#wuuqqguszb .gt_super {
+#wcpepltdhl .gt_super {
   font-size: 65%;
 }
 
-#wuuqqguszb .gt_footnote_marks {
+#wcpepltdhl .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2194,7 +2218,7 @@ metro_covid_tbl
 </div>
 ```
 
-### Equity Index
+### Equity Index {.panel .unnumbered}
 
 
 ```r
@@ -2246,12 +2270,12 @@ metro_equity_tbl
 ```
 
 ```{=html}
-<div id="noaksiewgx" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="xcbldegnsp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#noaksiewgx .gt_table {
+#xcbldegnsp .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2276,7 +2300,7 @@ metro_equity_tbl
   border-left-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_heading {
+#xcbldegnsp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2288,7 +2312,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_title {
+#xcbldegnsp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2298,7 +2322,7 @@ metro_equity_tbl
   border-bottom-width: 0;
 }
 
-#noaksiewgx .gt_subtitle {
+#xcbldegnsp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2308,13 +2332,13 @@ metro_equity_tbl
   border-top-width: 0;
 }
 
-#noaksiewgx .gt_bottom_border {
+#xcbldegnsp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_col_headings {
+#xcbldegnsp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2329,7 +2353,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_col_heading {
+#xcbldegnsp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2349,7 +2373,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#noaksiewgx .gt_column_spanner_outer {
+#xcbldegnsp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2361,15 +2385,15 @@ metro_equity_tbl
   padding-right: 4px;
 }
 
-#noaksiewgx .gt_column_spanner_outer:first-child {
+#xcbldegnsp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#noaksiewgx .gt_column_spanner_outer:last-child {
+#xcbldegnsp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#noaksiewgx .gt_column_spanner {
+#xcbldegnsp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2381,7 +2405,7 @@ metro_equity_tbl
   width: 100%;
 }
 
-#noaksiewgx .gt_group_heading {
+#xcbldegnsp .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2403,7 +2427,7 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#noaksiewgx .gt_empty_group_heading {
+#xcbldegnsp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2418,15 +2442,15 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#noaksiewgx .gt_from_md > :first-child {
+#xcbldegnsp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#noaksiewgx .gt_from_md > :last-child {
+#xcbldegnsp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#noaksiewgx .gt_row {
+#xcbldegnsp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2445,7 +2469,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#noaksiewgx .gt_stub {
+#xcbldegnsp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2457,7 +2481,7 @@ metro_equity_tbl
   padding-left: 12px;
 }
 
-#noaksiewgx .gt_summary_row {
+#xcbldegnsp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2467,7 +2491,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#noaksiewgx .gt_first_summary_row {
+#xcbldegnsp .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2477,7 +2501,7 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_grand_summary_row {
+#xcbldegnsp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2487,7 +2511,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#noaksiewgx .gt_first_grand_summary_row {
+#xcbldegnsp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2497,11 +2521,11 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_striped {
+#xcbldegnsp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#noaksiewgx .gt_table_body {
+#xcbldegnsp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2510,7 +2534,7 @@ metro_equity_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_footnotes {
+#xcbldegnsp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2524,13 +2548,13 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_footnote {
+#xcbldegnsp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#noaksiewgx .gt_sourcenotes {
+#xcbldegnsp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2544,41 +2568,41 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#noaksiewgx .gt_sourcenote {
+#xcbldegnsp .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#noaksiewgx .gt_left {
+#xcbldegnsp .gt_left {
   text-align: left;
 }
 
-#noaksiewgx .gt_center {
+#xcbldegnsp .gt_center {
   text-align: center;
 }
 
-#noaksiewgx .gt_right {
+#xcbldegnsp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#noaksiewgx .gt_font_normal {
+#xcbldegnsp .gt_font_normal {
   font-weight: normal;
 }
 
-#noaksiewgx .gt_font_bold {
+#xcbldegnsp .gt_font_bold {
   font-weight: bold;
 }
 
-#noaksiewgx .gt_font_italic {
+#xcbldegnsp .gt_font_italic {
   font-style: italic;
 }
 
-#noaksiewgx .gt_super {
+#xcbldegnsp .gt_super {
   font-size: 65%;
 }
 
-#noaksiewgx .gt_footnote_marks {
+#xcbldegnsp .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2778,6 +2802,8 @@ metro_equity_tbl
 </table>
 </div>
 ```
+
+:::::
 
 ## Home Mortgages
 

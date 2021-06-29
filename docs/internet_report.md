@@ -78,14 +78,14 @@ Households with adults age 65 and older is one of the only household groupings w
 ## Child Internet Access
 
 
-### School Age
+### School Age Children
 
 In this section, we limit the scope of our analysis to look at children ages 5-18. Nontraditional instruction (NTI) functions much better with access to high speed internet. About 25,600 school age children in Jefferson County do not have access to high speed internet. The map below is broken into 6 areas based on public use microdata geographies. Unfortunately, this is the lowest geographic level of detail we can get with Census microdata for school-age childen.
 
 <img src="internet_report_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
 
-### Metro Council Districts {.panelset}
+### Metro Council Districts
 
 If we expand our focus to all children ages 0-17, we can get data at finer levels of geography. The map below shows the percent of children ages 0-17 who lack either high-speed internet or a computer at home. Most of these children are school age, though the data also includes some infants and toddlers who are not in school.
 
@@ -93,7 +93,9 @@ If we expand our focus to all children ages 0-17, we can get data at finer level
 <!-- <button class="tablinks" onclick="unrolltab(event, 'no-district-labels')">No District Labels</button> -->
 <!-- <button class="tablinks" onclick="unrolltab(event, 'district-labels')">District Labels</button> -->
 
-#### No District labels {-}
+::::: {.panelset}
+
+#### No District labels {.panel .unnumbered}
 
 <img src="internet_report_files/figure-html/unnamed-chunk-8-1.png" width="672" /><div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; "><table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
  <thead>
@@ -264,7 +266,7 @@ If we expand our focus to all children ages 0-17, we can get data at finer level
 </tbody>
 </table></div>
 
-#### District Labels {-}
+#### District Labels {.panel .unnumbered}
 
 <img src="internet_report_files/figure-html/unnamed-chunk-9-1.png" width="672" /><div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; "><table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
  <thead>
@@ -434,6 +436,8 @@ If we expand our focus to all children ages 0-17, we can get data at finer level
   </tr>
 </tbody>
 </table></div>
+
+:::::
 
 ## Internet as a Public Utility
 
