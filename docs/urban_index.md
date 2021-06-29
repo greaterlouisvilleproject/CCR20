@@ -13,6 +13,133 @@ knit: (function(inputFile, encoding) { rmarkdown::render(inputFile, encoding = e
 
 # Housing Instability
 
+
+```r
+library(tidyverse)
+```
+
+```
+## -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
+```
+
+```
+## v ggplot2 3.3.5     v purrr   0.3.4
+## v tibble  3.1.2     v dplyr   1.0.7
+## v tidyr   1.1.3     v stringr 1.4.0
+## v readr   1.4.0     v forcats 0.5.1
+```
+
+```
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
+```r
+library(rgdal)
+```
+
+```
+## Loading required package: sp
+```
+
+```
+## rgdal: version: 1.5-23, (SVN revision 1121)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+## Path to GDAL shared files: C:/Users/harri/OneDrive/Documents/R/win-library/4.1/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
+## Path to PROJ shared files: C:/Users/harri/OneDrive/Documents/R/win-library/4.1/rgdal/proj
+## PROJ CDN enabled: FALSE
+## Linking to sp version:1.4-5
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
+## Overwritten PROJ_LIB was C:/Users/harri/OneDrive/Documents/R/win-library/4.1/rgdal/proj
+```
+
+```r
+library(sf)
+```
+
+```
+## Linking to GEOS 3.9.0, GDAL 3.2.1, PROJ 7.2.1
+```
+
+```r
+library(viridis)
+```
+
+```
+## Loading required package: viridisLite
+```
+
+```r
+library(magrittr)
+```
+
+```
+## 
+## Attaching package: 'magrittr'
+```
+
+```
+## The following object is masked from 'package:purrr':
+## 
+##     set_names
+```
+
+```
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+```
+
+```r
+load("housing_data/glptools_exports.RData")
+
+df <- read_csv("housing_data/housing_index_raw.csv")
+```
+
+```
+## 
+## -- Column specification --------------------------------------------------------
+## cols(
+##   .default = col_double(),
+##   GEOID = col_character(),
+##   state_name = col_character(),
+##   county_name = col_character(),
+##   state_fips = col_character(),
+##   county_fips = col_character()
+## )
+## i Use `spec()` for the full column specifications.
+```
+
+```r
+# Filter to just peers
+df_peer <- df %>% 
+  filter(county_fips %in% c("1073", "18097", "21111", "26081", "29095", "29189",
+                            "29510", "31055", "37081", "37119", "39049", "39061",
+                            "40109", "40143", "45045", "47037", "47093", "47157")) %>%
+  select(-contains("z_score"), -contains("index")) #drop index and z_score terms so we can recreate them
+
+# Make z scores
+make_z <- function(x){
+  x <- (x - mean(x)) / sd(x)
+}
+
+df_z <- df_peer %>%
+  mutate(across(where(is.numeric), make_z, .names = "z_{.col}"))
+
+df_index <- df_z %>%
+  mutate(
+    housing_instability_index = z_perc_poverty_12mnth * .2 + z_perc_renters * .2 + z_perc_cost_burdened_under_35k * .2 + z_perc_overcrowding_renter_1.50_or_more * .2 + z_perc_unemployed_laborforce * .2,
+    covid_index = z_perc_no_hinsure * .5 + z_perc_low_income_jobs_lost * .5,
+    equity_index = z_perc_person_of_color * .5 + z_perc_30hamfi * .167 + z_perc_public_assistance * .167 + z_perc_foreign_born * .167,
+    overall_index = housing_instability_index * .5 + covid_index * .1 + equity_index * .4
+  )
+```
+
 This recreates the Urban Institute's [Emergency Rental Assistance Priority Index](https://www.urban.org/features/where-prioritize-emergency-rental-assistance-keep-renters-their-homes) for Louisville. The original index compares Louisville to the rest of Kentucky. At Greater Louisville Project, we think the more appropriate comparison is to our other peer cities. While the maps below show Louisville, the index values are based on a comparison to all census tracts in the core counties of our peer cities.
 
 Greater Louisville Project has also aggregated the data up to the metro council district level. That data is available in both maps and tables.
@@ -50,52 +177,6 @@ Data is from the Urban Institute's [Emergency Rental Assistance Priority Index](
 
 
 
-```r
-library(glpdata)
-library(glptools)
-
-save(home_loan_county, home_loan_tract,
-     HPI_county, HPI_zip,
-     map_zip, 
-     clean_acs_micro,
-     file = "glptools_exports.RData")
-```
-
-
-```r
-library(tidyverse)
-library(rgdal)
-library(sf)
-library(viridis)
-library(magrittr)
-
-load("housing_data/glptools_exports.RData")
-
-df <- read_csv("housing_data/housing_index_raw.csv")
-
-# Filter to just peers
-df_peer <- df %>% 
-  filter(county_fips %in% c("1073", "18097", "21111", "26081", "29095", "29189",
-                            "29510", "31055", "37081", "37119", "39049", "39061",
-                            "40109", "40143", "45045", "47037", "47093", "47157")) %>%
-  select(-contains("z_score"), -contains("index")) #drop index and z_score terms so we can recreate them
-
-# Make z scores
-make_z <- function(x){
-  x <- (x - mean(x)) / sd(x)
-}
-
-df_z <- df_peer %>%
-  mutate(across(where(is.numeric), make_z, .names = "z_{.col}"))
-
-df_index <- df_z %>%
-  mutate(
-    housing_instability_index = z_perc_poverty_12mnth * .2 + z_perc_renters * .2 + z_perc_cost_burdened_under_35k * .2 + z_perc_overcrowding_renter_1.50_or_more * .2 + z_perc_unemployed_laborforce * .2,
-    covid_index = z_perc_no_hinsure * .5 + z_perc_low_income_jobs_lost * .5,
-    equity_index = z_perc_person_of_color * .5 + z_perc_30hamfi * .167 + z_perc_public_assistance * .167 + z_perc_foreign_born * .167,
-    overall_index = housing_instability_index * .5 + covid_index * .1 + equity_index * .4
-  )
-```
 
 ## Rental Insecurity Index
 
@@ -1123,12 +1204,12 @@ metro_house_tbl
 ```
 
 ```{=html}
-<div id="zxfgnhqnxf" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="kasuphklqr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#zxfgnhqnxf .gt_table {
+#kasuphklqr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1153,7 +1234,7 @@ metro_house_tbl
   border-left-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_heading {
+#kasuphklqr .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1165,7 +1246,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_title {
+#kasuphklqr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1175,7 +1256,7 @@ metro_house_tbl
   border-bottom-width: 0;
 }
 
-#zxfgnhqnxf .gt_subtitle {
+#kasuphklqr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1185,13 +1266,13 @@ metro_house_tbl
   border-top-width: 0;
 }
 
-#zxfgnhqnxf .gt_bottom_border {
+#kasuphklqr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_col_headings {
+#kasuphklqr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1206,7 +1287,7 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_col_heading {
+#kasuphklqr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1226,7 +1307,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#zxfgnhqnxf .gt_column_spanner_outer {
+#kasuphklqr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1238,15 +1319,15 @@ metro_house_tbl
   padding-right: 4px;
 }
 
-#zxfgnhqnxf .gt_column_spanner_outer:first-child {
+#kasuphklqr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zxfgnhqnxf .gt_column_spanner_outer:last-child {
+#kasuphklqr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zxfgnhqnxf .gt_column_spanner {
+#kasuphklqr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1258,7 +1339,7 @@ metro_house_tbl
   width: 100%;
 }
 
-#zxfgnhqnxf .gt_group_heading {
+#kasuphklqr .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1280,7 +1361,7 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#zxfgnhqnxf .gt_empty_group_heading {
+#kasuphklqr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1295,15 +1376,15 @@ metro_house_tbl
   vertical-align: middle;
 }
 
-#zxfgnhqnxf .gt_from_md > :first-child {
+#kasuphklqr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zxfgnhqnxf .gt_from_md > :last-child {
+#kasuphklqr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zxfgnhqnxf .gt_row {
+#kasuphklqr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1322,7 +1403,7 @@ metro_house_tbl
   overflow-x: hidden;
 }
 
-#zxfgnhqnxf .gt_stub {
+#kasuphklqr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1334,7 +1415,7 @@ metro_house_tbl
   padding-left: 12px;
 }
 
-#zxfgnhqnxf .gt_summary_row {
+#kasuphklqr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1344,7 +1425,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#zxfgnhqnxf .gt_first_summary_row {
+#kasuphklqr .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1354,7 +1435,7 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_grand_summary_row {
+#kasuphklqr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1364,7 +1445,7 @@ metro_house_tbl
   padding-right: 5px;
 }
 
-#zxfgnhqnxf .gt_first_grand_summary_row {
+#kasuphklqr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1374,11 +1455,11 @@ metro_house_tbl
   border-top-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_striped {
+#kasuphklqr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zxfgnhqnxf .gt_table_body {
+#kasuphklqr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1387,7 +1468,7 @@ metro_house_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_footnotes {
+#kasuphklqr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1401,13 +1482,13 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_footnote {
+#kasuphklqr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#zxfgnhqnxf .gt_sourcenotes {
+#kasuphklqr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1421,41 +1502,41 @@ metro_house_tbl
   border-right-color: #D3D3D3;
 }
 
-#zxfgnhqnxf .gt_sourcenote {
+#kasuphklqr .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#zxfgnhqnxf .gt_left {
+#kasuphklqr .gt_left {
   text-align: left;
 }
 
-#zxfgnhqnxf .gt_center {
+#kasuphklqr .gt_center {
   text-align: center;
 }
 
-#zxfgnhqnxf .gt_right {
+#kasuphklqr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zxfgnhqnxf .gt_font_normal {
+#kasuphklqr .gt_font_normal {
   font-weight: normal;
 }
 
-#zxfgnhqnxf .gt_font_bold {
+#kasuphklqr .gt_font_bold {
   font-weight: bold;
 }
 
-#zxfgnhqnxf .gt_font_italic {
+#kasuphklqr .gt_font_italic {
   font-style: italic;
 }
 
-#zxfgnhqnxf .gt_super {
+#kasuphklqr .gt_super {
   font-size: 65%;
 }
 
-#zxfgnhqnxf .gt_footnote_marks {
+#kasuphklqr .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -1736,12 +1817,12 @@ metro_covid_tbl
 ```
 
 ```{=html}
-<div id="wcpepltdhl" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="tvdqmwdvrm" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#wcpepltdhl .gt_table {
+#tvdqmwdvrm .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1766,7 +1847,7 @@ metro_covid_tbl
   border-left-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_heading {
+#tvdqmwdvrm .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1778,7 +1859,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_title {
+#tvdqmwdvrm .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1788,7 +1869,7 @@ metro_covid_tbl
   border-bottom-width: 0;
 }
 
-#wcpepltdhl .gt_subtitle {
+#tvdqmwdvrm .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1798,13 +1879,13 @@ metro_covid_tbl
   border-top-width: 0;
 }
 
-#wcpepltdhl .gt_bottom_border {
+#tvdqmwdvrm .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_col_headings {
+#tvdqmwdvrm .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1819,7 +1900,7 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_col_heading {
+#tvdqmwdvrm .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1839,7 +1920,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#wcpepltdhl .gt_column_spanner_outer {
+#tvdqmwdvrm .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1851,15 +1932,15 @@ metro_covid_tbl
   padding-right: 4px;
 }
 
-#wcpepltdhl .gt_column_spanner_outer:first-child {
+#tvdqmwdvrm .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wcpepltdhl .gt_column_spanner_outer:last-child {
+#tvdqmwdvrm .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wcpepltdhl .gt_column_spanner {
+#tvdqmwdvrm .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1871,7 +1952,7 @@ metro_covid_tbl
   width: 100%;
 }
 
-#wcpepltdhl .gt_group_heading {
+#tvdqmwdvrm .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1893,7 +1974,7 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#wcpepltdhl .gt_empty_group_heading {
+#tvdqmwdvrm .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1908,15 +1989,15 @@ metro_covid_tbl
   vertical-align: middle;
 }
 
-#wcpepltdhl .gt_from_md > :first-child {
+#tvdqmwdvrm .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wcpepltdhl .gt_from_md > :last-child {
+#tvdqmwdvrm .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wcpepltdhl .gt_row {
+#tvdqmwdvrm .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1935,7 +2016,7 @@ metro_covid_tbl
   overflow-x: hidden;
 }
 
-#wcpepltdhl .gt_stub {
+#tvdqmwdvrm .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1947,7 +2028,7 @@ metro_covid_tbl
   padding-left: 12px;
 }
 
-#wcpepltdhl .gt_summary_row {
+#tvdqmwdvrm .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1957,7 +2038,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#wcpepltdhl .gt_first_summary_row {
+#tvdqmwdvrm .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1967,7 +2048,7 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_grand_summary_row {
+#tvdqmwdvrm .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1977,7 +2058,7 @@ metro_covid_tbl
   padding-right: 5px;
 }
 
-#wcpepltdhl .gt_first_grand_summary_row {
+#tvdqmwdvrm .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1987,11 +2068,11 @@ metro_covid_tbl
   border-top-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_striped {
+#tvdqmwdvrm .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wcpepltdhl .gt_table_body {
+#tvdqmwdvrm .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2000,7 +2081,7 @@ metro_covid_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_footnotes {
+#tvdqmwdvrm .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2014,13 +2095,13 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_footnote {
+#tvdqmwdvrm .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#wcpepltdhl .gt_sourcenotes {
+#tvdqmwdvrm .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2034,41 +2115,41 @@ metro_covid_tbl
   border-right-color: #D3D3D3;
 }
 
-#wcpepltdhl .gt_sourcenote {
+#tvdqmwdvrm .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#wcpepltdhl .gt_left {
+#tvdqmwdvrm .gt_left {
   text-align: left;
 }
 
-#wcpepltdhl .gt_center {
+#tvdqmwdvrm .gt_center {
   text-align: center;
 }
 
-#wcpepltdhl .gt_right {
+#tvdqmwdvrm .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wcpepltdhl .gt_font_normal {
+#tvdqmwdvrm .gt_font_normal {
   font-weight: normal;
 }
 
-#wcpepltdhl .gt_font_bold {
+#tvdqmwdvrm .gt_font_bold {
   font-weight: bold;
 }
 
-#wcpepltdhl .gt_font_italic {
+#tvdqmwdvrm .gt_font_italic {
   font-style: italic;
 }
 
-#wcpepltdhl .gt_super {
+#tvdqmwdvrm .gt_super {
   font-size: 65%;
 }
 
-#wcpepltdhl .gt_footnote_marks {
+#tvdqmwdvrm .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
@@ -2270,12 +2351,12 @@ metro_equity_tbl
 ```
 
 ```{=html}
-<div id="xcbldegnsp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div id="atcguwaqfp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xcbldegnsp .gt_table {
+#atcguwaqfp .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -2300,7 +2381,7 @@ metro_equity_tbl
   border-left-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_heading {
+#atcguwaqfp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2312,7 +2393,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_title {
+#atcguwaqfp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2322,7 +2403,7 @@ metro_equity_tbl
   border-bottom-width: 0;
 }
 
-#xcbldegnsp .gt_subtitle {
+#atcguwaqfp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2332,13 +2413,13 @@ metro_equity_tbl
   border-top-width: 0;
 }
 
-#xcbldegnsp .gt_bottom_border {
+#atcguwaqfp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_col_headings {
+#atcguwaqfp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2353,7 +2434,7 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_col_heading {
+#atcguwaqfp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2373,7 +2454,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#xcbldegnsp .gt_column_spanner_outer {
+#atcguwaqfp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2385,15 +2466,15 @@ metro_equity_tbl
   padding-right: 4px;
 }
 
-#xcbldegnsp .gt_column_spanner_outer:first-child {
+#atcguwaqfp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xcbldegnsp .gt_column_spanner_outer:last-child {
+#atcguwaqfp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xcbldegnsp .gt_column_spanner {
+#atcguwaqfp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2405,7 +2486,7 @@ metro_equity_tbl
   width: 100%;
 }
 
-#xcbldegnsp .gt_group_heading {
+#atcguwaqfp .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2427,7 +2508,7 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#xcbldegnsp .gt_empty_group_heading {
+#atcguwaqfp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2442,15 +2523,15 @@ metro_equity_tbl
   vertical-align: middle;
 }
 
-#xcbldegnsp .gt_from_md > :first-child {
+#atcguwaqfp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xcbldegnsp .gt_from_md > :last-child {
+#atcguwaqfp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xcbldegnsp .gt_row {
+#atcguwaqfp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2469,7 +2550,7 @@ metro_equity_tbl
   overflow-x: hidden;
 }
 
-#xcbldegnsp .gt_stub {
+#atcguwaqfp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2481,7 +2562,7 @@ metro_equity_tbl
   padding-left: 12px;
 }
 
-#xcbldegnsp .gt_summary_row {
+#atcguwaqfp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2491,7 +2572,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#xcbldegnsp .gt_first_summary_row {
+#atcguwaqfp .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2501,7 +2582,7 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_grand_summary_row {
+#atcguwaqfp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2511,7 +2592,7 @@ metro_equity_tbl
   padding-right: 5px;
 }
 
-#xcbldegnsp .gt_first_grand_summary_row {
+#atcguwaqfp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2521,11 +2602,11 @@ metro_equity_tbl
   border-top-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_striped {
+#atcguwaqfp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xcbldegnsp .gt_table_body {
+#atcguwaqfp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2534,7 +2615,7 @@ metro_equity_tbl
   border-bottom-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_footnotes {
+#atcguwaqfp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2548,13 +2629,13 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_footnote {
+#atcguwaqfp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#xcbldegnsp .gt_sourcenotes {
+#atcguwaqfp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2568,41 +2649,41 @@ metro_equity_tbl
   border-right-color: #D3D3D3;
 }
 
-#xcbldegnsp .gt_sourcenote {
+#atcguwaqfp .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#xcbldegnsp .gt_left {
+#atcguwaqfp .gt_left {
   text-align: left;
 }
 
-#xcbldegnsp .gt_center {
+#atcguwaqfp .gt_center {
   text-align: center;
 }
 
-#xcbldegnsp .gt_right {
+#atcguwaqfp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xcbldegnsp .gt_font_normal {
+#atcguwaqfp .gt_font_normal {
   font-weight: normal;
 }
 
-#xcbldegnsp .gt_font_bold {
+#atcguwaqfp .gt_font_bold {
   font-weight: bold;
 }
 
-#xcbldegnsp .gt_font_italic {
+#atcguwaqfp .gt_font_italic {
   font-style: italic;
 }
 
-#xcbldegnsp .gt_super {
+#atcguwaqfp .gt_super {
   font-size: 65%;
 }
 
-#xcbldegnsp .gt_footnote_marks {
+#atcguwaqfp .gt_footnote_marks {
   font-style: italic;
   font-weight: normal;
   font-size: 65%;
