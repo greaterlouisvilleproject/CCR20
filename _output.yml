@@ -1,0 +1,18 @@
+bookdown::gitbook:
+  title: "Measuring A Path Forward"
+  css: tabs.css
+  includes:
+    in_header: ./hide_code.html
+    before_body: ccr20_header.html
+  config:
+    toc:
+      before: |
+        <li><a href="./">Measuring A Path Forward</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+    download: ["pdf", "epub"]
+bookdown::pdf_book:
+  includes:
+  latex_engine: xelatex
+  keep_tex: yes
+bookdown::epub_book: default

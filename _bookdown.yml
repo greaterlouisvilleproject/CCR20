@@ -1,0 +1,7 @@
+book_filename: "path_forward"
+delete_merged_file: true
+rmd_files: ["index.Rmd" , "internet_report.Rmd", "urban_index.Rmd", "early_childhood.Rmd", "Black_wealth.Rmd"]
+title: "Measuring A Path Forward"
+language:
+  ui:
+    chapter_name: "Chapter "

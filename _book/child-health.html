@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Child Health | Housing Instability in Louisville</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Child Health | Housing Instability in Louisville" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Child Health | Housing Instability in Louisville" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Greater Louisville Project" />
+
+
+<meta name="date" content="2020-12-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="early-child-care.html"/>
+<link rel="next" href="digital-divide.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+<script src="libs/panelset-0.2.6/panelset.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.9.4.1/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.4.1/leaflet.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+<script>
+/* ========================================================================
+ * Bootstrap: transition.js v3.3.7
+ * http://getbootstrap.com/javascript/#transitions
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
+  // ============================================================
+
+  function transitionEnd() {
+    var el = document.createElement('bootstrap')
+
+    var transEndEventNames = {
+      WebkitTransition : 'webkitTransitionEnd',
+      MozTransition    : 'transitionend',
+      OTransition      : 'oTransitionEnd otransitionend',
+      transition       : 'transitionend'
+    }
+
+    for (var name in transEndEventNames) {
+      if (el.style[name] !== undefined) {
+        return { end: transEndEventNames[name] }
+      }
+    }
+
+    return false // explicit for ie8 (  ._.)
+  }
+
+  // http://blog.alexmaccaw.com/css-transitions
+  $.fn.emulateTransitionEnd = function (duration) {
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
+    var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
+    setTimeout(callback, duration)
+    return this
+  }
+
+  $(function () {
+    $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
+  })
+
+}(jQuery);
+</script>
+<script>
+/* ========================================================================
+ * Bootstrap: collapse.js v3.3.7
+ * http://getbootstrap.com/javascript/#collapse
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+/* jshint latedef: false */
+
++function ($) {
+  'use strict';
+
+  // COLLAPSE PUBLIC CLASS DEFINITION
+  // ================================
+
+  var Collapse = function (element, options) {
+    this.$element      = $(element)
+    this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
+    this.transitioning = null
+
+    if (this.options.parent) {
+      this.$parent = this.getParent()
+    } else {
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
+    }
+
+    if (this.options.toggle) this.toggle()
+  }
+
+  Collapse.VERSION  = '3.3.7'
+
+  Collapse.TRANSITION_DURATION = 350
+
+  Collapse.DEFAULTS = {
+    toggle: true
+  }
+
+  Collapse.prototype.dimension = function () {
+    var hasWidth = this.$element.hasClass('width')
+    return hasWidth ? 'width' : 'height'
+  }
+
+  Collapse.prototype.show = function () {
+    if (this.transitioning || this.$element.hasClass('in')) return
+
+    var activesData
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+
+    if (actives && actives.length) {
+      activesData = actives.data('bs.collapse')
+      if (activesData && activesData.transitioning) return
+    }
+
+    var startEvent = $.Event('show.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    if (actives && actives.length) {
+      Plugin.call(actives, 'hide')
+      activesData || actives.data('bs.collapse', null)
+    }
+
+    var dimension = this.dimension()
+
+    this.$element
+      .removeClass('collapse')
+      .addClass('collapsing')[dimension](0)
+      .attr('aria-expanded', true)
+
+    this.$trigger
+      .removeClass('collapsed')
+      .attr('aria-expanded', true)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse in')[dimension]('')
+      this.transitioning = 0
+      this.$element
+        .trigger('shown.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    var scrollSize = $.camelCase(['scroll', dimension].join('-'))
+
+    this.$element
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+  }
+
+  Collapse.prototype.hide = function () {
+    if (this.transitioning || !this.$element.hasClass('in')) return
+
+    var startEvent = $.Event('hide.bs.collapse')
+    this.$element.trigger(startEvent)
+    if (startEvent.isDefaultPrevented()) return
+
+    var dimension = this.dimension()
+
+    this.$element[dimension](this.$element[dimension]())[0].offsetHeight
+
+    this.$element
+      .addClass('collapsing')
+      .removeClass('collapse in')
+      .attr('aria-expanded', false)
+
+    this.$trigger
+      .addClass('collapsed')
+      .attr('aria-expanded', false)
+
+    this.transitioning = 1
+
+    var complete = function () {
+      this.transitioning = 0
+      this.$element
+        .removeClass('collapsing')
+        .addClass('collapse')
+        .trigger('hidden.bs.collapse')
+    }
+
+    if (!$.support.transition) return complete.call(this)
+
+    this.$element
+      [dimension](0)
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+  }
+
+  Collapse.prototype.toggle = function () {
+    this[this.$element.hasClass('in') ? 'hide' : 'show']()
+  }
+
+  Collapse.prototype.getParent = function () {
+    return $(this.options.parent)
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .each($.proxy(function (i, element) {
+        var $element = $(element)
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
+      }, this))
+      .end()
+  }
+
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
+    var isOpen = $element.hasClass('in')
+
+    $element.attr('aria-expanded', isOpen)
+    $trigger
+      .toggleClass('collapsed', !isOpen)
+      .attr('aria-expanded', isOpen)
+  }
+
+  function getTargetFromTrigger($trigger) {
+    var href
+    var target = $trigger.attr('data-target')
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+
+    return $(target)
+  }
+
+
+  // COLLAPSE PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this   = $(this)
+      var data    = $this.data('bs.collapse')
+      var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
+
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
+      if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
+      if (typeof option == 'string') data[option]()
+    })
+  }
+
+  var old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
+  $.fn.collapse.Constructor = Collapse
+
+
+  // COLLAPSE NO CONFLICT
+  // ====================
+
+  $.fn.collapse.noConflict = function () {
+    $.fn.collapse = old
+    return this
+  }
+
+
+  // COLLAPSE DATA-API
+  // =================
+
+  $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
+    var $this   = $(this)
+
+    if (!$this.attr('data-target')) e.preventDefault()
+
+    var $target = getTargetFromTrigger($this)
+    var data    = $target.data('bs.collapse')
+    var option  = data ? 'toggle' : $this.data()
+
+    Plugin.call($target, option)
+  })
+
+}(jQuery);
+</script>
+<script>
+window.initializeCodeFolding = function(show) {
+
+  // handlers for show-all and hide all
+  $("#rmd-show-all-code").click(function() {
+    // close the dropdown menu when an option is clicked
+    $("#allCodeButton").dropdown("toggle");
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('show');
+    });
+  });
+  $("#rmd-hide-all-code").click(function() {
+    // close the dropdown menu when an option is clicked
+    $("#allCodeButton").dropdown("toggle");
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('hide');
+    });
+  });
+
+  // index for unique code element ids
+  var currentIndex = 1;
+
+  // select all R code blocks
+  var rCodeBlocks = $('pre.sourceCode, pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan');
+  rCodeBlocks.each(function() {
+
+    // if code block has been labeled with class `fold-show`, show the code on init!
+    var classList = $(this).attr('class').split(/\s+/);
+    for (var i = 0; i < classList.length; i++) {
+    if (classList[i] === 'fold-show') {
+        show = true;
+      }
+    }
+
+    // create a collapsable div to wrap the code in
+    var div = $('<div class="collapse r-code-collapse"></div>');
+    if (show)
+      div.addClass('in');
+    var id = 'rcode-643E0F36' + currentIndex++;
+    div.attr('id', id);
+    $(this).before(div);
+    $(this).detach().appendTo(div);
+
+    // add a show code button right above
+    var showCodeText = $('<span>' + (show ? 'Hide' : 'Code') + '</span>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs code-folding-btn pull-right"></button>');
+    showCodeButton.append(showCodeText);
+    showCodeButton
+        .attr('data-toggle', 'collapse')
+        .attr('data-target', '#' + id)
+        .attr('aria-expanded', show)
+        .attr('aria-controls', id);
+
+    var buttonRow = $('<div class="row"></div>');
+    var buttonCol = $('<div class="col-md-12"></div>');
+
+    buttonCol.append(showCodeButton);
+    buttonRow.append(buttonCol);
+
+    div.before(buttonRow);
+
+    // hack: return show to false, otherwise all next codeBlocks will be shown!
+    show = false;
+
+    // update state of button on show/hide
+    div.on('hidden.bs.collapse', function () {
+      showCodeText.text('Code');
+    });
+    div.on('show.bs.collapse', function () {
+      showCodeText.text('Hide');
+    });
+  });
+
+}
+</script>
+<script>
+/* ========================================================================
+ * Bootstrap: dropdown.js v3.3.7
+ * http://getbootstrap.com/javascript/#dropdowns
+ * ========================================================================
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * ======================================================================== */
+
+
++function ($) {
+  'use strict';
+
+  // DROPDOWN CLASS DEFINITION
+  // =========================
+
+  var backdrop = '.dropdown-backdrop'
+  var toggle   = '[data-toggle="dropdown"]'
+  var Dropdown = function (element) {
+    $(element).on('click.bs.dropdown', this.toggle)
+  }
+
+  Dropdown.VERSION = '3.3.7'
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $this         = $(this)
+      var $parent       = getParent($this)
+      var relatedTarget = { relatedTarget: this }
+
+      if (!$parent.hasClass('open')) return
+
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
+    })
+  }
+
+  Dropdown.prototype.toggle = function (e) {
+    var $this = $(this)
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    clearMenus()
+
+    if (!isActive) {
+      if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
+        // if mobile we use a backdrop because click events don't delegate
+        $(document.createElement('div'))
+          .addClass('dropdown-backdrop')
+          .insertAfter($(this))
+          .on('click', clearMenus)
+      }
+
+      var relatedTarget = { relatedTarget: this }
+      $parent.trigger(e = $.Event('show.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
+      $parent
+        .toggleClass('open')
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
+    }
+
+    return false
+  }
+
+  Dropdown.prototype.keydown = function (e) {
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+
+    var $this = $(this)
+
+    e.preventDefault()
+    e.stopPropagation()
+
+    if ($this.is('.disabled, :disabled')) return
+
+    var $parent  = getParent($this)
+    var isActive = $parent.hasClass('open')
+
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {
+      if (e.which == 27) $parent.find(toggle).trigger('focus')
+      return $this.trigger('click')
+    }
+
+    var desc = ' li:not(.disabled):visible a'
+    var $items = $parent.find('.dropdown-menu' + desc)
+
+    if (!$items.length) return
+
+    var index = $items.index(e.target)
+
+    if (e.which == 38 && index > 0)                 index--         // up
+    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (!~index)                                    index = 0
+
+    $items.eq(index).trigger('focus')
+  }
+
+
+  // DROPDOWN PLUGIN DEFINITION
+  // ==========================
+
+  function Plugin(option) {
+    return this.each(function () {
+      var $this = $(this)
+      var data  = $this.data('bs.dropdown')
+
+      if (!data) $this.data('bs.dropdown', (data = new Dropdown(this)))
+      if (typeof option == 'string') data[option].call($this)
+    })
+  }
+
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
+  $.fn.dropdown.Constructor = Dropdown
+
+
+  // DROPDOWN NO CONFLICT
+  // ====================
+
+  $.fn.dropdown.noConflict = function () {
+    $.fn.dropdown = old
+    return this
+  }
+
+
+  // APPLY TO STANDARD DROPDOWN ELEMENTS
+  // ===================================
+
+  $(document)
+    .on('click.bs.dropdown.data-api', clearMenus)
+    .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
+    .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
+
+}(jQuery);
+</script>
+<style type="text/css">
+.code-folding-btn {
+  margin-bottom: 4px;
+}
+
+.row { display: flex; }
+.collapse { display: none; }
+.in { display:block }
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.open > .dropdown-menu {
+    display: block;
+    color: #ffffff;
+    background-color: #ffffff;
+    background-image: none;
+    border-color: #92897e;
+}
+
+.dropdown-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: 400;
+  line-height: 1.42857143;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #e95420;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #e95420;
+  outline: 0;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  color: #aea79f;
+}
+
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 1;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.btn:hover,
+.btn:focus,
+.btn.focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+.btn:active,
+.btn.active {
+  background-image: none;
+  outline: 0;
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: 0.65;
+  box-shadow: none;
+}
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+.btn-default {
+  color: #ffffff;
+  background-color: #aea79f; #important
+  border-color: #aea79f;
+}
+
+.btn-default:focus,
+.btn-default.focus {
+  color: #ffffff;
+  background-color: #978e83;
+  border-color: #6f675e;
+}
+
+.btn-default:hover {
+  color: #ffffff;
+  background-color: #978e83;
+  border-color: #92897e;
+}
+.btn-default:active,
+.btn-default.active,
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+.btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group > .btn-group {
+  float: left;
+}
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
+.btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.btn-group > .btn + .dropdown-toggle {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+.btn-group.open .dropdown-toggle {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-group.open .dropdown-toggle.btn-link {
+  box-shadow: none;
+}
+
+</style>
+<script>
+var str = '<div class="btn-group pull-right" style="position: fixed; right: 50px; top: 10px; z-index: 200"><button type="button" class="btn btn-default btn-xs dropdown-toggle" id="allCodeButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-_extension-text-contrast=""><span>Code</span> <span class="caret"></span></button><ul class="dropdown-menu" style="min-width: 50px;"><li><a id="rmd-show-all-code" href="#">Show All Code</a></li><li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li></ul></div>';
+document.write(str);
+</script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "hide");
+});
+</script>
+
+<script>
+function unrolltab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="tabs.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="black-wealth.html"><a href="black-wealth.html"><i class="fa fa-check"></i><b>2</b> Black Wealth</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="black-wealth.html"><a href="black-wealth.html#introduction-1"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="black-wealth.html"><a href="black-wealth.html#wealth-national"><i class="fa fa-check"></i><b>2.2</b> Wealth (National)</a></li>
+<li class="chapter" data-level="2.3" data-path="black-wealth.html"><a href="black-wealth.html#business-ownership-local"><i class="fa fa-check"></i><b>2.3</b> Business Ownership (Local)</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="black-wealth.html"><a href="black-wealth.html#comparison-to-peer-cities"><i class="fa fa-check"></i><b>2.3.1</b> Comparison to peer cities</a></li>
+<li class="chapter" data-level="2.3.2" data-path="black-wealth.html"><a href="black-wealth.html#peer-ranking"><i class="fa fa-check"></i><b>2.3.2</b> Peer Ranking</a></li>
+<li class="chapter" data-level="2.3.3" data-path="black-wealth.html"><a href="black-wealth.html#local-business-creation"><i class="fa fa-check"></i><b>2.3.3</b> Local business creation</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-local"><i class="fa fa-check"></i><b>2.4</b> Homeownership (Local)</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="black-wealth.html"><a href="black-wealth.html#home-mortgages"><i class="fa fa-check"></i><b>2.4.1</b> Home Mortgages</a></li>
+<li class="chapter" data-level="2.4.2" data-path="black-wealth.html"><a href="black-wealth.html#housing-price-changes"><i class="fa fa-check"></i><b>2.4.2</b> Housing Price Changes</a></li>
+<li class="chapter" data-level="2.4.3" data-path="black-wealth.html"><a href="black-wealth.html#home-valuation-by-geography"><i class="fa fa-check"></i><b>2.4.3</b> Home Valuation by Geography</a></li>
+<li class="chapter" data-level="2.4.4" data-path="black-wealth.html"><a href="black-wealth.html#property-taxes"><i class="fa fa-check"></i><b>2.4.4</b> Property Taxes</a></li>
+<li class="chapter" data-level="2.4.5" data-path="black-wealth.html"><a href="black-wealth.html#undervaluation-and-overtaxation"><i class="fa fa-check"></i><b>2.4.5</b> Undervaluation and Overtaxation</a></li>
+<li class="chapter" data-level="2.4.6" data-path="black-wealth.html"><a href="black-wealth.html#homeownership-rates"><i class="fa fa-check"></i><b>2.4.6</b> Homeownership Rates</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="black-wealth.html"><a href="black-wealth.html#household-income-local"><i class="fa fa-check"></i><b>2.5</b> Household Income (Local)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="black-wealth.html"><a href="black-wealth.html#trendline"><i class="fa fa-check"></i><b>2.5.1</b> Trendline</a></li>
+<li class="chapter" data-level="2.5.2" data-path="black-wealth.html"><a href="black-wealth.html#map-1"><i class="fa fa-check"></i><b>2.5.2</b> Map</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="black-wealth.html"><a href="black-wealth.html#the-tip-of-the-iceberg"><i class="fa fa-check"></i><b>2.6</b> The Tip of the Iceberg</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3</b> Introduction</a></li>
+<li class="chapter" data-level="4" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html"><i class="fa fa-check"></i><b>4</b> Kindergarten Readiness</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#overall-readiness"><i class="fa fa-check"></i><b>4.1</b> Overall Readiness</a></li>
+<li class="chapter" data-level="4.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-race"><i class="fa fa-check"></i><b>4.2</b> by Race</a></li>
+<li class="chapter" data-level="4.3" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-prior-setting"><i class="fa fa-check"></i><b>4.3</b> by Prior Setting</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#prior-setting-by-race"><i class="fa fa-check"></i><b>4.3.1</b> Prior setting by Race</a></li>
+<li class="chapter" data-level="4.3.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#prior-setting-by-zip-code"><i class="fa fa-check"></i><b>4.3.2</b> Prior setting by Zip Code</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-race-and-prior-setting"><i class="fa fa-check"></i><b>4.4</b> by Race and Prior setting</a></li>
+<li class="chapter" data-level="4.5" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#by-geography"><i class="fa fa-check"></i><b>4.5</b> by Geography</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#student-zip-code"><i class="fa fa-check"></i><b>4.5.1</b> Student Zip Code</a></li>
+<li class="chapter" data-level="4.5.2" data-path="kindergarten-readiness.html"><a href="kindergarten-readiness.html#school-location"><i class="fa fa-check"></i><b>4.5.2</b> School Location</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="early-child-care.html"><a href="early-child-care.html"><i class="fa fa-check"></i><b>5</b> Early Child Care</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="early-child-care.html"><a href="early-child-care.html#cost"><i class="fa fa-check"></i><b>5.1</b> Cost</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="early-child-care.html"><a href="early-child-care.html#comparison-to-ccap"><i class="fa fa-check"></i><b>5.1.1</b> Comparison to CCAP</a></li>
+<li class="chapter" data-level="5.1.2" data-path="early-child-care.html"><a href="early-child-care.html#full-time-care"><i class="fa fa-check"></i><b>5.1.2</b> Full-Time Care</a></li>
+<li class="chapter" data-level="5.1.3" data-path="early-child-care.html"><a href="early-child-care.html#part-time-care"><i class="fa fa-check"></i><b>5.1.3</b> Part-Time Care</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="early-child-care.html"><a href="early-child-care.html#location"><i class="fa fa-check"></i><b>5.2</b> Location</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="early-child-care.html"><a href="early-child-care.html#provider-map"><i class="fa fa-check"></i><b>5.2.1</b> Provider map</a></li>
+<li class="chapter" data-level="5.2.2" data-path="early-child-care.html"><a href="early-child-care.html#providers-by-neighborhood"><i class="fa fa-check"></i><b>5.2.2</b> Providers by Neighborhood</a></li>
+<li class="chapter" data-level="5.2.3" data-path="early-child-care.html"><a href="early-child-care.html#neighborhoods-by-race-and-licensed-slots"><i class="fa fa-check"></i><b>5.2.3</b> Neighborhoods by Race and Licensed Slots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="early-child-care.html"><a href="early-child-care.html#hours"><i class="fa fa-check"></i><b>5.3</b> Hours</a></li>
+<li class="chapter" data-level="5.4" data-path="early-child-care.html"><a href="early-child-care.html#compensation-of-child-care-workers"><i class="fa fa-check"></i><b>5.4</b> Compensation of Child Care Workers</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="early-child-care.html"><a href="early-child-care.html#ranking-1"><i class="fa fa-check"></i><b>5.4.1</b> Ranking</a></li>
+<li class="chapter" data-level="5.4.2" data-path="early-child-care.html"><a href="early-child-care.html#trend-1"><i class="fa fa-check"></i><b>5.4.2</b> Trend</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="child-health.html"><a href="child-health.html"><i class="fa fa-check"></i><b>6</b> Child Health</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="child-health.html"><a href="child-health.html#adverse-childhood-experiences"><i class="fa fa-check"></i><b>6.1</b> Adverse Childhood Experiences</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="child-health.html"><a href="child-health.html#impact-of-aces"><i class="fa fa-check"></i><b>6.1.1</b> Impact of ACEs</a></li>
+<li class="chapter" data-level="6.1.2" data-path="child-health.html"><a href="child-health.html#prevelance-of-aces"><i class="fa fa-check"></i><b>6.1.2</b> Prevelance of ACEs</a></li>
+<li class="chapter" data-level="6.1.3" data-path="child-health.html"><a href="child-health.html#aces-by-race"><i class="fa fa-check"></i><b>6.1.3</b> ACEs by race</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="child-health.html"><a href="child-health.html#child-food-security"><i class="fa fa-check"></i><b>6.2</b> Child Food Security</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="child-health.html"><a href="child-health.html#trend-2"><i class="fa fa-check"></i><b>6.2.1</b> Trend</a></li>
+<li class="chapter" data-level="6.2.2" data-path="child-health.html"><a href="child-health.html#ranking-2"><i class="fa fa-check"></i><b>6.2.2</b> Ranking</a></li>
+<li class="chapter" data-level="6.2.3" data-path="child-health.html"><a href="child-health.html#breakdown-by-program-eligibility"><i class="fa fa-check"></i><b>6.2.3</b> Breakdown by Program Eligibility</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="digital-divide.html"><a href="digital-divide.html"><i class="fa fa-check"></i><b>7</b> Digital Divide</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="digital-divide.html"><a href="digital-divide.html#overall-access"><i class="fa fa-check"></i><b>7.1</b> Overall Access</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="digital-divide.html"><a href="digital-divide.html#high-speed-internet"><i class="fa fa-check"></i><b>7.1.1</b> High Speed Internet</a></li>
+<li class="chapter" data-level="7.1.2" data-path="digital-divide.html"><a href="digital-divide.html#digital-devices"><i class="fa fa-check"></i><b>7.1.2</b> Digital Devices</a></li>
+<li class="chapter" data-level="7.1.3" data-path="digital-divide.html"><a href="digital-divide.html#internet-and-devices"><i class="fa fa-check"></i><b>7.1.3</b> Internet and Devices</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="digital-divide.html"><a href="digital-divide.html#the-digital-divide-in-jefferson-county"><i class="fa fa-check"></i><b>7.2</b> The Digital Divide in Jefferson County</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="digital-divide.html"><a href="digital-divide.html#internet-speed"><i class="fa fa-check"></i><b>7.2.1</b> Internet Speed</a></li>
+<li class="chapter" data-level="7.2.2" data-path="digital-divide.html"><a href="digital-divide.html#poverty"><i class="fa fa-check"></i><b>7.2.2</b> Poverty</a></li>
+<li class="chapter" data-level="7.2.3" data-path="digital-divide.html"><a href="digital-divide.html#race"><i class="fa fa-check"></i><b>7.2.3</b> Race</a></li>
+<li class="chapter" data-level="7.2.4" data-path="digital-divide.html"><a href="digital-divide.html#age"><i class="fa fa-check"></i><b>7.2.4</b> Age</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="digital-divide.html"><a href="digital-divide.html#child-internet-access"><i class="fa fa-check"></i><b>7.3</b> Child Internet Access</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="digital-divide.html"><a href="digital-divide.html#school-age"><i class="fa fa-check"></i><b>7.3.1</b> School Age</a></li>
+<li class="chapter" data-level="7.3.2" data-path="digital-divide.html"><a href="digital-divide.html#metro-council-districts"><i class="fa fa-check"></i><b>7.3.2</b> Metro Council Districts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="digital-divide.html"><a href="digital-divide.html#internet-as-a-public-utility"><i class="fa fa-check"></i><b>7.4</b> Internet as a Public Utility</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="digital-divide.html"><a href="digital-divide.html#local-efforts"><i class="fa fa-check"></i><b>7.4.1</b> Local Efforts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html"><i class="fa fa-check"></i><b>8</b> Housing Instability in Louisville</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#introduction-3"><i class="fa fa-check"></i><b>8.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#methods-and-definitions"><i class="fa fa-check"></i><b>8.1.1</b> Methods and Definitions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#rental-insecurity-index"><i class="fa fa-check"></i><b>8.2</b> Rental Insecurity Index</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-subindex"><i class="fa fa-check"></i><b>8.2.1</b> Housing Instability Subindex</a></li>
+<li class="chapter" data-level="8.2.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-19-impact-subindex"><i class="fa fa-check"></i><b>8.2.2</b> Covid 19 Impact Subindex</a></li>
+<li class="chapter" data-level="8.2.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-subindex"><i class="fa fa-check"></i><b>8.2.3</b> Equity Subindex</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-indicators"><i class="fa fa-check"></i><b>8.3</b> Housing Instability Indicators</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-1"><i class="fa fa-check"></i><b>8.3.1</b> Poverty</a></li>
+<li class="chapter" data-level="8.3.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-renting"><i class="fa fa-check"></i><b>8.3.2</b> Percent Renting</a></li>
+<li class="chapter" data-level="8.3.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-housholds"><i class="fa fa-check"></i><b>8.3.3</b> Cost-burdened housholds</a></li>
+<li class="chapter" data-level="8.3.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding"><i class="fa fa-check"></i><b>8.3.4</b> Overcrowding</a></li>
+<li class="chapter" data-level="8.3.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployed"><i class="fa fa-check"></i><b>8.3.5</b> Unemployed</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-indicators"><i class="fa fa-check"></i><b>8.4</b> Covid Indicators</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#no-health-insurance"><i class="fa fa-check"></i><b>8.4.1</b> No Health Insurance</a></li>
+<li class="chapter" data-level="8.4.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#low-income-jobs-lost-to-covid"><i class="fa fa-check"></i><b>8.4.2</b> Low Income Jobs Lost to Covid</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-index-1"><i class="fa fa-check"></i><b>8.5</b> Equity Index</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-poc"><i class="fa fa-check"></i><b>8.5.1</b> Percent PoC</a></li>
+<li class="chapter" data-level="8.5.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#extremely-low-income"><i class="fa fa-check"></i><b>8.5.2</b> Extremely Low Income</a></li>
+<li class="chapter" data-level="8.5.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#public-assistance"><i class="fa fa-check"></i><b>8.5.3</b> Public Assistance</a></li>
+<li class="chapter" data-level="8.5.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#foreign-born"><i class="fa fa-check"></i><b>8.5.4</b> Foreign Born</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#peer-city-data"><i class="fa fa-check"></i><b>8.6</b> Peer City Data</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-renters"><i class="fa fa-check"></i><b>8.6.1</b> Cost Burdened Renters</a></li>
+<li class="chapter" data-level="8.6.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding-1"><i class="fa fa-check"></i><b>8.6.2</b> Overcrowding</a></li>
+<li class="chapter" data-level="8.6.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployment"><i class="fa fa-check"></i><b>8.6.3</b> Unemployment</a></li>
+<li class="chapter" data-level="8.6.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#share-renting"><i class="fa fa-check"></i><b>8.6.4</b> Share renting</a></li>
+<li class="chapter" data-level="8.6.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-2"><i class="fa fa-check"></i><b>8.6.5</b> Poverty</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#metro-council-district-maps"><i class="fa fa-check"></i><b>8.7</b> Metro Council District Maps</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#rental-insecurity-index-1"><i class="fa fa-check"></i><b>8.7.1</b> Rental Insecurity Index</a></li>
+<li class="chapter" data-level="8.7.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-instability-subindex-1"><i class="fa fa-check"></i><b>8.7.2</b> Housing Instability Subindex</a></li>
+<li class="chapter" data-level="8.7.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-19-impact-subindex-1"><i class="fa fa-check"></i><b>8.7.3</b> Covid 19 Impact Subindex</a></li>
+<li class="chapter" data-level="8.7.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-subindex-1"><i class="fa fa-check"></i><b>8.7.4</b> Equity Subindex</a></li>
+<li class="chapter" data-level="8.7.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#poverty-3"><i class="fa fa-check"></i><b>8.7.5</b> Poverty</a></li>
+<li class="chapter" data-level="8.7.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-renting-1"><i class="fa fa-check"></i><b>8.7.6</b> Percent Renting</a></li>
+<li class="chapter" data-level="8.7.7" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#cost-burdened-housholds-1"><i class="fa fa-check"></i><b>8.7.7</b> Cost-burdened housholds</a></li>
+<li class="chapter" data-level="8.7.8" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#overcrowding-2"><i class="fa fa-check"></i><b>8.7.8</b> Overcrowding</a></li>
+<li class="chapter" data-level="8.7.9" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#unemployed-1"><i class="fa fa-check"></i><b>8.7.9</b> Unemployed</a></li>
+<li class="chapter" data-level="8.7.10" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#no-health-insurance-1"><i class="fa fa-check"></i><b>8.7.10</b> No Health Insurance</a></li>
+<li class="chapter" data-level="8.7.11" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#low-income-jobs-lost-to-covid-1"><i class="fa fa-check"></i><b>8.7.11</b> Low Income Jobs Lost to Covid</a></li>
+<li class="chapter" data-level="8.7.12" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#percent-poc-1"><i class="fa fa-check"></i><b>8.7.12</b> Percent PoC</a></li>
+<li class="chapter" data-level="8.7.13" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#extremely-low-income-1"><i class="fa fa-check"></i><b>8.7.13</b> Extremely Low Income</a></li>
+<li class="chapter" data-level="8.7.14" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#public-assistance-1"><i class="fa fa-check"></i><b>8.7.14</b> Public Assistance</a></li>
+<li class="chapter" data-level="8.7.15" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#foreign-born-1"><i class="fa fa-check"></i><b>8.7.15</b> Foreign Born</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#metro-council-tables"><i class="fa fa-check"></i><b>8.8</b> Metro Council Tables</a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-subindex"><i class="fa fa-check"></i><b>8.8.1</b> Housing Subindex</a></li>
+<li class="chapter" data-level="8.8.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#covid-subindex"><i class="fa fa-check"></i><b>8.8.2</b> Covid Subindex</a></li>
+<li class="chapter" data-level="8.8.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#equity-index-2"><i class="fa fa-check"></i><b>8.8.3</b> Equity Index</a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#home-mortgages-1"><i class="fa fa-check"></i><b>8.9</b> Home Mortgages</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgages-by-geography-1"><i class="fa fa-check"></i><b>8.9.1</b> Mortgages by geography</a></li>
+<li class="chapter" data-level="8.9.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgages-by-race-1"><i class="fa fa-check"></i><b>8.9.2</b> Mortgages by race</a></li>
+<li class="chapter" data-level="8.9.3" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#mortgage-dollars-by-race-1"><i class="fa fa-check"></i><b>8.9.3</b> Mortgage Dollars by race</a></li>
+<li class="chapter" data-level="8.9.4" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#denial-rates-by-race-1"><i class="fa fa-check"></i><b>8.9.4</b> Denial Rates by Race</a></li>
+<li class="chapter" data-level="8.9.5" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#denial-rates-by-geography-1"><i class="fa fa-check"></i><b>8.9.5</b> Denial Rates by Geography</a></li>
+<li class="chapter" data-level="8.9.6" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#interest-rates-by-geography-1"><i class="fa fa-check"></i><b>8.9.6</b> Interest Rates by geography</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-price-changes-1"><i class="fa fa-check"></i><b>8.10</b> Housing Price Changes</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#long-term-appreciation-1"><i class="fa fa-check"></i><b>8.10.1</b> Long-term appreciation</a></li>
+<li class="chapter" data-level="8.10.2" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#short-term-appreciation-1"><i class="fa fa-check"></i><b>8.10.2</b> Short-term appreciation</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="housing-instability-in-louisville.html"><a href="housing-instability-in-louisville.html#housing-availability"><i class="fa fa-check"></i><b>8.11</b> Housing Availability</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Housing Instability in Louisville</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="child-health" class="section level1" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Child Health</h1>
+<p>Child health is important for healthy child development and future success.</p>
+<div id="adverse-childhood-experiences" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Adverse Childhood Experiences</h2>
+<p><strong>Adverse childhood experiences are potentially traumatic events that occur in childhood. If you would prefer to skip past this section, you can do so by clicking “Child Food Security” in the sidebar.</strong></p>
+<p>Adverse Childhood Experiences (ACEs) include forms of abuse, neglect, and household dysfunction. According to the CDC, “ACEs can have lasting, negative effects on health, well-being, and opportunity.” In 2018, 71% of Louisville adults reported experiencing one or more ACEs during their childhood.</p>
+<p>To understand the questionnaire and find your ACE score, you can <a href="https://www.npr.org/sections/health-shots/2015/03/02/387007941/take-the-ace-quiz-and-learn-what-it-does-and-doesnt-mean">click here.</a></p>
+<p>ACEs data was collected by the Kentucky BRFSS survey using phone interviews throughout 2018.
+Kentucky Department for Public Health (KDPH) and the Centers for Disease Control and Prevention (CDC). <em>Kentucky Behavioral Risk Factor Survey Data - Adverse Childhood Experiences 2015&amp;2018.</em> Frankfort, Kentucky: Cabinet for Health and Family Services, Kentucky Department for Public Health, <strong>[2018]</strong>.</p>
+<div id="impact-of-aces" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Impact of ACEs</h3>
+<p>Louisville adults who have experienced a high number of ACEs report much higher numbers of chronic disease than those who experienced no ACEs. The chart below compares the prevalence of several healh conditions among the two groups. The data is based on the health status of current adults based on the number of ACEs they report having experienced as a child.</p>
+<p>Compared to adults who experienced no ACEs, adults who experienced a high number of ACEs are 6.5 times as likely to be a current smoker, 2.2 times as likely to report poor health status, 6.3 times as likely to have had a heart attack, and 3.9 times as likely to have depression.</p>
+<div class="figure">
+<img src="images/ACEs%20risk%20factors.png" alt="" />
+<p class="caption">ACE risk factors</p>
+</div>
+</div>
+<div id="prevelance-of-aces" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Prevelance of ACEs</h3>
+<div id="ace-scores" class="section level4" number="6.1.2.1">
+<h4><span class="header-section-number">6.1.2.1</span> ACE scores</h4>
+<p>In 2018, 71% of adults in Louisville reported experiencing at least one ACE when they were a child. Higher numbers of ACEs are associated with greater prevalence of risk factors and chronic disease.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="child-health.html#cb43-1" aria-hidden="true" tabindex="-1"></a>ace_prevelance <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb43-2"><a href="child-health.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">number =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;5+&quot;</span>),</span>
+<span id="cb43-3"><a href="child-health.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent =</span> <span class="fu">c</span>(<span class="dv">29</span>, <span class="fl">20.8</span>, <span class="fl">17.8</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">12.4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href="child-health.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb43-5"><a href="child-health.html#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">number =</span> <span class="fu">factor</span>(number, <span class="at">levels =</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;5+&quot;</span>)), <span class="at">ordered =</span> T),</span>
+<span id="cb43-6"><a href="child-health.html#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">label_text =</span> scales<span class="sc">::</span><span class="fu">percent</span>(percent, <span class="at">scale =</span> <span class="dv">1</span>),</span>
+<span id="cb43-7"><a href="child-health.html#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ypos =</span> <span class="fu">cumsum</span>(percent) <span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> percent)</span>
+<span id="cb43-8"><a href="child-health.html#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="child-health.html#cb43-9" aria-hidden="true" tabindex="-1"></a>text_size <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb43-10"><a href="child-health.html#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="child-health.html#cb43-11" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ace_prevelance, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(<span class="dv">1</span>), <span class="at">y=</span>percent))</span>
+<span id="cb43-12"><a href="child-health.html#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="child-health.html#cb43-13" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> p <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb43-14"><a href="child-health.html#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-15"><a href="child-health.html#cb43-15" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb43-16"><a href="child-health.html#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> number),</span>
+<span id="cb43-17"><a href="child-health.html#cb43-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,</span>
+<span id="cb43-18"><a href="child-health.html#cb43-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">width =</span> <span class="dv">1</span>,</span>
+<span id="cb43-19"><a href="child-health.html#cb43-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> text_size,</span>
+<span id="cb43-20"><a href="child-health.html#cb43-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">&quot;#d63631&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-21"><a href="child-health.html#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_manual</span>(</span>
+<span id="cb43-22"><a href="child-health.html#cb43-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Number of ACEs&quot;</span>,</span>
+<span id="cb43-23"><a href="child-health.html#cb43-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="st">&quot;5+&quot;</span>), <span class="at">values =</span> <span class="fu">seq</span>(<span class="fl">0.2</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb43-24"><a href="child-health.html#cb43-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">&quot;y&quot;</span>) <span class="sc">+</span></span>
+<span id="cb43-25"><a href="child-health.html#cb43-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb43-26"><a href="child-health.html#cb43-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label_text, <span class="at">family =</span> <span class="st">&quot;Montserrat&quot;</span>), </span>
+<span id="cb43-27"><a href="child-health.html#cb43-27" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>, <span class="at">position =</span> <span class="fu">position_stack</span>(<span class="at">vjust =</span> <span class="fl">0.5</span>))</span>
+<span id="cb43-28"><a href="child-health.html#cb43-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-29"><a href="child-health.html#cb43-29" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;Montserrat&quot;</span>),</span>
+<span id="cb43-30"><a href="child-health.html#cb43-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span> <span class="sc">*</span> text_size, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>)),</span>
+<span id="cb43-31"><a href="child-health.html#cb43-31" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size, <span class="at">lineheight =</span> <span class="fl">0.5</span>),</span>
+<span id="cb43-32"><a href="child-health.html#cb43-32" aria-hidden="true" tabindex="-1"></a>               <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span> <span class="sc">*</span> text_size, <span class="at">lineheight =</span> <span class="fl">0.5</span>),</span>
+<span id="cb43-33"><a href="child-health.html#cb43-33" aria-hidden="true" tabindex="-1"></a>               <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span> <span class="sc">*</span> text_size))</span>
+<span id="cb43-34"><a href="child-health.html#cb43-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-35"><a href="child-health.html#cb43-35" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Percentage of Louisville adults by ACE score, 2018&quot;</span>,</span>
+<span id="cb43-36"><a href="child-health.html#cb43-36" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
+<span id="cb43-37"><a href="child-health.html#cb43-37" aria-hidden="true" tabindex="-1"></a><span class="st">                         Data from the Kentucky Behavioral Risk Factor Survey&quot;</span>)</span>
+<span id="cb43-38"><a href="child-health.html#cb43-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-39"><a href="child-health.html#cb43-39" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb43-40"><a href="child-health.html#cb43-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb43-41"><a href="child-health.html#cb43-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the panel</span></span>
+<span id="cb43-42"><a href="child-health.html#cb43-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the plot</span></span>
+<span id="cb43-43"><a href="child-health.html#cb43-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
+<span id="cb43-44"><a href="child-health.html#cb43-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
+<span id="cb43-45"><a href="child-health.html#cb43-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span>
+<span id="cb43-46"><a href="child-health.html#cb43-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-47"><a href="child-health.html#cb43-47" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="book_files_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
+<div id="type-of-aces" class="section level4" number="6.1.2.2">
+<h4><span class="header-section-number">6.1.2.2</span> Type of ACEs</h4>
+<p>The most common ACE Louisville adults report experiencing as a child is divorce among their parents, followed by a drinking problem in the household. Over one quarter of adults reported experiencing verbal abuse as a child.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="child-health.html#cb44-1" aria-hidden="true" tabindex="-1"></a>ace_types <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb44-2"><a href="child-health.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&quot;abuse&quot;</span>, <span class="dv">3</span>), <span class="fu">rep</span>(<span class="st">&quot;dysfunction&quot;</span>, <span class="dv">6</span>)),</span>
+<span id="cb44-3"><a href="child-health.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="fu">c</span>(<span class="st">&quot;physical_abuse&quot;</span>, <span class="st">&quot;sexual_abuse&quot;</span>, <span class="st">&quot;verbal_abuse&quot;</span>,</span>
+<span id="cb44-4"><a href="child-health.html#cb44-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;incarcerated_hh_member&quot;</span>, <span class="st">&quot;drug_problem&quot;</span>, <span class="st">&quot;drinking_problem&quot;</span>,</span>
+<span id="cb44-5"><a href="child-health.html#cb44-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">&quot;witness_domestic_violence&quot;</span>, <span class="st">&quot;mentally_ill_hh_member&quot;</span>, <span class="st">&quot;divorced_parents&quot;</span>),</span>
+<span id="cb44-6"><a href="child-health.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">percent =</span> <span class="fu">c</span>(<span class="fl">12.5</span>, <span class="fl">15.4</span>, <span class="fl">28.2</span>, <span class="fl">9.7</span>, <span class="fl">16.9</span>, <span class="fl">31.6</span>, <span class="fl">20.5</span>, <span class="fl">26.1</span>, <span class="fl">41.8</span>))</span>
+<span id="cb44-7"><a href="child-health.html#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="child-health.html#cb44-8" aria-hidden="true" tabindex="-1"></a>ace_types <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb44-9"><a href="child-health.html#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type, </span>
+<span id="cb44-10"><a href="child-health.html#cb44-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;verbal_abuse&quot;</span>,</span>
+<span id="cb44-11"><a href="child-health.html#cb44-11" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;sexual_abuse&quot;</span>, </span>
+<span id="cb44-12"><a href="child-health.html#cb44-12" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;physical_abuse&quot;</span>,</span>
+<span id="cb44-13"><a href="child-health.html#cb44-13" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;divorced_parents&quot;</span>,</span>
+<span id="cb44-14"><a href="child-health.html#cb44-14" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;drinking_problem&quot;</span>,</span>
+<span id="cb44-15"><a href="child-health.html#cb44-15" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;mentally_ill_hh_member&quot;</span>, </span>
+<span id="cb44-16"><a href="child-health.html#cb44-16" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;witness_domestic_violence&quot;</span>, </span>
+<span id="cb44-17"><a href="child-health.html#cb44-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;drug_problem&quot;</span>,</span>
+<span id="cb44-18"><a href="child-health.html#cb44-18" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;incarcerated_hh_member&quot;</span>),</span>
+<span id="cb44-19"><a href="child-health.html#cb44-19" aria-hidden="true" tabindex="-1"></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Verbal abuse&quot;</span>,</span>
+<span id="cb44-20"><a href="child-health.html#cb44-20" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Sexual abuse&quot;</span>, </span>
+<span id="cb44-21"><a href="child-health.html#cb44-21" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Physical abuse&quot;</span>, </span>
+<span id="cb44-22"><a href="child-health.html#cb44-22" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Divorced Parents&quot;</span>,</span>
+<span id="cb44-23"><a href="child-health.html#cb44-23" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Drinking problem in household&quot;</span>,</span>
+<span id="cb44-24"><a href="child-health.html#cb44-24" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Mentally ill household member&quot;</span>, </span>
+<span id="cb44-25"><a href="child-health.html#cb44-25" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Witnessed domestic violence&quot;</span>, </span>
+<span id="cb44-26"><a href="child-health.html#cb44-26" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Drug problem in household&quot;</span>,</span>
+<span id="cb44-27"><a href="child-health.html#cb44-27" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">&quot;Incarcerated household member&quot;</span>),</span>
+<span id="cb44-28"><a href="child-health.html#cb44-28" aria-hidden="true" tabindex="-1"></a>                       <span class="at">ordered =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb44-29"><a href="child-health.html#cb44-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-30"><a href="child-health.html#cb44-30" aria-hidden="true" tabindex="-1"></a>ace_types <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb44-31"><a href="child-health.html#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label_text =</span> scales<span class="sc">::</span><span class="fu">percent</span>(percent, <span class="at">scale=</span><span class="dv">1</span>, <span class="at">accuracy =</span> <span class="dv">1</span>))</span>
+<span id="cb44-32"><a href="child-health.html#cb44-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-33"><a href="child-health.html#cb44-33" aria-hidden="true" tabindex="-1"></a>text_size <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb44-34"><a href="child-health.html#cb44-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-35"><a href="child-health.html#cb44-35" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ace_types, <span class="fu">aes</span>(type, percent))</span>
+<span id="cb44-36"><a href="child-health.html#cb44-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-37"><a href="child-health.html#cb44-37" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> p <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">fill =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb44-38"><a href="child-health.html#cb44-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-39"><a href="child-health.html#cb44-39" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb44-40"><a href="child-health.html#cb44-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,</span>
+<span id="cb44-41"><a href="child-health.html#cb44-41" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> text_size,</span>
+<span id="cb44-42"><a href="child-health.html#cb44-42" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">&quot;#d63631&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-43"><a href="child-health.html#cb44-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>(<span class="at">clip=</span><span class="st">&quot;off&quot;</span>) <span class="sc">+</span></span>
+<span id="cb44-44"><a href="child-health.html#cb44-44" aria-hidden="true" tabindex="-1"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_tufte</span>()</span>
+<span id="cb44-45"><a href="child-health.html#cb44-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-46"><a href="child-health.html#cb44-46" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;Montserrat&quot;</span>),</span>
+<span id="cb44-47"><a href="child-health.html#cb44-47" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fl">13.5</span> <span class="sc">*</span> text_size, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>)),</span>
+<span id="cb44-48"><a href="child-health.html#cb44-48" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb44-49"><a href="child-health.html#cb44-49" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size),</span>
+<span id="cb44-50"><a href="child-health.html#cb44-50" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size),</span>
+<span id="cb44-51"><a href="child-health.html#cb44-51" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size),</span>
+<span id="cb44-52"><a href="child-health.html#cb44-52" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-53"><a href="child-health.html#cb44-53" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-54"><a href="child-health.html#cb44-54" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size, <span class="at">lineheight =</span> <span class="fl">0.5</span>))</span>
+<span id="cb44-55"><a href="child-health.html#cb44-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-56"><a href="child-health.html#cb44-56" aria-hidden="true" tabindex="-1"></a><span class="co"># p &lt;- p +</span></span>
+<span id="cb44-57"><a href="child-health.html#cb44-57" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(subtitle = subtitle_text) +</span></span>
+<span id="cb44-58"><a href="child-health.html#cb44-58" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme(plot.subtitle = element_text(hjust = 0.5, size = 10 * text_size))</span></span>
+<span id="cb44-59"><a href="child-health.html#cb44-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-60"><a href="child-health.html#cb44-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Add remaining text</span></span>
+<span id="cb44-61"><a href="child-health.html#cb44-61" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Prevelance of ACEs among Louisville adults, 2018&quot;</span>,</span>
+<span id="cb44-62"><a href="child-health.html#cb44-62" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> <span class="st">&quot;Percent&quot;</span>,</span>
+<span id="cb44-63"><a href="child-health.html#cb44-63" aria-hidden="true" tabindex="-1"></a>              <span class="at">x =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb44-64"><a href="child-health.html#cb44-64" aria-hidden="true" tabindex="-1"></a>              <span class="at">caption =</span> <span class="st">&quot;Souce: Greater Louisville Project</span></span>
+<span id="cb44-65"><a href="child-health.html#cb44-65" aria-hidden="true" tabindex="-1"></a><span class="st">                         Data from the Kentucky Behavioral Risk Factor Survey&quot;</span>)</span>
+<span id="cb44-66"><a href="child-health.html#cb44-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-67"><a href="child-health.html#cb44-67" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb44-68"><a href="child-health.html#cb44-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb44-69"><a href="child-health.html#cb44-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the panel</span></span>
+<span id="cb44-70"><a href="child-health.html#cb44-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the plot</span></span>
+<span id="cb44-71"><a href="child-health.html#cb44-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
+<span id="cb44-72"><a href="child-health.html#cb44-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
+<span id="cb44-73"><a href="child-health.html#cb44-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span>
+<span id="cb44-74"><a href="child-health.html#cb44-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-75"><a href="child-health.html#cb44-75" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label_text,</span>
+<span id="cb44-76"><a href="child-health.html#cb44-76" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> <span class="st">&quot;Montserrat Bold&quot;</span>),</span>
+<span id="cb44-77"><a href="child-health.html#cb44-77" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="fl">4.5</span> <span class="sc">*</span> text_size,</span>
+<span id="cb44-78"><a href="child-health.html#cb44-78" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
+<span id="cb44-79"><a href="child-health.html#cb44-79" aria-hidden="true" tabindex="-1"></a>                   <span class="at">hjust =</span> <span class="fl">1.1</span>)</span>
+<span id="cb44-80"><a href="child-health.html#cb44-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-81"><a href="child-health.html#cb44-81" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="book_files_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+</div>
+<div id="aces-by-race" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> ACEs by race</h3>
+<p>The most recent national data from the National Survey of Children’s Health shows that <a href="https://www.cahmi.org/wp-content/uploads/2018/05/aces_fact_sheet.pdf">children who are Hispanic or Black are more likely to have experienced one or more ACEs than other children.</a>. While we have some local data for children of different races, it is limited and highly variable from year to year. The original ACEs questionnaire mostly measures trauma that occurs in the home, and it excludes many kinds of trauma that are most likely to affect Black and Brown children, such as racial discrimination from peers, experiences with community violence, and family separation.</p>
+<p>There are various proposals to create a more comprehensive Expanded or Culturally-Informed ACEs measure. Some suggestions include adding questions about community experiences, such as witnessing violence or living in unsafe neighborhoods. Proposals also include collecting more data on experiences with racism, including discrimination, stigma, and historical trauma. Racism is both a source of trauma and an amplifier of other kinds of trauma.</p>
+</div>
+</div>
+<div id="child-food-security" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Child Food Security</h2>
+<p>Child food security data comes from the Feeding America’s Mind the Meal Gap program. According to Feeding America, “research shows an association between food insecurity and delayed development in young children; risk of chronic illnesses like asthma and anemia; and behavioral problems like hyperactivity, anxiety and aggression in school-age children.”</p>
+<div id="trend-2" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Trend</h3>
+<p>From 2014 to 2018, Louisville saw a slight decline in child food insecurity. However, child food insecurity increased by 40% in Louisville from 2018 to October of 2020.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="child-health.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in food insecurity data from Mind the Meal Gap</span></span>
+<span id="cb45-2"><a href="child-health.html#cb45-2" aria-hidden="true" tabindex="-1"></a>dinner_time <span class="ot">&lt;-</span> <span class="cf">function</span>(folder, starting_year){</span>
+<span id="cb45-3"><a href="child-health.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-4"><a href="child-health.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  wd <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
+<span id="cb45-5"><a href="child-health.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  directory <span class="ot">&lt;-</span> <span class="fu">paste0</span>(wd, <span class="st">&quot;/&quot;</span>, folder)</span>
+<span id="cb45-6"><a href="child-health.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  file_names <span class="ot">&lt;-</span> <span class="fu">list.files</span>(directory)</span>
+<span id="cb45-7"><a href="child-health.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-8"><a href="child-health.html#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Read file for each year</span></span>
+<span id="cb45-9"><a href="child-health.html#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (y <span class="cf">in</span> starting_year<span class="sc">:</span><span class="dv">2018</span>){</span>
+<span id="cb45-10"><a href="child-health.html#cb45-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-11"><a href="child-health.html#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create parameters to read in sheet based on the year</span></span>
+<span id="cb45-12"><a href="child-health.html#cb45-12" aria-hidden="true" tabindex="-1"></a>    file_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(wd, <span class="st">&quot;/&quot;</span>, folder, <span class="st">&quot;/&quot;</span>, file_names[y<span class="dv">-2008</span>])</span>
+<span id="cb45-13"><a href="child-health.html#cb45-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-14"><a href="child-health.html#cb45-14" aria-hidden="true" tabindex="-1"></a>    sheet_name <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb45-15"><a href="child-health.html#cb45-15" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">%in%</span> <span class="dv">2009</span><span class="sc">:</span><span class="dv">2010</span> <span class="sc">~</span> <span class="st">&quot;County&quot;</span>,</span>
+<span id="cb45-16"><a href="child-health.html#cb45-16" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">%in%</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2018</span> <span class="sc">~</span> <span class="fu">paste0</span>(y, <span class="st">&quot; County&quot;</span>))</span>
+<span id="cb45-17"><a href="child-health.html#cb45-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-18"><a href="child-health.html#cb45-18" aria-hidden="true" tabindex="-1"></a>    skip_num <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb45-19"><a href="child-health.html#cb45-19" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">%in%</span> <span class="dv">2009</span><span class="sc">:</span><span class="dv">2017</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb45-20"><a href="child-health.html#cb45-20" aria-hidden="true" tabindex="-1"></a>      y <span class="sc">%in%</span> <span class="dv">2018</span> <span class="sc">~</span> <span class="dv">1</span>)</span>
+<span id="cb45-21"><a href="child-health.html#cb45-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb45-22"><a href="child-health.html#cb45-22" aria-hidden="true" tabindex="-1"></a>    df <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(file_path, <span class="at">sheet =</span> sheet_name, <span class="at">skip =</span> skip_num)</span>
+<span id="cb45-23"><a href="child-health.html#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-24"><a href="child-health.html#cb45-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create variables names based on the year</span></span>
+<span id="cb45-25"><a href="child-health.html#cb45-25" aria-hidden="true" tabindex="-1"></a>    food_insecure_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(y, <span class="st">&quot; Food Insecurity Rate&quot;</span>)</span>
+<span id="cb45-26"><a href="child-health.html#cb45-26" aria-hidden="true" tabindex="-1"></a>    food_insecure_num_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;# of Food Insecure Persons in &quot;</span>, y)</span>
+<span id="cb45-27"><a href="child-health.html#cb45-27" aria-hidden="true" tabindex="-1"></a>    child_food_insecure_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(y, <span class="st">&quot; Child food insecurity rate&quot;</span>)</span>
+<span id="cb45-28"><a href="child-health.html#cb45-28" aria-hidden="true" tabindex="-1"></a>    child_food_insecure_num_var <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;# of Food Insecure Children in &quot;</span>, y)</span>
+<span id="cb45-29"><a href="child-health.html#cb45-29" aria-hidden="true" tabindex="-1"></a>    insecure_FRL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;% food insecure children in HH w/ HH incomes below 185 FPL in &quot;</span>, y)</span>
+<span id="cb45-30"><a href="child-health.html#cb45-30" aria-hidden="true" tabindex="-1"></a>    insecure_non_FRL <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;% food insecure children in HH w/ HH incomes above 185 FPL in &quot;</span>, y)</span>
+<span id="cb45-31"><a href="child-health.html#cb45-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-32"><a href="child-health.html#cb45-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tidy data frame</span></span>
+<span id="cb45-33"><a href="child-health.html#cb45-33" aria-hidden="true" tabindex="-1"></a>    df <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb45-34"><a href="child-health.html#cb45-34" aria-hidden="true" tabindex="-1"></a>      <span class="fu">transmute</span>(</span>
+<span id="cb45-35"><a href="child-health.html#cb45-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">FIPS =</span> <span class="fu">str_pad</span>(FIPS, <span class="dv">5</span>, <span class="st">&quot;left&quot;</span>, <span class="st">&quot;0&quot;</span>),</span>
+<span id="cb45-36"><a href="child-health.html#cb45-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">year =</span> y,</span>
+<span id="cb45-37"><a href="child-health.html#cb45-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">food_insecurity =</span> .data[[food_insecure_var]],</span>
+<span id="cb45-38"><a href="child-health.html#cb45-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">food_insecurity_num =</span> .data[[food_insecure_num_var]],</span>
+<span id="cb45-39"><a href="child-health.html#cb45-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">child_food_insecurity =</span> .data[[child_food_insecure_var]],</span>
+<span id="cb45-40"><a href="child-health.html#cb45-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">child_food_insecurity_num =</span> .data[[child_food_insecure_num_var]],</span>
+<span id="cb45-41"><a href="child-health.html#cb45-41" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb45-42"><a href="child-health.html#cb45-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">low_threshold =</span> <span class="st">`</span><span class="at">Low Threshold in state</span><span class="st">`</span>,</span>
+<span id="cb45-43"><a href="child-health.html#cb45-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">low_threshold_type =</span> <span class="st">`</span><span class="at">Low Threshold Type</span><span class="st">`</span>,</span>
+<span id="cb45-44"><a href="child-health.html#cb45-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">high_threshold =</span> <span class="st">`</span><span class="at">High Threshold in state</span><span class="st">`</span>,</span>
+<span id="cb45-45"><a href="child-health.html#cb45-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">high_threshold_type =</span> <span class="st">`</span><span class="at">High Threshold Type</span><span class="st">`</span>,</span>
+<span id="cb45-46"><a href="child-health.html#cb45-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">under_low =</span> <span class="st">`</span><span class="at">% FI ≤ Low Threshold</span><span class="st">`</span>,</span>
+<span id="cb45-47"><a href="child-health.html#cb45-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">between =</span> <span class="st">`</span><span class="at">% FI Btwn Thresholds</span><span class="st">`</span>,</span>
+<span id="cb45-48"><a href="child-health.html#cb45-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">above =</span> <span class="st">`</span><span class="at">% FI &gt; High Threshold</span><span class="st">`</span>,</span>
+<span id="cb45-49"><a href="child-health.html#cb45-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">child_below_FRL =</span> .data[[insecure_FRL]],</span>
+<span id="cb45-50"><a href="child-health.html#cb45-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">child_above_FRL =</span> .data[[insecure_non_FRL]])</span>
+<span id="cb45-51"><a href="child-health.html#cb45-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-52"><a href="child-health.html#cb45-52" aria-hidden="true" tabindex="-1"></a>    output <span class="ot">&lt;-</span> <span class="fu">assign_row_join</span>(output, df)</span>
+<span id="cb45-53"><a href="child-health.html#cb45-53" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb45-54"><a href="child-health.html#cb45-54" aria-hidden="true" tabindex="-1"></a>  output</span>
+<span id="cb45-55"><a href="child-health.html#cb45-55" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb45-56"><a href="child-health.html#cb45-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-57"><a href="child-health.html#cb45-57" aria-hidden="true" tabindex="-1"></a>feeding_america <span class="ot">&lt;-</span> <span class="fu">dinner_time</span>(<span class="st">&quot;early-childhood/raw_data/Map the Meal Gap data&quot;</span>, <span class="at">starting_year =</span> <span class="dv">2012</span>)</span>
+<span id="cb45-58"><a href="child-health.html#cb45-58" aria-hidden="true" tabindex="-1"></a>feeding_america_covid <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">&quot;early-childhood/raw_data/Projections data (revised Oct. 2020)/The Impact of Coronavirus on Food Insecurity Update 10.2020.xlsx&quot;</span>, <span class="at">sheet =</span> <span class="st">&quot;County&quot;</span>)</span>
+<span id="cb45-59"><a href="child-health.html#cb45-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-60"><a href="child-health.html#cb45-60" aria-hidden="true" tabindex="-1"></a>feeding_america_covid <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb45-61"><a href="child-health.html#cb45-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb45-62"><a href="child-health.html#cb45-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">FIPS =</span> <span class="fu">str_pad</span>(FIPS, <span class="dv">5</span>, <span class="st">&quot;left&quot;</span>, <span class="st">&quot;0&quot;</span>),</span>
+<span id="cb45-63"><a href="child-health.html#cb45-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">year =</span> <span class="dv">2020</span>,</span>
+<span id="cb45-64"><a href="child-health.html#cb45-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">food_insecurity =</span> <span class="st">`</span><span class="at">[Revised Projections – Oct 2020] </span><span class="sc">\r\n</span><span class="at">2020 Food Insecurity  %</span><span class="st">`</span>,</span>
+<span id="cb45-65"><a href="child-health.html#cb45-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">food_insecurity_num =</span> <span class="st">`</span><span class="at">[Revised Projections – Oct 2020] </span><span class="sc">\r\n</span><span class="at">2020 Food Insecurity #</span><span class="st">`</span>,</span>
+<span id="cb45-66"><a href="child-health.html#cb45-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">child_food_insecurity =</span> <span class="st">`</span><span class="at">[Revised Projections – Oct 2020] </span><span class="sc">\r\n</span><span class="at">2020 Child Food Insecurity  %</span><span class="st">`</span>,</span>
+<span id="cb45-67"><a href="child-health.html#cb45-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">child_food_insecurity_num =</span> <span class="st">`</span><span class="at">[Revised Projections – Oct 2020] </span><span class="sc">\r\n</span><span class="at">2020 Child Food Insecurity #</span><span class="st">`</span>)</span>
+<span id="cb45-68"><a href="child-health.html#cb45-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-69"><a href="child-health.html#cb45-69" aria-hidden="true" tabindex="-1"></a>feeding_america <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb45-70"><a href="child-health.html#cb45-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(feeding_america_covid)</span>
+<span id="cb45-71"><a href="child-health.html#cb45-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-72"><a href="child-health.html#cb45-72" aria-hidden="true" tabindex="-1"></a>feeding_america <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb45-73"><a href="child-health.html#cb45-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_peers</span>(<span class="at">FIPS_df =</span> FIPS_df) <span class="sc">%&gt;%</span></span>
+<span id="cb45-74"><a href="child-health.html#cb45-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(</span>
+<span id="cb45-75"><a href="child-health.html#cb45-75" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(food_insecurity, child_food_insecurity, under_low, between, above, child_below_FRL, child_above_FRL), </span>
+<span id="cb45-76"><a href="child-health.html#cb45-76" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span> . <span class="sc">*</span> <span class="dv">100</span>))</span>
+<span id="cb45-77"><a href="child-health.html#cb45-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-78"><a href="child-health.html#cb45-78" aria-hidden="true" tabindex="-1"></a>feeding_america_1 <span class="ot">&lt;-</span> feeding_america <span class="sc">%&gt;%</span></span>
+<span id="cb45-79"><a href="child-health.html#cb45-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stl_merge</span>(food_insecurity_num, child_food_insecurity_num, <span class="at">method =</span> <span class="st">&quot;sum&quot;</span>)</span>
+<span id="cb45-80"><a href="child-health.html#cb45-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-81"><a href="child-health.html#cb45-81" aria-hidden="true" tabindex="-1"></a>feeding_america_2 <span class="ot">&lt;-</span> feeding_america <span class="sc">%&gt;%</span></span>
+<span id="cb45-82"><a href="child-health.html#cb45-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stl_merge</span>(food_insecurity, under_low, between, above, <span class="at">method =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">weight_var =</span> <span class="st">&quot;food_insecurity_num&quot;</span>)</span>
+<span id="cb45-83"><a href="child-health.html#cb45-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-84"><a href="child-health.html#cb45-84" aria-hidden="true" tabindex="-1"></a>feeding_america_3 <span class="ot">&lt;-</span> feeding_america <span class="sc">%&gt;%</span></span>
+<span id="cb45-85"><a href="child-health.html#cb45-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stl_merge</span>(child_food_insecurity, child_below_FRL, child_above_FRL, <span class="at">method =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">weight_var =</span> <span class="st">&quot;child_food_insecurity_num&quot;</span>)</span>
+<span id="cb45-86"><a href="child-health.html#cb45-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-87"><a href="child-health.html#cb45-87" aria-hidden="true" tabindex="-1"></a>feeding_america_t <span class="ot">=</span> <span class="fu">left_join</span>(feeding_america_1, feeding_america_2) <span class="sc">%&gt;%</span></span>
+<span id="cb45-88"><a href="child-health.html#cb45-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(feeding_america_3)</span>
+<span id="cb45-89"><a href="child-health.html#cb45-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-90"><a href="child-health.html#cb45-90" aria-hidden="true" tabindex="-1"></a>feeding_america_t <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb45-91"><a href="child-health.html#cb45-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_above_frl =</span> child_above_FRL <span class="sc">*</span> child_food_insecurity <span class="sc">/</span> <span class="dv">100</span>,</span>
+<span id="cb45-92"><a href="child-health.html#cb45-92" aria-hidden="true" tabindex="-1"></a>         <span class="at">pct_below_frl =</span> (<span class="dv">100</span> <span class="sc">-</span> child_above_FRL) <span class="sc">*</span> child_food_insecurity <span class="sc">/</span> <span class="dv">100</span>)</span>
+<span id="cb45-93"><a href="child-health.html#cb45-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-94"><a href="child-health.html#cb45-94" aria-hidden="true" tabindex="-1"></a><span class="fu">trend_cc</span>(feeding_america_t,</span>
+<span id="cb45-95"><a href="child-health.html#cb45-95" aria-hidden="true" tabindex="-1"></a>         <span class="st">&quot;child_food_insecurity&quot;</span>, </span>
+<span id="cb45-96"><a href="child-health.html#cb45-96" aria-hidden="true" tabindex="-1"></a>         <span class="at">plot_title =</span> <span class="st">&quot;Child Food Insecurity&quot;</span>,</span>
+<span id="cb45-97"><a href="child-health.html#cb45-97" aria-hidden="true" tabindex="-1"></a>         <span class="at">caption_text =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
+<span id="cb45-98"><a href="child-health.html#cb45-98" aria-hidden="true" tabindex="-1"></a><span class="st">                         Data from Feeding America&quot;</span>,</span>
+<span id="cb45-99"><a href="child-health.html#cb45-99" aria-hidden="true" tabindex="-1"></a>         <span class="at">y_title =</span> <span class="st">&quot;Percent&quot;</span>,</span>
+<span id="cb45-100"><a href="child-health.html#cb45-100" aria-hidden="true" tabindex="-1"></a>         <span class="at">xmin =</span> <span class="dv">2014</span>, <span class="at">xmax =</span> <span class="dv">2020</span>)</span></code></pre></div>
+<p><img src="book_files_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="ranking-2" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Ranking</h3>
+<p>While Louisville is toward the middle of its peer cities in child food Insecurity, more than 1 in 5 children are food insecure.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="child-health.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranking</span>(feeding_america_t, </span>
+<span id="cb46-2"><a href="child-health.html#cb46-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;child_food_insecurity&quot;</span>,</span>
+<span id="cb46-3"><a href="child-health.html#cb46-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot_title =</span> <span class="st">&quot;Child Food Insecurity, October 2020&quot;</span>,</span>
+<span id="cb46-4"><a href="child-health.html#cb46-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption_text =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
+<span id="cb46-5"><a href="child-health.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="st">                        Data from Feeding America&quot;</span>,</span>
+<span id="cb46-6"><a href="child-health.html#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">year =</span> <span class="dv">2020</span>,</span>
+<span id="cb46-7"><a href="child-health.html#cb46-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">order =</span> <span class="st">&quot;Ascending&quot;</span>,</span>
+<span id="cb46-8"><a href="child-health.html#cb46-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">text_size =</span> <span class="dv">2</span>,</span>
+<span id="cb46-9"><a href="child-health.html#cb46-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">FIPS_df =</span> FIPS_df)</span></code></pre></div>
+<p><img src="book_files_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="breakdown-by-program-eligibility" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Breakdown by Program Eligibility</h3>
+<p>As of 2018, Feeding America estimated that most food-insecure children lived in families under 185% of the poverty line, meaning that they were generally eligible for programs like SNAP, WIC, and Free or Reduced School lunch.</p>
+<p>Compared to cities with similar rates of overall child food insecurity, Louisville has a relatively low number of food insecure children who are eligible for food benefit programs and a relatively high number of food insecure children above this cutoff. This shows that food insecurity is prevalent in families with a wide range of incomes.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="child-health.html#cb47-1" aria-hidden="true" tabindex="-1"></a>feeding_america_stack <span class="ot">&lt;-</span> feeding_america_t <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a href="child-health.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2018</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="child-health.html#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull_peers</span>(<span class="at">add_info =</span> T, <span class="at">FIPS_df =</span> FIPS_df) <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="child-health.html#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(current <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb47-5"><a href="child-health.html#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(child_food_insecurity) <span class="sc">%&gt;%</span></span>
+<span id="cb47-6"><a href="child-health.html#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb47-7"><a href="child-health.html#cb47-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rank =</span> <span class="fu">row_number</span>(),</span>
+<span id="cb47-8"><a href="child-health.html#cb47-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">names =</span> <span class="fu">paste0</span>(rank, <span class="st">&quot;. &quot;</span>, city))</span>
+<span id="cb47-9"><a href="child-health.html#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="child-health.html#cb47-10" aria-hidden="true" tabindex="-1"></a>feeding_america_stack <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb47-11"><a href="child-health.html#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(names, rank, city, pct_below_frl, pct_above_frl) <span class="sc">%&gt;%</span></span>
+<span id="cb47-12"><a href="child-health.html#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(pct_below_frl<span class="sc">:</span>pct_above_frl) <span class="sc">%&gt;%</span></span>
+<span id="cb47-13"><a href="child-health.html#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(name)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-14"><a href="child-health.html#cb47-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(city) <span class="sc">%&gt;%</span></span>
+<span id="cb47-15"><a href="child-health.html#cb47-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">label_ypos =</span> <span class="fu">if_else</span>(name <span class="sc">==</span> <span class="st">&quot;pct_below_frl&quot;</span>, </span>
+<span id="cb47-16"><a href="child-health.html#cb47-16" aria-hidden="true" tabindex="-1"></a>                              value[name <span class="sc">==</span> <span class="st">&quot;pct_below_frl&quot;</span>], </span>
+<span id="cb47-17"><a href="child-health.html#cb47-17" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">sum</span>(value)))</span>
+<span id="cb47-18"><a href="child-health.html#cb47-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-19"><a href="child-health.html#cb47-19" aria-hidden="true" tabindex="-1"></a>color_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#323844&quot;</span>, <span class="st">&quot;#d63631&quot;</span>)</span>
+<span id="cb47-20"><a href="child-health.html#cb47-20" aria-hidden="true" tabindex="-1"></a>color_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Above 185% of poverty&quot;</span>, <span class="st">&quot;Below 185% of poverty&quot;</span>)</span>
+<span id="cb47-21"><a href="child-health.html#cb47-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-22"><a href="child-health.html#cb47-22" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>color <span class="ot">&lt;-</span> <span class="st">&quot;Below 185% of poverty&quot;</span></span>
+<span id="cb47-23"><a href="child-health.html#cb47-23" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>color[feeding_america_stack<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;pct_above_frl&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Above 185% of poverty&quot;</span></span>
+<span id="cb47-24"><a href="child-health.html#cb47-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-25"><a href="child-health.html#cb47-25" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>alpha <span class="ot">=</span> <span class="fl">0.9</span></span>
+<span id="cb47-26"><a href="child-health.html#cb47-26" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>alpha[feeding_america_stack<span class="sc">$</span>city <span class="sc">==</span> <span class="st">&quot;Louisville&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb47-27"><a href="child-health.html#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-28"><a href="child-health.html#cb47-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create numeric labels</span></span>
+<span id="cb47-29"><a href="child-health.html#cb47-29" aria-hidden="true" tabindex="-1"></a>label_text <span class="ot">&lt;-</span> feeding_america_stack<span class="sc">$</span>value <span class="sc">%&gt;%</span></span>
+<span id="cb47-30"><a href="child-health.html#cb47-30" aria-hidden="true" tabindex="-1"></a>  scales<span class="sc">::</span><span class="fu">percent</span>(<span class="at">accuracy =</span> <span class="fl">0.1</span>, <span class="at">scale =</span> <span class="dv">1</span>, <span class="at">suffix =</span> <span class="st">&quot;%&quot;</span>)</span>
+<span id="cb47-31"><a href="child-health.html#cb47-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-32"><a href="child-health.html#cb47-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-33"><a href="child-health.html#cb47-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Set text format, highlight and italicise Louisville text, highlight Louisville bar</span></span>
+<span id="cb47-34"><a href="child-health.html#cb47-34" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>textcolor <span class="ot">&lt;-</span> <span class="st">&quot;#000000&quot;</span></span>
+<span id="cb47-35"><a href="child-health.html#cb47-35" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>textcolor[feeding_america_stack<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;pct_above_frl&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;#000000&quot;</span></span>
+<span id="cb47-36"><a href="child-health.html#cb47-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-37"><a href="child-health.html#cb47-37" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>textfont <span class="ot">&lt;-</span> <span class="st">&quot;Montserrat&quot;</span></span>
+<span id="cb47-38"><a href="child-health.html#cb47-38" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>textfont[feeding_america_stack<span class="sc">$</span>city <span class="sc">==</span> <span class="st">&quot;Louisville&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Montserrat Bold&quot;</span></span>
+<span id="cb47-39"><a href="child-health.html#cb47-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-40"><a href="child-health.html#cb47-40" aria-hidden="true" tabindex="-1"></a>label_color_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;white&quot;</span>, <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb47-41"><a href="child-health.html#cb47-41" aria-hidden="true" tabindex="-1"></a>label_color_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#000000&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>)</span>
+<span id="cb47-42"><a href="child-health.html#cb47-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-43"><a href="child-health.html#cb47-43" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>label_color <span class="ot">&lt;-</span> <span class="st">&quot;white&quot;</span></span>
+<span id="cb47-44"><a href="child-health.html#cb47-44" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>label_color[feeding_america_stack<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;pct_above_frl&quot;</span>] <span class="ot">&lt;-</span> <span class="st">&quot;black&quot;</span></span>
+<span id="cb47-45"><a href="child-health.html#cb47-45" aria-hidden="true" tabindex="-1"></a><span class="co">#df$linecolor &lt;- &quot;#ffffff&quot;</span></span>
+<span id="cb47-46"><a href="child-health.html#cb47-46" aria-hidden="true" tabindex="-1"></a><span class="co">#df$linecolor[df$city == &quot;Louisville&quot;] &lt;- &quot;#00a9b7&quot;</span></span>
+<span id="cb47-47"><a href="child-health.html#cb47-47" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>lou <span class="ot">&lt;-</span> <span class="fu">if_else</span>(feeding_america_stack<span class="sc">$</span>city <span class="sc">==</span> <span class="st">&quot;Louisville&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb47-48"><a href="child-health.html#cb47-48" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>text_alignment <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb47-49"><a href="child-health.html#cb47-49" aria-hidden="true" tabindex="-1"></a>feeding_america_stack<span class="sc">$</span>text_alignment[feeding_america_stack<span class="sc">$</span>city <span class="sc">%in%</span> <span class="st">&quot;Grand Rapids&quot;</span> <span class="sc">&amp;</span></span>
+<span id="cb47-50"><a href="child-health.html#cb47-50" aria-hidden="true" tabindex="-1"></a>                                     feeding_america_stack<span class="sc">$</span>name <span class="sc">==</span> <span class="st">&quot;pct_above_frl&quot;</span>] <span class="ot">&lt;-</span> <span class="fl">1.02</span></span>
+<span id="cb47-51"><a href="child-health.html#cb47-51" aria-hidden="true" tabindex="-1"></a><span class="do">### PLOT GRAPH</span></span>
+<span id="cb47-52"><a href="child-health.html#cb47-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-53"><a href="child-health.html#cb47-53" aria-hidden="true" tabindex="-1"></a>text_size <span class="ot">=</span> <span class="dv">2</span></span>
+<span id="cb47-54"><a href="child-health.html#cb47-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-55"><a href="child-health.html#cb47-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial plot</span></span>
+<span id="cb47-56"><a href="child-health.html#cb47-56" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> feeding_america_stack,</span>
+<span id="cb47-57"><a href="child-health.html#cb47-57" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(names, <span class="at">levels =</span> <span class="fu">unique</span>(<span class="fu">rev</span>(names))),</span>
+<span id="cb47-58"><a href="child-health.html#cb47-58" aria-hidden="true" tabindex="-1"></a>                <span class="at">y =</span> value,</span>
+<span id="cb47-59"><a href="child-health.html#cb47-59" aria-hidden="true" tabindex="-1"></a>                <span class="at">alpha =</span> alpha))</span>
+<span id="cb47-60"><a href="child-health.html#cb47-60" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb47-61"><a href="child-health.html#cb47-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Add bars</span></span>
+<span id="cb47-62"><a href="child-health.html#cb47-62" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb47-63"><a href="child-health.html#cb47-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">factor</span>(color, <span class="at">levels =</span> color_names, <span class="at">ordered =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb47-64"><a href="child-health.html#cb47-64" aria-hidden="true" tabindex="-1"></a>           <span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>,</span>
+<span id="cb47-65"><a href="child-health.html#cb47-65" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> text_size) <span class="sc">+</span></span>
+<span id="cb47-66"><a href="child-health.html#cb47-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb47-67"><a href="child-health.html#cb47-67" aria-hidden="true" tabindex="-1"></a>  ggthemes<span class="sc">::</span><span class="fu">theme_tufte</span>()</span>
+<span id="cb47-68"><a href="child-health.html#cb47-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-69"><a href="child-health.html#cb47-69" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> color_values, <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">reverse =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span> </span>
+<span id="cb47-70"><a href="child-health.html#cb47-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="dv">1</span>))</span>
+<span id="cb47-71"><a href="child-health.html#cb47-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-72"><a href="child-health.html#cb47-72" aria-hidden="true" tabindex="-1"></a>text_scale <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb47-73"><a href="child-health.html#cb47-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-74"><a href="child-health.html#cb47-74" aria-hidden="true" tabindex="-1"></a><span class="co">#p &lt;- p + scale_color_manual(values = c(&quot;#ffffff&quot;, &quot;#00a9b7&quot;))</span></span>
+<span id="cb47-75"><a href="child-health.html#cb47-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Add features</span></span>
+<span id="cb47-76"><a href="child-health.html#cb47-76" aria-hidden="true" tabindex="-1"></a>title_scale <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="dv">1</span>, <span class="dv">48</span> <span class="sc">/</span> <span class="fu">nchar</span>(<span class="st">&quot;Child Food Security&quot;</span>))</span>
+<span id="cb47-77"><a href="child-health.html#cb47-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-78"><a href="child-health.html#cb47-78" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">&quot;Montserrat&quot;</span>),</span>
+<span id="cb47-79"><a href="child-health.html#cb47-79" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span> <span class="sc">*</span> title_scale <span class="sc">*</span> text_size, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">&quot;pt&quot;</span>)),</span>
+<span id="cb47-80"><a href="child-health.html#cb47-80" aria-hidden="true" tabindex="-1"></a>               <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_scale,</span>
+<span id="cb47-81"><a href="child-health.html#cb47-81" aria-hidden="true" tabindex="-1"></a>                                <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="fl">0.2</span> <span class="sc">*</span> text_scale, <span class="at">t =</span> <span class="fl">0.2</span> <span class="sc">*</span> text_scale, <span class="at">unit =</span> <span class="st">&quot;cm&quot;</span>)),</span>
+<span id="cb47-82"><a href="child-health.html#cb47-82" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb47-83"><a href="child-health.html#cb47-83" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size,</span>
+<span id="cb47-84"><a href="child-health.html#cb47-84" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">color =</span> <span class="fu">rev</span>(feeding_america_stack<span class="sc">$</span>textcolor),</span>
+<span id="cb47-85"><a href="child-health.html#cb47-85" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">family =</span> <span class="fu">rev</span>(feeding_america_stack<span class="sc">$</span>textfont)),</span>
+<span id="cb47-86"><a href="child-health.html#cb47-86" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb47-87"><a href="child-health.html#cb47-87" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size),</span>
+<span id="cb47-88"><a href="child-health.html#cb47-88" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb47-89"><a href="child-health.html#cb47-89" aria-hidden="true" tabindex="-1"></a>               <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb47-90"><a href="child-health.html#cb47-90" aria-hidden="true" tabindex="-1"></a>               <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span> <span class="sc">*</span> text_size, <span class="at">lineheight =</span> <span class="fl">0.5</span>),</span>
+<span id="cb47-91"><a href="child-health.html#cb47-91" aria-hidden="true" tabindex="-1"></a>               <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb47-92"><a href="child-health.html#cb47-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-93"><a href="child-health.html#cb47-93" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb47-94"><a href="child-health.html#cb47-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="st">&quot;Source: Greater Louisville Project</span></span>
+<span id="cb47-95"><a href="child-health.html#cb47-95" aria-hidden="true" tabindex="-1"></a><span class="st">                  Data from Feeding America&quot;</span>)</span>
+<span id="cb47-96"><a href="child-health.html#cb47-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-97"><a href="child-health.html#cb47-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-98"><a href="child-health.html#cb47-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Add numeric labels to bars based on bar_label parameter</span></span>
+<span id="cb47-99"><a href="child-health.html#cb47-99" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> label_text,</span>
+<span id="cb47-100"><a href="child-health.html#cb47-100" aria-hidden="true" tabindex="-1"></a>                       <span class="at">hjust =</span> text_alignment,</span>
+<span id="cb47-101"><a href="child-health.html#cb47-101" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> <span class="fu">factor</span>(label_color),</span>
+<span id="cb47-102"><a href="child-health.html#cb47-102" aria-hidden="true" tabindex="-1"></a>                       <span class="at">family =</span> textfont,</span>
+<span id="cb47-103"><a href="child-health.html#cb47-103" aria-hidden="true" tabindex="-1"></a>                       <span class="at">group =</span> name,</span>
+<span id="cb47-104"><a href="child-health.html#cb47-104" aria-hidden="true" tabindex="-1"></a>                       <span class="at">y =</span> label_ypos),</span>
+<span id="cb47-105"><a href="child-health.html#cb47-105" aria-hidden="true" tabindex="-1"></a>                   <span class="at">position =</span> <span class="st">&quot;identity&quot;</span>,</span>
+<span id="cb47-106"><a href="child-health.html#cb47-106" aria-hidden="true" tabindex="-1"></a>                   <span class="at">size =</span> <span class="fl">4.5</span> <span class="sc">*</span> text_size) <span class="sc">+</span></span>
+<span id="cb47-107"><a href="child-health.html#cb47-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#000000&quot;</span>))</span>
+<span id="cb47-108"><a href="child-health.html#cb47-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-109"><a href="child-health.html#cb47-109" aria-hidden="true" tabindex="-1"></a><span class="co"># Add vertical line to the left side of the bars based on the h_line parameter</span></span>
+<span id="cb47-110"><a href="child-health.html#cb47-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-111"><a href="child-health.html#cb47-111" aria-hidden="true" tabindex="-1"></a><span class="co"># Add remaining text</span></span>
+<span id="cb47-112"><a href="child-health.html#cb47-112" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Child Food Security&quot;</span>,</span>
+<span id="cb47-113"><a href="child-health.html#cb47-113" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> <span class="st">&quot;Percent&quot;</span>) <span class="sc">+</span></span>
+<span id="cb47-114"><a href="child-health.html#cb47-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span>
+<span id="cb47-115"><a href="child-health.html#cb47-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-116"><a href="child-health.html#cb47-116" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> p <span class="sc">+</span></span>
+<span id="cb47-117"><a href="child-health.html#cb47-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb47-118"><a href="child-health.html#cb47-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the panel</span></span>
+<span id="cb47-119"><a href="child-health.html#cb47-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="cn">NA</span>), <span class="co"># bg of the plot</span></span>
+<span id="cb47-120"><a href="child-health.html#cb47-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend bg</span></span>
+<span id="cb47-121"><a href="child-health.html#cb47-121" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>, <span class="at">color =</span> <span class="st">&quot;transparent&quot;</span>), <span class="co"># get rid of legend panel bg</span></span>
+<span id="cb47-122"><a href="child-health.html#cb47-122" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">&quot;transparent&quot;</span>,<span class="at">colour =</span> <span class="cn">NA</span>))</span>
+<span id="cb47-123"><a href="child-health.html#cb47-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-124"><a href="child-health.html#cb47-124" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="book_files_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="early-child-care.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="digital-divide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book_files.pdf", "book_files.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
